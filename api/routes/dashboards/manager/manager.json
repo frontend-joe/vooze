@@ -1,0 +1,199 @@
+{
+  "topShelf": [
+    {
+      "id": 1,
+      "title": "Projects",
+      "value": "224",
+      "updated": "Zero bugs",
+      "icon": "ti-Line-File-12",
+      "color": "Orange"
+    },
+    {
+      "id": 2,
+      "title": "Devs",
+      "value": "821",
+      "updated": "Updated today",
+      "icon": "ti-Line-Screen-2",
+      "color": "Purple"
+    },
+    {
+      "id": 3,
+      "title": "Builds",
+      "value": "213",
+
+      "warning": "Action required",
+      "icon": "ti-Line-Setup-1",
+      "color": "Teal"
+    },
+    {
+      "id": 4,
+      "title": "Notifications",
+      "value": "705",
+      "updated": "Last seen Monday",
+      "icon": "ti-Line-Speech-bubble-6",
+      "color": "Green"
+    }
+  ],
+  "projectList": [
+    {
+      "id": 1,
+      "title": "Alpha",
+      "start": "Jan, 2016",
+      "due": "Dec, 2020",
+      "color": "Purple",
+      "percentage": 45,
+      "icon": "ti-Line-Pie-Chart-1",
+      "team": [
+        {
+          "id": 1,
+          "name": "Adnan"
+        },
+        {
+          "id": 2,
+          "name": "Gray"
+        },
+        {
+          "id": 3,
+          "name": "Alvis"
+        }
+      ],
+      "status": "In Progress",
+      "clients": "Herving Lazette"
+    },
+    {
+      "id": 2,
+      "title": "Titan",
+      "start": "Nov, 2018",
+      "due": "Apr, 2020",
+      "color": "Green",
+      "percentage": 67,
+      "icon": "ti-Line-Ice-cream-1",
+      "team": [
+        {
+          "id": 1,
+          "name": "Adnan"
+        }
+      ],
+      "status": "In Progress",
+      "clients": "Herving Lazette"
+    },
+    {
+      "id": 3,
+      "title": "Mellwood",
+      "start": "Mar, 2018",
+      "due": "Sep, 2020",
+      "color": "Orange",
+      "percentage": 23,
+      "icon": "ti-Line-Lemon",
+      "team": [
+        {
+          "id": 1,
+          "name": "Adnan"
+        },
+        {
+          "id": 3,
+          "name": "Alvis"
+        }
+      ],
+      "status": "In Progress",
+      "clients": "Herving Lazette"
+    },
+    {
+      "id": 4,
+      "title": "Harp",
+      "start": "Jan, 2018",
+      "due": "Jun, 2020",
+      "color": "Purple",
+      "percentage": 45,
+      "icon": "ti-Line-Map-Pin-3",
+      "team": [
+        {
+          "id": 1,
+          "name": "Adnan"
+        },
+        {
+          "id": 2,
+          "name": "Gray"
+        },
+        {
+          "id": 3,
+          "name": "Alvis"
+        }
+      ],
+      "status": "In Progress",
+      "clients": "Herving Lazette"
+    },
+    {
+      "id": 5,
+      "title": "Rayne",
+      "start": "Feb, 2018",
+      "due": "Nov, 2020",
+      "color": "Green",
+      "percentage": 67,
+      "icon": "ti-Line-Microphone",
+      "team": [
+        {
+          "id": 1,
+          "name": "Adnan"
+        }
+      ],
+      "status": "In Progress",
+      "clients": "Herving Lazette"
+    },
+    {
+      "id": 6,
+      "title": "Colossus",
+      "start": "May, 2018",
+      "due": "Nov, 2020",
+      "color": "Orange",
+      "percentage": 23,
+      "icon": "ti-Line-Paper-plane",
+      "team": [
+        {
+          "id": 1,
+          "name": "Adnan"
+        },
+        {
+          "id": 3,
+          "name": "Alvis"
+        }
+      ],
+      "status": "In Progress",
+      "clients": "Herving Lazette"
+    }
+  ],
+  "devActivity": [
+    {
+      "id": 1,
+      "when": "2 mins",
+      "text": "Committed 44 lines",
+      "by": "Bob",
+      "color": "Purple",
+      "name": "bob"
+    },
+    {
+      "id": 2,
+      "when": "3 hours",
+      "text": "Finished 7 tasks",
+      "by": "Benik",
+      "color": "Red",
+      "name": "benik"
+    },
+    {
+      "id": 3,
+      "when": "4 hours",
+      "text": "Committed 44 lines",
+      "by": "Craigy",
+      "color": "Indigo",
+      "name": "bob"
+    },
+    {
+      "id": 4,
+      "when": "1 day",
+      "text": "Committed 44 lines",
+      "by": "Craigy",
+      "color": "Green",
+      "name": "bob"
+    }
+  ]
+}

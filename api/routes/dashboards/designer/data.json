@@ -1,0 +1,199 @@
+{
+  "figures": [
+    {
+      "id": 1,
+      "title": "Graphics",
+      "value": "453",
+      "updated": "This July",
+      "icon": "ti-Line-Photo-2"
+    },
+    {
+      "id": 2,
+      "title": "Icons",
+      "value": "153",
+      "updated": "This July",
+      "icon": "ti-Line-Eye"
+    }
+  ],
+  "socialMedia": [
+    {
+      "id": 1,
+      "title": "Facebook",
+      "likes": "2.4k",
+      "friends": "1.4k"
+    },
+    {
+      "id": 2,
+      "title": "Instagram",
+      "likes": "2.4k",
+      "friends": "1.4k"
+    },
+    {
+      "id": 3,
+      "title": "Twitter",
+      "likes": "2.4k",
+      "friends": "1.4k"
+    },
+    {
+      "id": 4,
+      "title": "YouTube",
+      "likes": "2.4k",
+      "friends": "1.4k"
+    }
+  ],
+  "stats": {
+    "icon": "ti-Line-Data",
+    "title": "Files",
+    "items": [
+      {
+        "id": 1,
+        "title": "Total",
+        "count": 23
+      },
+      {
+        "id": 2,
+        "title": "Sketch",
+        "count": 8,
+        "tooltip": "8,532",
+        "color": "Green"
+      },
+      {
+        "id": 3,
+        "title": "Figma",
+        "count": 9,
+        "tooltip": "9,462",
+        "color": "Orange"
+      },
+      {
+        "id": 4,
+        "title": "XD",
+        "count": 6,
+        "tooltip": "6,462",
+        "color": "Red"
+      }
+    ]
+  },
+  "tabs": [
+    {
+      "id": 1,
+      "title": "Tasks",
+      "isActive": true,
+      "items": [
+        {
+          "id": 1,
+          "image": "bob",
+          "text": "Need support styling a component",
+          "color": "Blue"
+        },
+        {
+          "id": 2,
+          "image": "benik",
+          "text": "44 icons required for christmas app",
+          "color": "Green"
+        },
+        {
+          "id": 3,
+          "image": "noah",
+          "text": "Artwork for O'Leary job",
+          "color": "Red"
+        },
+        {
+          "id": 4,
+          "image": "raymond",
+          "text": "Take course on Figma animations",
+          "color": "Yellow"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Hints",
+      "items": [
+        {
+          "id": 1,
+          "image": "bob",
+          "text": "Need support adding a component...",
+          "color": "Blue"
+        },
+        {
+          "id": 2,
+          "image": "benik",
+          "text": "Need support adding a component...",
+          "color": "Green"
+        },
+        {
+          "id": 3,
+          "image": "noah",
+          "text": "Need support adding a component...",
+          "color": "Red"
+        },
+        {
+          "id": 4,
+          "image": "raymond",
+          "text": "Need support adding a component...",
+          "color": "Red"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Tutorials",
+      "items": [
+        {
+          "id": 1,
+          "image": "bob",
+          "text": "Need support adding a component...",
+          "color": "Blue"
+        },
+        {
+          "id": 2,
+          "image": "benik",
+          "text": "Need support adding a component...",
+          "color": "Green"
+        },
+        {
+          "id": 3,
+          "image": "noah",
+          "text": "Need support adding a component...",
+          "color": "Red"
+        },
+        {
+          "id": 4,
+          "image": "raymond",
+          "text": "Need support adding a component...",
+          "color": "Red"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Suggestions",
+      "items": [
+        {
+          "id": 1,
+          "image": "bob",
+          "text": "Need support adding a component...",
+          "color": "Blue"
+        },
+        {
+          "id": 2,
+          "image": "benik",
+          "text": "Need support adding a component...",
+          "color": "Green"
+        },
+        {
+          "id": 3,
+          "image": "noah",
+          "text": "Need support adding a component...",
+          "color": "Red"
+        },
+        {
+          "id": 4,
+          "image": "raymond",
+          "text": "Need support adding a component...",
+          "color": "Red"
+        }
+      ]
+    }
+  ]
+}

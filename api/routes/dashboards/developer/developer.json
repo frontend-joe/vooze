@@ -1,0 +1,136 @@
+{
+  "topShelf": [
+    {
+      "id": 1,
+      "title": "Stories",
+      "value": "224",
+      "updated": "Zero bugs",
+      "icon": "ti-Line-File-1",
+      "color": "Orange",
+      "upDown": {
+        "down": true,
+        "text": "11%"
+      },
+      "series": [
+        {
+          "name": "series1",
+          "data": [2, 12, 2, 28, 24, 54, 19, 47, 32]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Features",
+      "value": "821",
+      "updated": "Updated today",
+      "icon": "ti-Line-New-email",
+      "color": "Purple",
+      "upDown": {
+        "down": false,
+        "text": "6%"
+      },
+      "series": [
+        {
+          "name": "series1",
+          "data": [20, 30, 20, 25, 20, 45, 35, 50, 40]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Epics",
+      "value": "213",
+      "upDown": {
+        "down": false,
+        "text": "8%"
+      },
+      "warning": "Action required",
+      "icon": "ti-Line-Megaphone-1",
+      "color": "Green",
+      "series": [
+        {
+          "name": "series1",
+          "data": [2, 12, 2, 28, 24, 54, 19, 47, 32]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Repositories",
+      "value": "705",
+      "updated": "Last seen Monday",
+      "icon": "ti-Line-Test-tube",
+      "color": "Blue",
+      "upDown": {
+        "down": true,
+        "text": "7%"
+      },
+      "series": [
+        {
+          "name": "series1",
+          "data": [5, 15, 7, 24, 14, 32, 23]
+        }
+      ]
+    }
+  ],
+  "todoList": [
+    {
+      "id": 1,
+      "icon": "bug_report",
+      "color": "Blue",
+      "percentage": 55,
+      "text": "Minor bug fix on Titan branch",
+      "isComplete": false
+    },
+    {
+      "id": 2,
+      "icon": "emoji_events",
+      "color": "Red",
+      "percentage": 55,
+      "text": "Test the system thoroughly with black box testing.",
+      "isComplete": true
+    },
+    {
+      "id": 3,
+      "icon": "beach_access",
+      "color": "Green",
+      "percentage": 55,
+      "text": "Send John to Mars to fix a meeting with alians.",
+      "isComplete": false
+    },
+    {
+      "id": 4,
+      "icon": "bug_report",
+      "color": "Orange",
+      "percentage": 55,
+      "text": "Minor bug fix on Titan branch",
+      "isComplete": false
+    }
+  ],
+  "tasksByLanguage": [
+    {
+      "id": 1,
+      "title": "HTML",
+      "color": "Orange",
+      "value": 14
+    },
+    {
+      "id": 2,
+      "title": "CSS",
+      "color": "Purple",
+      "value": 12
+    },
+    {
+      "id": 3,
+      "title": "JavaScript",
+      "color": "Green",
+      "value": 7
+    },
+    {
+      "id": 4,
+      "title": "Vue",
+      "color": "Blue",
+      "value": 3
+    }
+  ]
+}

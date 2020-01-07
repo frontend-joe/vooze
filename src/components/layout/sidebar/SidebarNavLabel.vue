@@ -1,0 +1,74 @@
+<template>
+  <StyledButton @click="toggleBlockOpen(section, name)" :isOpen="isOpen">
+    <StyledIcon iconSize="18px" :isOpen="isOpen">{{ icon }}</StyledIcon>
+    <span class="text">{{ name }}</span>
+    <StyledChevronIcon iconSize="18px" v-if="hasItems" :isOpen="isOpen">
+      keyboard_arrow_down
+    </StyledChevronIcon>
+  </StyledButton>
+</template>
+
+<script>
+import { MatIcon } from "../../shared/icons";
+import styled from "vue-styled-components";
+
+const buttonProps = { isOpen: Boolean };
+const StyledButton = styled("button", buttonProps)`
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0 1rem;
+  color: ${props =>
+    props.isOpen
+      ? props.theme.colorAccent
+      : props.theme.colorSidebarButtonActive};
+  height: 40px;
+  line-height: 40px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  display: flex;
+  align-items: center;
+
+  & .text {
+    flex: 1;
+    margin-left: 0.625rem;
+  }
+`;
+
+const iconProps = { isOpen: Boolean };
+const StyledIcon = styled(MatIcon, iconProps)`
+  color: ${props =>
+    props.isOpen
+      ? props.theme.colorAccent
+      : props.theme.colorSidebarButtonActive} !important;
+`;
+
+const chevronIconProps = { isOpen: Boolean };
+const StyledChevronIcon = styled(MatIcon, chevronIconProps)`
+  color: ${props =>
+    props.isOpen
+      ? props.theme.colorAccent
+      : props.theme.colorSidebarButtonActive} !important;
+  transform: ${props => (props.isOpen ? "rotate(0)" : "rotate(-90deg)")};
+  transition: transform 0.125s;
+`;
+
+export default {
+  components: {
+    StyledButton,
+    StyledIcon,
+    StyledChevronIcon
+  },
+  props: {
+    name: String,
+    icon: String,
+    toggleBlockOpen: Function,
+    hasItems: Boolean,
+    isOpen: Boolean,
+    section: String
+  }
+};
+</script>
+
+<style module></style>

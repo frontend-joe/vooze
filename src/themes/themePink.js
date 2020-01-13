@@ -1,16 +1,16 @@
 import Color from "color";
 
-const colorPrimary = "#5b4677";
-const colorSecondary = "#C45BAA";
+const colorPrimary = "#522cad";
+const colorSecondary = "#C322E0";
 const colorAccent = colorSecondary;
 const colorSidebar = "#1a1323";
 
 const colorPrimaryFaint = Color(colorPrimary)
-  .lighten(1.5175)
+  .lighten(1.25)
   .hex();
 
 const colorSecondaryFaint = Color(colorSecondary)
-  .lighten(0.625)
+  .lighten(0.9)
   .hex();
 
 const colorAccentFaint = colorSecondaryFaint;

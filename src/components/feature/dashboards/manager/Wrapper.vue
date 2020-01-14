@@ -3,11 +3,11 @@
     <page-title>Manager</page-title>
 
     <div class="row">
-      <div class="order-xl-2 col-lg-6">
-        <MainChart />
-      </div>
-      <div class="order-xl-1 col-lg-6">
+      <div class="col-lg-6">
         <TopShelf :data="manager.topShelf" />
+      </div>
+      <div class="col-lg-6">
+        <MainChart />
       </div>
     </div>
 

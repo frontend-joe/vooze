@@ -1,7 +1,7 @@
 <template>
   <styled-wrapper>
     <div class="row">
-      <div class="col-md-6" v-for="card in data" :key="card.id">
+      <div class="col-6" v-for="card in data" :key="card.id">
         <TopShelfCard :card="card" />
       </div>
     </div>

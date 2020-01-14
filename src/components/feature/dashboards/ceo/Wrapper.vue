@@ -2,9 +2,9 @@
   <div>
     <page-title>CEO</page-title>
     <top-shelf />
-    <ContentHeader>
+    <!-- <ContentHeader>
       Finance & People
-    </ContentHeader>
+    </ContentHeader> -->
 
     <div class="row">
       <div class="order-md-2 col-md-6 col-lg-6">
@@ -23,6 +23,8 @@
 
     <ContentHeader>
       Device Usage
+
+      <CoolButton plain dropdown>This week</CoolButton>
     </ContentHeader>
 
     <div class="row">
@@ -59,6 +61,7 @@ import WageBudget from "./cards/wageBudget/Wrapper";
 import UsageMap from "./cards/usageMap/Wrapper";
 import CoolChart from "./cards/coolChart/Wrapper";
 import { AdvertCard } from "../../../shared/cardWidgets";
+import { CoolButton } from "../../../shared/buttons";
 export default {
   props: {
     theme: Object
@@ -73,7 +76,8 @@ export default {
     TabbedItemList,
     WageBudget,
     UsageMap,
-    CoolChart
+    CoolChart,
+    CoolButton
   },
   methods: mapActions(["fetchPropertyDashboard"]),
   computed: mapGetters(["getPropertyDashboard"]),

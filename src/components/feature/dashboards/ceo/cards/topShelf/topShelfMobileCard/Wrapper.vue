@@ -68,7 +68,7 @@ const StyledIcon = styled(TonIcon, theProps)`
     props.isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.075)"} !important;
 
   @media (min-width: ${props => props.theme.screenWidthXs}) {
-    transform: translate(28%, -50%);
+    transform: translate(0, -50%);
     z-index: 10;
     right: 0;
     top: 50%;

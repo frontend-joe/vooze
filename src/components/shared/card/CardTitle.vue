@@ -1,6 +1,6 @@
 <template>
   <styled-wrapper>
-    <styled-title :cardSubtitle="cardSubtitle">
+    <styled-title :forDark="forDark" :cardSubtitle="cardSubtitle">
       {{ cardTitle }}
     </styled-title>
     <StyledSubtitle :forDark="forDark" v-if="cardSubtitle">
@@ -18,7 +18,7 @@ const StyledWrapper = styled.div``;
 
 const StyledTitle = styled("div", theProps)`
   font-size: 15px;
-  font-weight: bold;
+  font-weight: ${props => (props.forDark ? "normal" : "bold")};
   margin-bottom: ${props => (props.cardSubtitle ? "0.3rem" : "0")};
 `;
 

@@ -10,7 +10,7 @@
       <StyledIncrease :isDark="card.isDark">
         +{{ card.percentage }}%
       </StyledIncrease>
-      <StyledIcon :isDark="card.isDark">{{ card.icon }}</StyledIcon>
+      <StyledIcon :icon="card.icon" :isDark="card.isDark" />
     </StyledCard>
   </StyledWrapper>
 </template>
@@ -18,7 +18,7 @@
 <script>
 import styled from "vue-styled-components";
 import { Card } from "../../../../../../shared/card";
-import { MatIcon } from "../../../../../../shared/icons";
+import { TonIcon } from "../../../../../../shared/icons";
 
 const theProps = { isDark: Boolean };
 
@@ -29,9 +29,10 @@ const StyledWrapper = styled("div", theProps)`
 `;
 
 const StyledCard = styled(Card)`
-  height: 160px;
+  height: 190px;
+  padding: 1rem;
 
-  @media (min-width: ${props => props.theme.screenWidthXs}) {
+  @media (min-width: ${props => props.theme.screenWidthSm}) {
     height: auto;
   }
 `;
@@ -55,7 +56,7 @@ const StyledIncrease = styled("div", theProps)`
     props.isDark ? "rgba(255,255,255,0.65)" : props.theme.colorSubtitle};
 `;
 
-const StyledIcon = styled(MatIcon, theProps)`
+const StyledIcon = styled(TonIcon, theProps)`
   position: absolute;
   right: auto;
   left: -10px;
@@ -73,7 +74,7 @@ const StyledIcon = styled(MatIcon, theProps)`
     top: 50%;
     left: auto;
     bottom: auto;
-    font-size: 84px !important;
+    font-size: 120px !important;
   }
 
   @media (min-width: ${props => props.theme.screenWidthSm}) {

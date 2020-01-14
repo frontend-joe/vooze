@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.png" />
     <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,17 +19,116 @@
       href="https://fonts.googleapis.com/css?family=Alata&display=swap"
       rel="stylesheet"
     />
-    <title>vue-test</title>
+    <title>Vooze UI Theme Kit</title>
   </head>
 
   <body>
     <noscript>
-      <strong
-        >We're sorry but vue-test doesn't work properly without JavaScript
-        enabled. Please enable it to continue.</strong
-      >
+      <strong>
+        We're sorry but Vooze doesn't work properly without JavaScript enabled.
+        Please enable it to continue.
+      </strong>
     </noscript>
     <div id="app"></div>
+
+    <style>
+      #spinner-wrapper {
+        position: fixed;
+        z-index: 101;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.35s, visibility 0.35s;
+      }
+
+      #spinner-wrapper.loaded {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      #spinner {
+        box-sizing: border-box;
+        position: relative;
+        border-width: 10px;
+        border-style: solid;
+        border-left-color: rgba(0, 0, 0, 0.15);
+        border-right-color: rgba(0, 0, 0, 0.15);
+        border-top-color: #41b883;
+        border-bottom-color: rgba(0, 0, 0, 0.15);
+        border-radius: 50%;
+        animation: spin 1.5s infinite;
+      }
+
+      #spinner:before,
+      #spinner:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #41b883;
+        position: absolute;
+      }
+
+      #spinner:before {
+        left: 3.33px;
+        top: 3.33px;
+      }
+
+      #spinner:after {
+        right: 3.33px;
+        top: 3.33px;
+      }
+
+      #preloader-left {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        opacity: 1;
+        transition: all 1.5s;
+        left: 0;
+        background: #2b2b2b;
+        transform: translateX(0);
+      }
+
+      #preloader-right {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        opacity: 1;
+        transition: all 1.5s;
+        left: 50%;
+        background: #2b2b2b;
+        transform: translateX(0);
+      }
+
+      #preloader-left.loaded {
+        transform: translateX(-200%);
+      }
+
+      #preloader-right.loaded {
+        transform: translateX(200%);
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <div id="preloader-left"></div>
+    <div id="preloader-right"></div>
+    <div id="spinner-wrapper">
+      <div id="spinner" style="width: 100px; height: 100px;"></div>
+    </div>
+
     <!-- built files will be auto injected -->
   </body>
 </html>

@@ -26,6 +26,7 @@ const StyledIcon = styled("div", iconProps)`
   height: 10px;
   width: 10px;
   min-width: 10px;
+  border: 1px solid white;
   border-radius: 5px;
   background: ${props =>
     props.theme.chartColors
@@ -36,7 +37,7 @@ const StyledIcon = styled("div", iconProps)`
 const StyledText = styled.div`
   font-size: 13px;
   margin-left: 0.5rem;
-  color: ${props => props.theme.colorSubtitle};
+  color: rgba(255, 255, 255, 0.57);
 `;
 
 const StyledValue = styled.div`

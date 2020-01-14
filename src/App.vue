@@ -49,7 +49,6 @@ export default {
       "toggleTheme"
     ]),
     handleSettingsButtonClicked() {
-      console.log("handleSettingsButtonClicked", this.settings.isOpen);
       this.toggleSettingsOpen(!this.settings.isOpen);
     },
     handleOverlayClicked() {
@@ -63,7 +62,13 @@ export default {
   },
   created: function() {
     this.loadSettings();
-    //this.toggleTheme();
+  },
+  mounted: function() {
+    setTimeout(() => {
+      document.getElementById("preloader-left").classList.add("loaded");
+      document.getElementById("preloader-right").classList.add("loaded");
+      document.getElementById("spinner-wrapper").classList.add("loaded");
+    }, 500);
   },
   data: function() {
     return {

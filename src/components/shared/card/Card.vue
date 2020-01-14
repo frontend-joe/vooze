@@ -1,6 +1,7 @@
 <template>
   <styled-wrapper
     :primary="primary"
+    :accent="accent"
     :minHeight="minHeight"
     :fixedHeight="fixedHeight"
     :padding="padding"
@@ -18,6 +19,7 @@ import styled from "vue-styled-components";
 
 const cardProps = {
   primary: Boolean,
+  accent: Boolean,
   minHeight: String,
   fixedHeight: String,
   padding: String,
@@ -36,15 +38,15 @@ const StyledWrapper = styled("div", cardProps)`
   position: relative;
   box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.125);
   margin-bottom: 2rem;
+  border-radius: ${props => props.theme.borderRadius};
   color: ${props =>
     props.primary || props.isDark ? "white" : props.theme.colorText};
-  background-color: ${props =>
-    props.primary
-      ? props.theme.colorPrimary
-      : props.color
-      ? props.theme[`color${props.color}`]
-      : props.theme.colorCardBackground};
-  border-radius: ${props => props.theme.borderRadius};
+
+  background: ${props => props.theme.colorCardBackground};
+  ${props => (props.primary ? `background: ${props.theme.colorPrimary}` : "")};
+  ${props => (props.accent ? `background: ${props.theme.colorAccent}` : "")}
+  ${props =>
+    props.color ? `background: ${props.theme[`color${props.color}`]}` : ""}
 `;
 
 export default {

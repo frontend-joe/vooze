@@ -43,7 +43,7 @@ const StyledTotalBlock__value = styled.div`
 `;
 
 const StyledTotalBlock__label = styled.div`
-  color: ${props => props.theme.colorLabel};
+  color: rgba(255, 255, 255, 0.57);
   font-size: 13px;
   font-weight: 400;
   margin-bottom: 0.325rem;

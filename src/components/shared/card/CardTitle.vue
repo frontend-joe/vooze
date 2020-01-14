@@ -3,7 +3,7 @@
     <styled-title :cardSubtitle="cardSubtitle">
       {{ cardTitle }}
     </styled-title>
-    <StyledSubtitle v-if="cardSubtitle">
+    <StyledSubtitle :forDark="forDark" v-if="cardSubtitle">
       {{ cardSubtitle }}
     </StyledSubtitle>
   </styled-wrapper>
@@ -12,7 +12,7 @@
 <script>
 import styled from "vue-styled-components";
 
-const theProps = { cardTitle: String, cardSubtitle: String };
+const theProps = { cardTitle: String, cardSubtitle: String, forDark: Boolean };
 
 const StyledWrapper = styled.div``;
 
@@ -22,10 +22,11 @@ const StyledTitle = styled("div", theProps)`
   margin-bottom: ${props => (props.cardSubtitle ? "0.3rem" : "0")};
 `;
 
-const StyledSubtitle = styled.div`
+const StyledSubtitle = styled("div", theProps)`
   font-size: 12px;
   font-weight: normal;
-  color: ${props => props.theme.colorSubtitle};
+  color: ${props =>
+    props.forDark ? "rgba(255,255,255,0.57)" : props.theme.colorSubtitle};
 `;
 
 export default {

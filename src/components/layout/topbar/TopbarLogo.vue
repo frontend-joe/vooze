@@ -1,6 +1,6 @@
 <template>
   <StyledWrapper>
-    <StyledImage :src="require('../../../assets/vuezy-logo.png')" />
+    <StyledImage :src="require('../../../assets/images/vooze-logo.png')" />
   </StyledWrapper>
 </template>
 
@@ -17,7 +17,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledImage = styled.img`
-  height: 28px;
+  height: 19px;
   transform-origin: left;
   transform: scale(0.85, 0.85);
   transition: transform 0.25s;

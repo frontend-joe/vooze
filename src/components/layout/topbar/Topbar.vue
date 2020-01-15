@@ -1,8 +1,11 @@
 <template>
   <styled-wrapper>
-    <topbar-collapse-button
-      v-on:toggle-sidebar-open="$emit('toggle-sidebar-open')"
-    />
+    <Hidden xs sm>
+      <topbar-collapse-button />
+    </Hidden>
+    <Hidden md lg xl>
+      <topbar-burger-button />
+    </Hidden>
     <topbar-logo />
     <topbar-search />
     <AppsDropdown />
@@ -13,10 +16,12 @@
 <script>
 import styled from "vue-styled-components";
 import TopbarCollapseButton from "./TopbarCollapseButton";
+import TopbarBurgerButton from "./TopbarBurgerButton";
 import TopbarLogo from "./TopbarLogo";
 import TopbarSearch from "./TopbarSearch";
 import TopbarUserDropdown from "./TopbarUserDropdown";
 import AppsDropdown from "./appsDropdown/Wrapper";
+import { Hidden } from "../../shared/responsive";
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -36,11 +41,13 @@ const StyledWrapper = styled.div`
 export default {
   components: {
     TopbarCollapseButton,
+    TopbarBurgerButton,
     TopbarLogo,
     TopbarSearch,
     TopbarUserDropdown,
     StyledWrapper,
-    AppsDropdown
+    AppsDropdown,
+    Hidden
   }
 };
 </script>

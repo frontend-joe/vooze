@@ -1,28 +1,34 @@
 <template>
   <StyledWrapper>
     <StyledSection v-for="section in menu" :key="section.header">
-      <StyledSectionDivider v-if="section.showDivider" />
-      <sidebar-nav-header>{{ section.header }}</sidebar-nav-header>
+      <StyledSectionDivider v-if="section.showDivider && !isCollapsed" />
+      <sidebar-nav-header v-if="!isCollapsed || isHovered">{{
+        section.header
+      }}</sidebar-nav-header>
       <sidebar-nav-block
         v-for="block in section.blocks"
         :key="block.name"
-        v-bind:isOpen="block.isOpen"
+        :isOpen="block.isOpen"
       >
         <sidebar-nav-label
-          v-bind:toggleBlockOpen="toggleBlockOpen"
-          v-bind:isOpen="block.isOpen"
-          v-bind:section="section.header"
-          v-bind:hasItems="block.items ? true : false"
-          v-bind:name="block.name"
-          v-bind:icon="block.icon"
+          :toggleBlockOpen="toggleBlockOpen"
+          :isOpen="block.isOpen"
+          :section="section.header"
+          :hasItems="block.items ? true : false"
+          :name="block.name"
+          :icon="block.icon"
+          :isCollapsed="isCollapsed"
+          :isHovered="isHovered"
         />
-        <sidebar-nav-button
-          v-for="subItem in block.items"
-          :key="subItem.name"
-          v-bind:name="subItem.name"
-          v-bind:icon="subItem.icon"
-          v-bind:url="subItem.url"
-        />
+        <div v-if="!isCollapsed || isHovered">
+          <sidebar-nav-button
+            v-for="subItem in block.items"
+            :key="subItem.name"
+            :name="subItem.name"
+            :icon="subItem.icon"
+            :url="subItem.url"
+          />
+        </div>
       </sidebar-nav-block>
     </StyledSection>
   </StyledWrapper>
@@ -52,6 +58,10 @@ const StyledSectionDivider = styled.div`
 `;
 
 export default {
+  props: {
+    isCollapsed: Boolean,
+    isHovered: Boolean
+  },
   components: {
     StyledWrapper,
     StyledSection,

@@ -2,18 +2,18 @@
   <styled-wrapper>
     <MatIconButton
       forDark
+      color="red"
       iconSize="22px"
-      @click="toggleSidebarCollapsed(!sidebar.isCollapsed)"
+      @click="toggleSidebarOpen(true)"
       height="72px"
       width="64px"
+      >menu</MatIconButton
     >
-      {{ sidebar.isCollapsed ? "menu" : "menu_open" }}
-    </MatIconButton>
   </styled-wrapper>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 import styled from "vue-styled-components";
 import { MatIconButton } from "../../shared/buttons";
 
@@ -23,9 +23,8 @@ const StyledWrapper = styled.div`
 
 export default {
   methods: {
-    ...mapActions(["toggleSidebarCollapsed"])
+    ...mapActions(["toggleSidebarOpen"])
   },
-  computed: mapGetters(["sidebar"]),
   components: {
     StyledWrapper,
     MatIconButton

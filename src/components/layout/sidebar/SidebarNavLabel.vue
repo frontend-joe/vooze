@@ -1,8 +1,12 @@
 <template>
   <StyledButton @click="toggleBlockOpen(section, name)" :isOpen="isOpen">
     <StyledIcon iconSize="18px" :isOpen="isOpen">{{ icon }}</StyledIcon>
-    <span class="text">{{ name }}</span>
-    <StyledChevronIcon iconSize="18px" v-if="hasItems" :isOpen="isOpen">
+    <span class="text" v-if="!isCollapsed || isHovered">{{ name }}</span>
+    <StyledChevronIcon
+      iconSize="18px"
+      v-if="(hasItems && !isCollapsed) || isHovered"
+      :isOpen="isOpen"
+    >
       keyboard_arrow_down
     </StyledChevronIcon>
   </StyledButton>
@@ -66,7 +70,9 @@ export default {
     toggleBlockOpen: Function,
     hasItems: Boolean,
     isOpen: Boolean,
-    section: String
+    section: String,
+    isCollapsed: Boolean,
+    isHovered: Boolean
   }
 };
 </script>

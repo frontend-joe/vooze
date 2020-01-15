@@ -1,14 +1,28 @@
 <template>
-  <styled-wrapper :open="sidebar.isOpen">
-    <sidebar-nav />
+  <styled-wrapper
+    @mouseover="toggleIsHovered(true)"
+    @mouseleave="toggleIsHovered(false)"
+    :open="sidebar.isOpen"
+    :collapsed="sidebar.isCollapsed"
+    :isHovered="sidebar.isHovered"
+  >
+    <sidebar-nav
+      :isCollapsed="sidebar.isCollapsed"
+      :isHovered="sidebar.isHovered"
+    />
   </styled-wrapper>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import styled from "vue-styled-components";
 
-const theProps = { open: Boolean };
+const theProps = {
+  open: Boolean,
+  collapsed: Boolean,
+  isHovered: Boolean
+};
+
 const StyledWrapper = styled("div", theProps)`
   position: fixed;
   z-index: 100;
@@ -20,23 +34,25 @@ const StyledWrapper = styled("div", theProps)`
   color: white;
   padding-top: 0;
   transform: ${props => (props.open ? "translateX(0)" : "translateX(-200px)")};
-  transition: transform 0.25s;
+  transition: transform 0.25s, width 0.25s;
 
   @media (min-width: ${props => props.theme.screenWidthMd}) {
     transform: translateX(0);
     z-index: 10;
     padding-top: 72px;
+    width: ${props => (!props.collapsed || props.isHovered ? "200px" : "64px")};
   }
 `;
 
 import SidebarNav from "./SidebarNav";
 export default {
-  props: {
-    open: Boolean
-  },
+  props: theProps,
   components: {
     StyledWrapper,
     SidebarNav
+  },
+  methods: {
+    ...mapActions(["toggleIsHovered"])
   },
   computed: mapGetters(["sidebar"])
 };

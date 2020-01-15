@@ -1,6 +1,8 @@
 const state = {
   sidebar: {
-    isOpen: false
+    isOpen: false,
+    isCollapsed: false,
+    isHovered: false
   }
 };
 
@@ -10,14 +12,23 @@ const getters = {
 
 const actions = {
   async toggleSidebarOpen({ commit }, isOpen) {
-    //console.log("toggleSidebarOpen", isOpen);
     commit("setSidebarOpen", isOpen);
+  },
+  async toggleSidebarCollapsed({ commit }, isCollapsed) {
+    commit("setSidebarCollapsed", isCollapsed);
+  },
+  async toggleIsHovered({ commit }, isHovered) {
+    commit("setSidebarIsHovered", isHovered);
   }
 };
 
 const mutations = {
   setSidebarOpen: (state, isOpen) =>
-    (state.sidebar = { ...state.sidebar, isOpen: isOpen })
+    (state.sidebar = { ...state.sidebar, isOpen: isOpen }),
+  setSidebarCollapsed: (state, isCollapsed) =>
+    (state.sidebar = { ...state.sidebar, isCollapsed: isCollapsed }),
+  setSidebarIsHovered: (state, isHovered) =>
+    (state.sidebar = { ...state.sidebar, isHovered: isHovered })
 };
 
 export default {

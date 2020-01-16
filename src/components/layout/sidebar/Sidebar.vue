@@ -3,7 +3,7 @@
     @mouseover="toggleIsHovered(true)"
     @mouseleave="toggleIsHovered(false)"
     :open="sidebar.isOpen"
-    :collapsed="sidebar.isCollapsed"
+    :isCollapsed="sidebar.isCollapsed"
     :isHovered="sidebar.isHovered"
   >
     <sidebar-nav
@@ -19,7 +19,7 @@ import styled from "vue-styled-components";
 
 const theProps = {
   open: Boolean,
-  collapsed: Boolean,
+  isCollapsed: Boolean,
   isHovered: Boolean
 };
 
@@ -30,17 +30,25 @@ const StyledWrapper = styled("div", theProps)`
   left: 0;
   height: 100%;
   width: 200px;
+  ${props =>
+    props.isCollapsed && !props.isHovered
+      ? "display: flex; align-items: flex-start; justify-content: flex-end;"
+      : ""}
   background: ${props => props.theme.colorSidebar};
   color: white;
   padding-top: 0;
   transform: ${props => (props.open ? "translateX(0)" : "translateX(-200px)")};
-  transition: transform 0.25s, width 0.25s;
+  transition: transform 0.25s;
 
   @media (min-width: ${props => props.theme.screenWidthMd}) {
-    transform: translateX(0);
+    transform: translateX(
+      ${props => (!props.isCollapsed || props.isHovered ? "0" : "-136px")}
+    );
     z-index: 10;
     padding-top: 72px;
-    width: ${props => (!props.collapsed || props.isHovered ? "200px" : "64px")};
+    ${
+      "" /* width: ${props => (!props.collapsed || props.isHovered ? "200px" : "64px")}; */
+    }
   }
 `;
 

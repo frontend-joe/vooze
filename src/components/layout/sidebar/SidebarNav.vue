@@ -1,5 +1,5 @@
 <template>
-  <StyledWrapper>
+  <StyledWrapper :isCollapsed="isCollapsed" :isHovered="isHovered">
     <StyledSection v-for="section in menu" :key="section.header">
       <StyledSectionDivider v-if="section.showDivider && !isCollapsed" />
       <sidebar-nav-header v-if="!isCollapsed || isHovered">{{
@@ -42,9 +42,14 @@ import SidebarNavBlock from "./SidebarNavBlock";
 import SidebarNavLabel from "./SidebarNavLabel";
 import SidebarNavHeader from "./SidebarNavHeader";
 
-const StyledWrapper = styled.div`
+const wrapperProps = { isCollapsed: Boolean, isHovered: Boolean };
+const StyledWrapper = styled("div", wrapperProps)`
   margin: 0;
   padding: 1rem 0 0;
+
+  @media (min-width: ${props => props.theme.screenWidthMd}) {
+    ${props => (props.isCollapsed && !props.isHovered ? "width: 64px" : "")}
+  }
 `;
 
 const StyledSection = styled.div`

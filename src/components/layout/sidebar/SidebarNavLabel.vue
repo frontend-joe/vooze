@@ -1,5 +1,10 @@
 <template>
-  <StyledButton @click="toggleBlockOpen(section, name)" :isOpen="isOpen">
+  <StyledButton
+    @click="toggleBlockOpen(section, name)"
+    :isCollapsed="isCollapsed"
+    :isOpen="isOpen"
+    :isHovered="isHovered"
+  >
     <StyledIcon iconSize="18px" :isOpen="isOpen">{{ icon }}</StyledIcon>
     <span class="text" v-if="!isCollapsed || isHovered">{{ name }}</span>
     <StyledChevronIcon
@@ -16,12 +21,16 @@
 import { MatIcon } from "../../shared/icons";
 import styled from "vue-styled-components";
 
-const buttonProps = { isOpen: Boolean };
+const buttonProps = {
+  isOpen: Boolean,
+  isCollapsed: Boolean,
+  isHovered: Boolean
+};
 const StyledButton = styled("button", buttonProps)`
-  width: 100%;
+  width: ${props => (props.isHovered || !props.isCollapsed ? "100%" : "64px")};
   background: transparent;
   border: 0;
-  padding: 0 1rem;
+  padding: ${props => (props.isHovered || !props.isCollapsed ? "0 1rem" : "0")};
   color: ${props =>
     props.isOpen
       ? props.theme.colorAccent
@@ -30,9 +39,10 @@ const StyledButton = styled("button", buttonProps)`
   line-height: 40px;
   font-size: 13px;
   font-weight: 500;
-  text-align: left;
+  text-align: ${props => (props.isCollapsed ? "center" : "left")};
   display: flex;
   align-items: center;
+  justify-content: ${props => (props.isCollapsed ? "center" : "flex-start")};
 
   & .text {
     flex: 1;

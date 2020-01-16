@@ -14,7 +14,6 @@ const wrapperProps = {
 const StyledWrapper = styled("div", wrapperProps)`
   padding: 72px 1.625rem;
   transform: translateX(0);
-  transition: transform ${props => props.theme.defaultTransition};
 
   @media (min-width: ${props => props.theme.screenWidthMd}) {
     padding: 72px 1.625rem 0;

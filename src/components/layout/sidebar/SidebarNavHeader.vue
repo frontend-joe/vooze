@@ -15,6 +15,7 @@ const StyledWrapper = styled.div`
   color: ${props => props.theme.colorSidebarHeader};
   font-size: 14px;
   font-weight: 500;
+  white-space: nowrap;
 `;
 
 export default {

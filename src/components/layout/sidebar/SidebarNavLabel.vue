@@ -27,10 +27,9 @@ const buttonProps = {
   isHovered: Boolean
 };
 const StyledButton = styled("button", buttonProps)`
-  width: ${props => (props.isHovered || !props.isCollapsed ? "100%" : "64px")};
   background: transparent;
   border: 0;
-  padding: ${props => (props.isHovered || !props.isCollapsed ? "0 1rem" : "0")};
+  padding: 0 1rem;
   color: ${props =>
     props.isOpen
       ? props.theme.colorAccent
@@ -39,10 +38,31 @@ const StyledButton = styled("button", buttonProps)`
   line-height: 40px;
   font-size: 13px;
   font-weight: 500;
-  text-align: ${props => (props.isCollapsed ? "center" : "left")};
   display: flex;
   align-items: center;
-  justify-content: ${props => (props.isCollapsed ? "center" : "flex-start")};
+  width: 100%;
+  justify-content: space-between;
+  text-align: left;
+  
+  @media (min-width: ${props => props.theme.screenWidthMd}) {
+    width: ${props =>
+      props.isHovered || !props.isCollapsed ? "100%" : "64px"};
+
+    ${props =>
+      props.isHovered && !props.isCollapsed
+        ? "justify-content: center; text-align: left;"
+        : ""}
+
+    ${props =>
+      props.isHovered && props.isCollapsed
+        ? "justify-content: space-between; text-align: left;"
+        : ""}
+
+    ${props =>
+      !props.isHovered && props.isCollapsed
+        ? "padding: 0; justify-content: center; text-align: center;"
+        : ""}
+  }
 
   & .text {
     flex: 1;

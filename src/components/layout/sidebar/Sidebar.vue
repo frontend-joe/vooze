@@ -30,10 +30,6 @@ const StyledWrapper = styled("div", theProps)`
   left: 0;
   height: 100%;
   width: 200px;
-  ${props =>
-    props.isCollapsed && !props.isHovered
-      ? "display: flex; align-items: flex-start; justify-content: flex-end;"
-      : ""}
   background: ${props => props.theme.colorSidebar};
   color: white;
   padding-top: 0;
@@ -46,9 +42,11 @@ const StyledWrapper = styled("div", theProps)`
     );
     z-index: 10;
     padding-top: 72px;
-    ${
-      "" /* width: ${props => (!props.collapsed || props.isHovered ? "200px" : "64px")}; */
-    }
+
+    ${props =>
+      props.isCollapsed && !props.isHovered
+        ? "display: flex; align-items: flex-start; justify-content: flex-end;"
+        : ""}
   }
 `;
 

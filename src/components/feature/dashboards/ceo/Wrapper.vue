@@ -79,10 +79,10 @@ export default {
     CoolChart,
     CoolButton
   },
-  methods: mapActions(["fetchPropertyDashboard"]),
-  computed: mapGetters(["getPropertyDashboard"]),
+  methods: mapActions(["loadCeo"]),
+  computed: mapGetters(["ceo"]),
   created: function() {
-    this.fetchPropertyDashboard();
+    this.loadCeo();
   }
 };
 </script>

@@ -1,6 +1,7 @@
 import Vuex from "vuex";
 import Vue from "vue";
-import propertyDashboard from "./modules/propertyDashboard";
+import app from "./app";
+import ceoDashboard from "../components/feature/dashboards/ceo/module";
 import managerDashboard from "../components/feature/dashboards/manager/module";
 import developerDashboard from "../components/feature/dashboards/developer/module";
 import designerDashboard from "../components/feature/dashboards/designer/module";
@@ -11,7 +12,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    propertyDashboard,
+    app,
+    ceoDashboard,
     managerDashboard,
     developerDashboard,
     designerDashboard,

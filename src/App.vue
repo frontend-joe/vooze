@@ -40,13 +40,14 @@ export default {
     Settings,
     SettingsButton
   },
-  computed: mapGetters(["settings", "sidebar"]),
+  computed: mapGetters(["settings", "sidebar", "app"]),
   methods: {
     ...mapActions([
       "loadSettings",
       "toggleSettingsOpen",
       "toggleSidebarOpen",
-      "toggleTheme"
+      "toggleTheme",
+      "toggleActiveDropdown"
     ]),
     handleSettingsButtonClicked() {
       this.toggleSettingsOpen(!this.settings.isOpen);
@@ -69,6 +70,17 @@ export default {
       document.getElementById("preloader-right").classList.add("loaded");
       document.getElementById("spinner-wrapper").classList.add("loaded");
     }, 500);
+
+    window.addEventListener("click", () => {
+      if (this.app.activeDropdown) {
+        this.toggleActiveDropdown(undefined);
+      }
+    });
+  },
+  destroyed: function() {
+    window.removeEventListener("click", () =>
+      this.toggleActiveDropdown(undefined)
+    );
   },
   data: function() {
     return {

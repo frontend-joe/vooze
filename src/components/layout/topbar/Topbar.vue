@@ -9,7 +9,7 @@
     <topbar-logo />
     <topbar-search />
     <AppsDropdown />
-    <topbar-user-dropdown />
+    <UserDropdown />
   </styled-wrapper>
 </template>
 
@@ -19,8 +19,8 @@ import TopbarCollapseButton from "./TopbarCollapseButton";
 import TopbarBurgerButton from "./TopbarBurgerButton";
 import TopbarLogo from "./TopbarLogo";
 import TopbarSearch from "./TopbarSearch";
-import TopbarUserDropdown from "./TopbarUserDropdown";
-import AppsDropdown from "./appsDropdown/Wrapper";
+import UserDropdown from "./userDropdown/Wrapper";
+import AppsDropdown from "./TopbarAppsDropdown";
 import { Hidden } from "../../shared/responsive";
 
 const StyledWrapper = styled.div`
@@ -44,7 +44,7 @@ export default {
     TopbarBurgerButton,
     TopbarLogo,
     TopbarSearch,
-    TopbarUserDropdown,
+    UserDropdown,
     StyledWrapper,
     AppsDropdown,
     Hidden

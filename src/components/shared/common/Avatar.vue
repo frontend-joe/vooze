@@ -27,7 +27,8 @@ export default {
         { name: "benik", url: require("../../../assets/benik.jpeg") },
         { name: "bob", url: require("../../../assets/bob.jpg") },
         { name: "noah", url: require("../../../assets/noah.jpg") },
-        { name: "raymond", url: require("../../../assets/raymond.jpg") }
+        { name: "raymond", url: require("../../../assets/raymond.jpg") },
+        { name: "dominic", url: require("../../../assets/images/dominic.jpg") }
       ]
     };
   },

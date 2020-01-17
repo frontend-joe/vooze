@@ -12,6 +12,7 @@
       </StyledButton>
       <DropdownMenu :isOpen="app.activeDropdown === 'user-dropdown'">
         <DropdownHeader />
+        <DropdownList />
       </DropdownMenu>
     </DropdownWrapper>
   </StyledWrapper>
@@ -24,6 +25,7 @@ import { Avatar } from "../../../shared/common";
 import { MatIcon } from "../../../shared/icons";
 import { DropdownMenu, DropdownWrapper } from "../../../shared/dropdown";
 import DropdownHeader from "./Header";
+import DropdownList from "./List";
 
 const StyledWrapper = styled.div`
   padding-right: 1rem;
@@ -67,7 +69,8 @@ export default {
     DropdownMenu,
     DropdownWrapper,
     Avatar,
-    DropdownHeader
+    DropdownHeader,
+    DropdownList
   },
   methods: {
     ...mapActions(["toggleActiveDropdown"]),

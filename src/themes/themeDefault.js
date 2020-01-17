@@ -81,7 +81,7 @@ export const themeDefault = {
   colorGreenFaint,
   colorGrey: "#bdbec7",
   colorGreyInactive: "#a7a7a7",
-  colorHover: "#f7f7f7",
+  colorHover: "#f5f5f5",
   colorIconActive: "#a6a6a6",
   colorIconDisabled: "#d6d6d6",
   colorIndigo,

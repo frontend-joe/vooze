@@ -20,7 +20,7 @@ import TopbarBurgerButton from "./TopbarBurgerButton";
 import TopbarLogo from "./TopbarLogo";
 import TopbarSearch from "./TopbarSearch";
 import UserDropdown from "./userDropdown/Wrapper";
-import AppsDropdown from "./TopbarAppsDropdown";
+import AppsDropdown from "./appsDropdown/Wrapper";
 import { Hidden } from "../../shared/responsive";
 
 const StyledWrapper = styled.div`

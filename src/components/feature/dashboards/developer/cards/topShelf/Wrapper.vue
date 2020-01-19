@@ -1,8 +1,12 @@
 <template>
   <styled-wrapper>
     <div class="row">
-      <div v-for="card in data" :key="card.id" class="col-md-6 col-lg-3">
-        <TopShelfCard :card="card" />
+      <div
+        v-for="card in skeletonCards"
+        :key="card.id"
+        class="col-md-6 col-lg-3"
+      >
+        <TopShelfCard :loading="loading" :card="card" />
       </div>
     </div>
   </styled-wrapper>
@@ -16,11 +20,44 @@ const StyledWrapper = styled.div``;
 
 export default {
   props: {
-    data: Array
+    data: Array,
+    loading: Boolean
   },
   components: {
     StyledWrapper,
     TopShelfCard
+  },
+  computed: {
+    skeletonCards() {
+      let cards = [
+        {
+          id: 1,
+          title: "",
+          value: "0"
+        },
+        {
+          id: 2,
+          title: "",
+          value: "0"
+        },
+        {
+          id: 3,
+          title: "",
+          value: "0"
+        },
+        {
+          id: 4,
+          title: "",
+          value: "0"
+        }
+      ];
+
+      if (this.data) {
+        cards = this.data;
+      }
+
+      return cards;
+    }
   }
 };
 </script>

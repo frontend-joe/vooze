@@ -59,8 +59,7 @@ export default {
         colors: theme.chartColors,
         grid: {
           show: true,
-          borderColor: "#e2ecf9",
-          strokeDashArray: 2,
+          borderColor: theme.colorBorder,
           padding: {
             top: 40,
             right: -20,

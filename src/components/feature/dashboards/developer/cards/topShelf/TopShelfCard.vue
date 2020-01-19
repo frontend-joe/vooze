@@ -1,8 +1,9 @@
 <template>
   <styled-wrapper>
-    <Card padding="1rem 1rem 0">
+    <Skeleton v-if="loading" />
+    <Card v-if="!loading" padding="1rem 1rem 0" fixedHeight="110px">
       <TopShelfCardHeader :title="card.title" :icon="card.icon" />
-      <TopShelfCardContent :card="card" />
+      <TopShelfCardContent v-if="card.color" :card="card" />
     </Card>
   </styled-wrapper>
 </template>
@@ -12,18 +13,21 @@ import styled from "vue-styled-components";
 import { Card } from "../../../../../shared/card";
 import TopShelfCardContent from "./TopShelfCardContent";
 import TopShelfCardHeader from "./TopShelfCardHeader";
+import Skeleton from "./Skeleton";
 
 const StyledWrapper = styled.div``;
 
 export default {
   props: {
-    card: Object
+    card: Object,
+    loading: Boolean
   },
   components: {
     StyledWrapper,
     Card,
     TopShelfCardContent,
-    TopShelfCardHeader
+    TopShelfCardHeader,
+    Skeleton
   }
 };
 </script>

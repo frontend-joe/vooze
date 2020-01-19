@@ -108,7 +108,7 @@ export const themeDefault = {
   colorSidebarSectionDivider: "#232725",
   colorSidebarButtonActive: "#bec3c1",
   colorSidebarButtonBackgroundActive: rgba(255, 255, 255, 0.0275),
-  colorSkeleton: "#efefef",
+  colorSkeleton: "#dcddde",
   colorSpinnerGrey: "#eef0f3",
   colorSubtitle: "#a7a7a7",
   colorSuccess: "#52c41a",

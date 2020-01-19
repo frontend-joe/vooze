@@ -1,8 +1,8 @@
 <template>
   <styled-wrapper>
     <div class="row">
-      <div class="col-md-6" v-for="item in data" :key="item.id">
-        <FigureCard :item="item" />
+      <div class="col-md-6" v-for="item in skeletonData" :key="item.id">
+        <FigureCard :loading="loading" :item="item" />
       </div>
     </div>
   </styled-wrapper>
@@ -16,7 +16,26 @@ const StyledWrapper = styled.div``;
 
 export default {
   props: {
-    data: Array
+    data: Array,
+    loading: Boolean
+  },
+  computed: {
+    skeletonData() {
+      let data = [
+        {
+          id: 1
+        },
+        {
+          id: 2
+        }
+      ];
+
+      if (this.data) {
+        data = this.data;
+      }
+
+      return data;
+    }
   },
   components: {
     StyledWrapper,

@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-title>CEO</page-title>
-    <top-shelf />
+    <top-shelf :loading="ceo.loading" />
     <!-- <ContentHeader>
       Finance & People
     </ContentHeader> -->

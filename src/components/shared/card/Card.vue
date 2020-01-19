@@ -10,6 +10,9 @@
     :color="color"
     :isDark="isDark"
   >
+    <StyledLabel :isSkeleton="isSkeleton" :loading="loading" v-if="cardLabel">
+      {{ cardLabel }}
+    </StyledLabel>
     <slot />
   </styled-wrapper>
 </template>
@@ -26,8 +29,12 @@ const cardProps = {
   overflowHidden: Boolean,
   flexVertical: Boolean,
   color: String,
-  isDark: Boolean
+  isDark: Boolean,
+  cardLabel: String,
+  loading: Boolean,
+  isSkeleton: Boolean
 };
+
 const StyledWrapper = styled("div", cardProps)`
   min-height: ${props => props.minHeight || "auto"};
   height: ${props => props.fixedHeight || "auto"};
@@ -36,7 +43,7 @@ const StyledWrapper = styled("div", cardProps)`
   display: ${props => (props.flexVertical ? "flex" : "block")};
   flex-direction: ${props => (props.flexVertical ? "column" : "row")};
   position: relative;
-  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.125);
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.205);
   margin-bottom: 2rem;
   border-radius: ${props => props.theme.borderRadius};
   color: ${props =>
@@ -49,10 +56,30 @@ const StyledWrapper = styled("div", cardProps)`
     props.color ? `background: ${props.theme[`color${props.color}`]}` : ""}
 `;
 
+const labelProps = { loading: Boolean, isSkeleton: Boolean };
+const StyledLabel = styled("div", labelProps)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: ${props =>
+    props.loading || props.isSkeleton
+      ? props.theme.colorSkeleton
+      : props.theme.colorAccent};
+  color: white;
+  border-bottom-right-radius: 0.75rem;
+  font-size: ${props => (props.isSkeleton ? "0" : "12px")};
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  padding: 0 0.5rem;
+  min-width: 60px;
+`;
+
 export default {
   props: cardProps,
   components: {
-    StyledWrapper
+    StyledWrapper,
+    StyledLabel
   }
 };
 </script>

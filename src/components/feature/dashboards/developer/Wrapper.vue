@@ -3,7 +3,7 @@
     <PageTitle>
       Developer
     </PageTitle>
-    <TopShelf :data="developer.topShelf" />
+    <TopShelf :loading="developer.loading" :data="developer.topShelf" />
     <ContentHeader>Tasks & Todos</ContentHeader>
     <div class="row">
       <div class="col-lg-8">

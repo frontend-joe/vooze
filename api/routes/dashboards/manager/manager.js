@@ -7,8 +7,8 @@ router.get("/", (req, res) => {
   console.log("manager", json);
 
   setTimeout(() => {
-    res.json({ data: json });
-  }, 250);
+    res.json(json);
+  }, 500);
 });
 
 module.exports = router;

@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const state = {
-  designer: {}
+  designer: {
+    loading: true
+  }
 };
 
 const getters = {
@@ -10,15 +12,25 @@ const getters = {
 
 const actions = {
   async loadDesigner({ commit }) {
-    axios.get("/api/dashboards/designer").then(res => {
-      commit("setDesigner", res.data.data);
-    });
+    commit("setDesignerLoading", true);
+
+    const response = await axios.get("/api/dashboards/designer");
+    response.data.data.loading = false;
+
+    commit("setDesigner", response.data.data);
+    //
+    // axios.get("/api/dashboards/designer").then(res => {
+    //   commit("setDesigner", res.data.data);
+    // });
   }
 };
 
 const mutations = {
   setDesigner: (state, designer) => {
     state.designer = designer;
+  },
+  setDesignerLoading: (state, loading) => {
+    state.designer.loading = loading;
   }
 };
 

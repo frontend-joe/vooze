@@ -4,10 +4,10 @@
 
     <div class="row">
       <div class="col-lg-6">
-        <Figures :data="designer.figures" />
+        <Figures :loading="designer.loading" :data="designer.figures" />
       </div>
       <div class="col-lg-6">
-        <Stats :data="designer.stats" />
+        <Stats :loading="designer.loading" :data="designer.stats" />
       </div>
     </div>
     <ContentHeader>

@@ -1,13 +1,13 @@
 <template>
   <styled-wrapper>
-    <CoolIcon iconSize="22px" :icon="icon" iconColor="Primary" />
+    <!-- <CoolIcon iconSize="22px" :icon="icon" iconColor="Primary" /> -->
     <StyledTitle>{{ title }}</StyledTitle>
   </styled-wrapper>
 </template>
 
 <script>
 import styled from "vue-styled-components";
-import { CoolIcon } from "../../../../../shared/icons";
+// import { CoolIcon } from "../../../../../shared/icons";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const StyledWrapper = styled.div`
 const StyledTitle = styled.div`
   font-size: 14px;
   color: ${props => props.theme.colorText};
-  margin-left: 0.575rem;
+  ${"" /* margin-left: 0.575rem; */}
 `;
 
 export default {
@@ -27,8 +27,8 @@ export default {
   },
   components: {
     StyledWrapper,
-    StyledTitle,
-    CoolIcon
+    StyledTitle
+    // CoolIcon
   }
 };
 </script>

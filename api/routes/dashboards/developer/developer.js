@@ -4,11 +4,11 @@ const router = express.Router();
 router.get("/", (req, res) => {
   const json = require("./developer.json");
 
-  console.log("manager", json);
+  console.log("developer", json);
 
   setTimeout(() => {
-    res.json({ data: json });
-  }, 250);
+    res.json(json);
+  }, 500);
 });
 
 module.exports = router;

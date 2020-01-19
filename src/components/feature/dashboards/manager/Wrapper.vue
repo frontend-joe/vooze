@@ -4,7 +4,7 @@
 
     <div class="row">
       <div class="col-lg-6">
-        <TopShelf :data="manager.topShelf" />
+        <TopShelf :loading="manager.loading" :data="manager.topShelf" />
       </div>
       <div class="col-lg-6">
         <MainChart />

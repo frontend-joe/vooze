@@ -19,7 +19,7 @@
     <Hidden xs>
       <div class="row">
         <div class="col-sm-3" v-for="card in cards" :key="card.title">
-          <TopShelfCard :card="card" />
+          <TopShelfCard :loading="loading" :card="card" />
         </div>
       </div>
     </Hidden>
@@ -36,6 +36,9 @@ import { Hidden } from "../../../../../shared/responsive";
 const StyledWrapper = styled.div``;
 
 export default {
+  props: {
+    loading: Boolean
+  },
   components: {
     StyledWrapper,
     agile: VueAgile,

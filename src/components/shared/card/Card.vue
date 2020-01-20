@@ -67,7 +67,7 @@ const StyledLabel = styled("div", labelProps)`
       : props.theme.colorAccent};
   color: white;
   border-bottom-right-radius: 0.75rem;
-  font-size: ${props => (props.isSkeleton ? "0" : "12px")};
+  font-size: ${props => (props.isSkeleton || props.loading ? "0" : "12px")};
   height: 26px;
   line-height: 26px;
   text-align: center;

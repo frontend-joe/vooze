@@ -1,12 +1,27 @@
 <template>
-  <Card overflowHidden v-if="data">
-    <StyledCardContent>
-      <StatItem v-for="item in data.items" :key="item.id" :item="item" />
+  <Card
+    fixedHeight="130px"
+    overflowHidden
+    :cardLabel="data ? data.title : 'skeleton'"
+    :loading="loading"
+  >
+    <StyledCardContent v-if="!loading">
+      <StatItem v-for="item in skeletonData" :key="item.id" :item="item" />
       <StyledIcon>
-        <TonIcon :icon="data.icon" iconSize="48px" iconColor="IconActive" />
+        <TonIcon
+          v-if="!loading"
+          :icon="data.icon"
+          iconSize="48px"
+          iconColor="IconActive"
+        />
       </StyledIcon>
     </StyledCardContent>
-    <StyledLabel>{{ data.title }}</StyledLabel>
+    <StyledCardContent v-if="loading">
+      <StatItemSkeleton v-for="item in skeletonData" :key="item.id" />
+      <StyledIcon>
+        <SkeletonCircle skeletonSize="48px" />
+      </StyledIcon>
+    </StyledCardContent>
   </Card>
 </template>
 
@@ -15,21 +30,8 @@ import styled from "vue-styled-components";
 import StatItem from "./StatItem";
 import { Card } from "../../../../../shared/card";
 import { TonIcon } from "../../../../../shared/icons";
-
-const StyledLabel = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: ${props => props.theme.colorAccent};
-  color: white;
-  border-bottom-right-radius: 0.75rem;
-  font-size: 12px;
-  height: 26px;
-  line-height: 26px;
-  text-align: center;
-  padding: 0 0.5rem;
-  min-width: 60px;
-`;
+import { SkeletonCircle } from "../../../../../shared/skeleton";
+import StatItemSkeleton from "./StatItemSkeleton";
 
 const StyledCardContent = styled.div`
   display: flex;
@@ -46,15 +48,41 @@ const StyledIcon = styled.div`
 
 export default {
   props: {
-    data: Object
+    data: Object,
+    loading: Boolean
   },
   components: {
     Card,
     TonIcon,
-    StyledLabel,
     StyledCardContent,
     StyledIcon,
-    StatItem
+    StatItem,
+    SkeletonCircle,
+    StatItemSkeleton
+  },
+  computed: {
+    skeletonData() {
+      let data = [
+        {
+          id: 1
+        },
+        {
+          id: 2
+        },
+        {
+          id: 3
+        },
+        {
+          id: 4
+        }
+      ];
+
+      if (this.data && this.data.items) {
+        data = this.data.items;
+      }
+
+      return data;
+    }
   }
 };
 </script>

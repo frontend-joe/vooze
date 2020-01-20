@@ -4,7 +4,7 @@
     :padding="padding || '1rem'"
     v-bind="$props"
     :isSkeleton="true"
-    :cardLabel="hasLabel"
+    :cardLabel="hasLabel ? ' ' : ''"
   >
     <StyledGlimmer />
     <slot />

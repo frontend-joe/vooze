@@ -1,5 +1,5 @@
 <template>
-  <styled-wrapper v-if="designer">
+  <styled-wrapper>
     <PageTitle>Designer</PageTitle>
 
     <div class="row">

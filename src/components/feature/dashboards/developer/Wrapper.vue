@@ -8,16 +8,16 @@
     <div class="row">
       <div class="col-lg-8">
         <ActivityRings />
-
         <TodoList :data="developer.todoList" />
       </div>
-
       <div class="col-lg-4">
         <div class="row">
           <div class="col-md-6 col-lg-12">
-            <PowerBars :data="developer.tasksByLanguage" />
+            <PowerBars
+              :loading="developer.loading"
+              :data="developer.tasksByLanguage"
+            />
           </div>
-
           <div class="col-md-6 col-lg-12">
             <PieChart :data="developer.todoList" />
           </div>

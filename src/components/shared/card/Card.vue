@@ -10,16 +10,20 @@
     :color="color"
     :isDark="isDark"
   >
-    <StyledGlimmer v-if="isSkeleton || loading" />
-    <StyledLabel :isSkeleton="isSkeleton" :loading="loading" v-if="cardLabel">
+    <CardSpinner v-if="showLoadingSpinner" :loading="loading" />
+    <CardGlimmer v-if="isSkeleton && loading" />
+    <CardLabel :isSkeleton="isSkeleton" :loading="loading" v-if="cardLabel">
       {{ cardLabel }}
-    </StyledLabel>
+    </CardLabel>
     <slot />
   </styled-wrapper>
 </template>
 
 <script>
-import styled, { keyframes } from "vue-styled-components";
+import styled from "vue-styled-components";
+import CardGlimmer from "./CardGlimmer";
+import CardLabel from "./CardLabel";
+import CardSpinner from "./CardSpinner";
 
 const cardProps = {
   primary: Boolean,
@@ -33,7 +37,8 @@ const cardProps = {
   isDark: Boolean,
   cardLabel: String,
   loading: Boolean,
-  isSkeleton: Boolean
+  isSkeleton: Boolean,
+  showLoadingSpinner: Boolean
 };
 
 const StyledWrapper = styled("div", cardProps)`
@@ -57,57 +62,13 @@ const StyledWrapper = styled("div", cardProps)`
     props.color ? `background: ${props.theme[`color${props.color}`]}` : ""}
 `;
 
-const labelProps = { loading: Boolean, isSkeleton: Boolean };
-const StyledLabel = styled("div", labelProps)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: ${props =>
-    props.loading || props.isSkeleton
-      ? props.theme.colorSkeleton
-      : props.theme.colorAccent};
-  color: white;
-  border-bottom-right-radius: 0.75rem;
-  font-size: ${props => (props.isSkeleton || props.loading ? "0" : "12px")};
-  height: 26px;
-  line-height: 26px;
-  text-align: center;
-  padding: 0 0.5rem;
-  min-width: 60px;
-`;
-
-const glimmerAnimation = keyframes`
-  0%   {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-`;
-
-const StyledGlimmer = styled.div`
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.35) 18%,
-    rgba(255, 255, 255, 0) 36%
-  );
-  animation: ${glimmerAnimation} 2.175s infinite;
-`;
-
 export default {
   props: cardProps,
   components: {
     StyledWrapper,
-    StyledLabel,
-    StyledGlimmer
+    CardLabel,
+    CardGlimmer,
+    CardSpinner
   }
 };
 </script>

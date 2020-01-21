@@ -1,5 +1,5 @@
 <template>
-  <SkeletonCard fixedHeight="195px">
+  <SkeletonCard fixedHeight="195px" isSkeleton loading>
     <StyledCircle skeletonSize="48px" />
 
     <StyledWrapper>

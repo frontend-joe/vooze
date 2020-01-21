@@ -46,11 +46,8 @@ export default {
       if (!this.value || !this.highestValue) {
         return "0";
       }
-      // work out value percentage of 14
 
       const percentage = (this.value / this.highestValue) * 100;
-
-      console.log("percentage", percentage);
 
       return percentage + "%";
     }

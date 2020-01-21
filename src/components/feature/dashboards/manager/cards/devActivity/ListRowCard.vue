@@ -1,23 +1,29 @@
 <template>
-  <Card>
-    <styled-wrapper>
-      <StyledLeft> <Avatar size="60px" :name="name"/></StyledLeft>
-      <StyledRight>
-        <StyledBy>
-          {{ by }}
-        </StyledBy>
-        <StyledText>
-          {{ text }}
-        </StyledText>
-      </StyledRight>
-    </styled-wrapper>
-  </Card>
+  <StyledCardWrapper>
+    <Card>
+      <styled-wrapper>
+        <StyledLeft> <Avatar size="60px" :name="name"/></StyledLeft>
+        <StyledRight>
+          <StyledBy>
+            {{ by }}
+          </StyledBy>
+          <StyledText>
+            {{ text }}
+          </StyledText>
+        </StyledRight>
+      </styled-wrapper>
+    </Card>
+  </StyledCardWrapper>
 </template>
 
 <script>
 import styled from "vue-styled-components";
 import { Card } from "../../../../../shared/card";
 import { Avatar } from "../../../../../shared/common";
+
+const StyledCardWrapper = styled.div`
+  flex: 1;
+`;
 
 const StyledWrapper = styled.div`
   padding: 1rem;
@@ -53,6 +59,7 @@ export default {
   },
   components: {
     StyledWrapper,
+    StyledCardWrapper,
     Card,
     StyledLeft,
     StyledRight,

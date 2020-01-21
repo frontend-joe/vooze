@@ -1,5 +1,5 @@
 <template>
-  <SkeletonCard fixedHeight="130px" padding="0" hasLabel isSkeleton>
+  <SkeletonCard fixedHeight="130px" padding="0" hasLabel isSkeleton loading>
     <StyledWrapper>
       <StyledTextBlock>
         <SkeletonRectangle

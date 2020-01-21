@@ -1,6 +1,6 @@
 <template>
-  <Card minHeight="320px">
-    <CardHeader>
+  <Card minHeight="320px" overflowHidden :loading="loading" showLoadingSpinner>
+    <CardHeader v-if="!loading">
       <CardTitle cardTitle="Top Tutorial" />
       <MatIconButton
         circle
@@ -14,7 +14,7 @@
         thumb_up
       </MatIconButton>
     </CardHeader>
-    <CardContent>
+    <CardContent v-if="!loading">
       <StyledImageRow>
         <StyledImage :src="imageUrl" />
         <StyledTitleBlock>
@@ -106,6 +106,9 @@ const StyledTextRow = styled.div`
 `;
 
 export default {
+  props: {
+    loading: Boolean
+  },
   components: {
     StyledImageRow,
     StyledImage,

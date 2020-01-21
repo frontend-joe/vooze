@@ -12,7 +12,7 @@
         Start New
       </CoolButton>
     </ContentHeader>
-    <Card>
+    <Card fixedHeight="526px" :loading="loading" showLoadingSpinner>
       <CardHeader>
         <CardTitle cardTitle="Active Projects" />
         <CoolButton plain dropdown>
@@ -20,7 +20,7 @@
         </CoolButton>
       </CardHeader>
       <CardContent>
-        <Table rowBorder striped>
+        <Table v-if="!loading" rowBorder striped>
           <Thead>
             <Tr>
               <Th :style="{ width: '16px' }"> </Th>
@@ -128,7 +128,8 @@ const StyledImage = styled.img`
 
 export default {
   props: {
-    data: Array
+    data: Array,
+    loading: Boolean
   },
   data: function() {
     return {

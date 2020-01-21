@@ -1,9 +1,11 @@
 <template>
   <Card
     overflowHidden
+    loading
     :padding="padding || '1rem'"
     v-bind="$props"
     :isSkeleton="true"
+    :fixedHeight="fixedHeight"
     :cardLabel="hasLabel ? ' ' : ''"
   >
     <slot />
@@ -17,7 +19,8 @@ export default {
   props: {
     padding: String,
     fixedHeight: String,
-    hasLabel: Boolean
+    hasLabel: Boolean,
+    loading: Boolean
   },
   components: {
     Card

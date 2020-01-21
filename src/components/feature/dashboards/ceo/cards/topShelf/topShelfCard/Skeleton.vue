@@ -1,5 +1,5 @@
 <template>
-  <SkeletonCard fixedHeight="100px">
+  <SkeletonCard fixedHeight="100px" loading>
     <StyledWrapper>
       <StyledTextBlock>
         <StyledTitleSkeleton skeletonWidth="40%" skeletonHeight="13px" />

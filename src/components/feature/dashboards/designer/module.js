@@ -15,13 +15,9 @@ const actions = {
     commit("setDesignerLoading", true);
 
     const response = await axios.get("/api/dashboards/designer");
-    response.data.data.loading = true;
+    response.data.data.loading = false;
 
     commit("setDesigner", response.data.data);
-    //
-    // axios.get("/api/dashboards/designer").then(res => {
-    //   commit("setDesigner", res.data.data);
-    // });
   }
 };
 

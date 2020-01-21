@@ -13,7 +13,7 @@
 
     <div class="row">
       <div class="col-lg-7 col-xl-8">
-        <ProjectList :data="manager.projectList" />
+        <ProjectList :loading="manager.loading" :data="manager.projectList" />
       </div>
       <div class="col-lg-5 col-xl-4">
         <DevActivity :data="manager.devActivity" />

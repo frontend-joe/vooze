@@ -2,6 +2,7 @@
   <Card
     fixedHeight="130px"
     overflowHidden
+    :isSkeleton="loading"
     :cardLabel="data ? data.title : 'skeleton'"
     :loading="loading"
   >

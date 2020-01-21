@@ -14,12 +14,11 @@
       <span>
         Learning Materials
       </span>
-
       <CoolButton plain dropdown>Explore</CoolButton>
     </ContentHeader>
     <div class="row">
       <div class="col-lg-6">
-        <TopTutorial />
+        <TopTutorial :loading="designer.loading" />
       </div>
       <div class="col-lg-6">
         <TabbedCard :loading="designer.loading" :data="designer.tabs" />

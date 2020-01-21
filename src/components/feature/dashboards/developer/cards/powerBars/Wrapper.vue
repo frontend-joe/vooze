@@ -1,10 +1,11 @@
 <template>
-  <Card>
-    <CardHeader>
-      <CardTitle cardTitle="Tasks By Language" />
-    </CardHeader>
-    <CardContent>
-      <styled-wrapper>
+  <StyledWrapper>
+    <Skeleton v-if="loading" />
+    <Card v-if="!loading" fixedHeight="278px">
+      <CardHeader>
+        <CardTitle cardTitle="Tasks By Language" />
+      </CardHeader>
+      <CardContent>
         <StyledBlock v-for="item in data" :key="item.id">
           <StyledLabel>{{ item.title }}</StyledLabel>
           <PowerBar
@@ -13,9 +14,9 @@
             :color="item.color"
           />
         </StyledBlock>
-      </styled-wrapper>
-    </CardContent>
-  </Card>
+      </CardContent>
+    </Card>
+  </StyledWrapper>
 </template>
 
 <script>
@@ -27,6 +28,7 @@ import {
   CardTitle
 } from "../../../../../shared/card";
 import PowerBar from "./PowerBar";
+import Skeleton from "./Skeleton";
 
 const StyledWrapper = styled.div``;
 
@@ -41,7 +43,8 @@ const StyledLabel = styled.div`
 
 export default {
   props: {
-    data: Array
+    data: Array,
+    loading: Boolean
   },
   components: {
     StyledWrapper,
@@ -51,7 +54,8 @@ export default {
     CardHeader,
     CardTitle,
     PowerBar,
-    StyledLabel
+    StyledLabel,
+    Skeleton
   }
 };
 </script>

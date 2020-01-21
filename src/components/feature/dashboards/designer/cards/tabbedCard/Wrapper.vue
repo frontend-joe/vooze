@@ -1,5 +1,10 @@
 <template>
-  <Card overflowHidden minHeight="320px" :loading="loading">
+  <Card
+    overflowHidden
+    minHeight="320px"
+    :loading="loading"
+    :isSkeleton="loading"
+  >
     <StyledWrapper>
       <TabHeader>
         <TabHeaderButton

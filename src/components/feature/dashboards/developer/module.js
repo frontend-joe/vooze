@@ -18,9 +18,6 @@ const actions = {
     response.data.loading = false;
 
     commit("setDeveloper", response.data);
-    // axios.get("/api/dashboards/developer").then(res => {
-    //   commit("setDeveloper", res.data.data);
-    // });
   }
 };
 

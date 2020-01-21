@@ -32,8 +32,8 @@ const StyledTotalBlock = styled.div`
   width: 100%;
   align-items: flex-start;
   flex-direction: column;
-  padding: 0 0 1rem;
-  border-bottom: 1px solid ${props => props.theme.colorBorder};
+  padding: 0 0 1.25rem;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.25);
   margin-bottom: 1rem;
 `;
 

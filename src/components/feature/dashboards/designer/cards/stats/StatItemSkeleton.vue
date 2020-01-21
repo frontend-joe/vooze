@@ -1,12 +1,12 @@
 <template>
   <StyledWrapper>
     <SkeletonRectangle
-      skeletonWidth="50%"
+      skeletonWidth="40%"
       skeletonHeight="16px"
       marginBottom="1rem"
     />
     <SkeletonRectangle
-      skeletonWidth="70%"
+      skeletonWidth="20%"
       skeletonHeight="12px"
       marginBottom="0"
     />

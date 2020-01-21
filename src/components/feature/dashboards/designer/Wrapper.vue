@@ -22,7 +22,7 @@
         <TopTutorial />
       </div>
       <div class="col-lg-6">
-        <TabbedCard :data="designer.tabs" />
+        <TabbedCard :loading="designer.loading" :data="designer.tabs" />
       </div>
     </div>
 

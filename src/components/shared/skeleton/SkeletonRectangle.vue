@@ -3,6 +3,7 @@
     :skeletonWidth="skeletonWidth"
     :skeletonHeight="skeletonHeight"
     :marginBottom="marginBottom"
+    :marginRight="marginRight"
   />
 </template>
 
@@ -21,6 +22,10 @@ const skeletonProps = {
   marginBottom: {
     type: String,
     default: "0.5rem"
+  },
+  marginRight: {
+    type: String,
+    default: "0"
   }
 };
 
@@ -28,6 +33,7 @@ const StyledWrapper = styled("div", skeletonProps)`
   width: ${props => props.skeletonWidth};
   height: ${props => props.skeletonHeight};
   margin-bottom: ${props => props.marginBottom}
+  margin-right: ${props => props.marginRight};
   border-radius: 0.325rem;
   background: ${props => props.theme.colorSkeleton};
 `;

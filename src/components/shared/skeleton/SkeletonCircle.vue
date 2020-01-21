@@ -1,5 +1,9 @@
 <template>
-  <StyledWrapper :skeletonSize="skeletonSize" />
+  <StyledWrapper
+    :marginBottom="marginBottom"
+    :marginRight="marginRight"
+    :skeletonSize="skeletonSize"
+  />
 </template>
 
 <script>
@@ -9,6 +13,14 @@ const skeletonProps = {
   skeletonSize: {
     type: String,
     default: "50px"
+  },
+  marginRight: {
+    type: String,
+    default: "0"
+  },
+  marginBottom: {
+    type: String,
+    default: "0.5rem"
   }
 };
 
@@ -21,6 +33,7 @@ const StyledWrapper = styled("div", skeletonProps)`
   max-height: ${props => props.skeletonSize};
   border-radius: 50%;
   background: ${props => props.theme.colorSkeleton};
+  margin-right: ${props => props.marginRight};
 `;
 
 export default {

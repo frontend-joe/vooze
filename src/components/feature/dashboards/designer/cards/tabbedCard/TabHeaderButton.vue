@@ -1,5 +1,5 @@
 <template>
-  <StyledTabButton :isActive="isActive">
+  <StyledTabButton :loading="loading" :isActive="isActive">
     <slot> </slot>
     <StyledUnderline v-if="isActive" />
   </StyledTabButton>
@@ -8,7 +8,7 @@
 <script>
 import styled from "vue-styled-components";
 
-const buttonProps = { isActive: Boolean };
+const buttonProps = { isActive: Boolean, loading: Boolean };
 const StyledTabButton = styled("button", buttonProps)`
   position: relative;
   background: transparent;
@@ -35,7 +35,8 @@ const StyledUnderline = styled.span`
 
 export default {
   props: {
-    isActive: Boolean
+    isActive: Boolean,
+    loading: Boolean
   },
   components: {
     StyledTabButton,

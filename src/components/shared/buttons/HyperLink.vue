@@ -1,5 +1,5 @@
 <template>
-  <StyledLink :color="color">
+  <StyledLink :loading="loading" :color="color">
     <slot />
   </StyledLink>
 </template>
@@ -8,10 +8,23 @@
 import styled from "vue-styled-components";
 import { darken } from "polished";
 
-const linkProps = { color: String };
+const linkProps = {
+  color: String,
+  loading: Boolean
+};
+
 const StyledLink = styled("a", linkProps)`
+  ${props =>
+    props.loading
+      ? `display: inline-block;
+        width: 50px;
+        height: 12px;
+        background: ${props.theme.colorSkeleton}
+        border-radius: ${props.theme.borderRadius}`
+      : ""}
+
   font-weight: bold;
-  font-size: 13px;
+  font-size: ${props => (props.loading ? "0" : "13px")};
   color: ${props =>
     props.color ? props.theme[`color${props.color}`] : props.theme.colorAccent};
 
@@ -24,9 +37,7 @@ const StyledLink = styled("a", linkProps)`
 `;
 
 export default {
-  props: {
-    color: String
-  },
+  props: linkProps,
   components: {
     StyledLink
   }

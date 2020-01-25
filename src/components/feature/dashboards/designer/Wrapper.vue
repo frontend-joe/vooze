@@ -34,7 +34,7 @@
     </ContentHeader>
     <div class="row">
       <div class="col-lg-12">
-        <SocialMedia :data="designer.socialMedia" />
+        <SocialMedia :loading="designer.loading" :data="designer.socialMedia" />
       </div>
     </div>
   </styled-wrapper>

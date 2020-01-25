@@ -20,7 +20,7 @@ const StyledSpinner = styled("div", spinnerProps)`
     width: ${props => Math.floor(props.lineWidth * 10)}px;
     height: ${props => Math.floor(props.lineWidth * 10)}px;
     border-radius: 50%;
-    animation: spin 1.5s infinite;
+    animation: spin 1.5s infinite linear;
     position: relative;
 
     &:before,

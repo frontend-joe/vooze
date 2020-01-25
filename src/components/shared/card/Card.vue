@@ -38,7 +38,8 @@ const cardProps = {
   cardLabel: String,
   loading: Boolean,
   isSkeleton: Boolean,
-  showLoadingSpinner: Boolean
+  showLoadingSpinner: Boolean,
+  showSkeletonCardTitle: Boolean
 };
 
 const StyledWrapper = styled("div", cardProps)`

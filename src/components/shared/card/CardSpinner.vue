@@ -1,12 +1,17 @@
 <template>
   <StyledWrapper :loading="loading">
+    <StyledSkeletonTitle>
+      <SkeletonRectangle skeletonWidth="100px" />
+    </StyledSkeletonTitle>
     <Spinner />
   </StyledWrapper>
 </template>
 
 <script>
 import styled from "vue-styled-components";
+//import { SkeletonRectangle } from "../skeleton";
 import { Spinner } from "../common";
+import SkeletonRectangle from "../skeleton/SkeletonRectangle";
 
 const wrapperProps = {
   loading: Boolean
@@ -28,11 +33,22 @@ const StyledWrapper = styled("div", wrapperProps)`
   transition: opacity 0.25s, visibility 0.25s;
 `;
 
+const StyledSkeletonTitle = styled.div`
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+`;
+
 export default {
   props: wrapperProps,
   components: {
     StyledWrapper,
-    Spinner
+    Spinner,
+    StyledSkeletonTitle,
+    SkeletonRectangle
   }
 };
 </script>

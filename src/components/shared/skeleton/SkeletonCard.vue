@@ -15,6 +15,8 @@
 <script>
 import { Card } from "../card";
 
+console.log("card", Card);
+
 export default {
   props: {
     padding: String,

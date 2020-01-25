@@ -13,7 +13,7 @@
       </CoolButton>
     </ContentHeader>
     <Card fixedHeight="526px" :loading="loading" showLoadingSpinner>
-      <CardHeader>
+      <CardHeader v-if="!loading">
         <CardTitle cardTitle="Active Projects" />
         <CoolButton plain dropdown>
           Sort by

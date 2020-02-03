@@ -50,7 +50,7 @@ const StyledWrapper = styled("div", cardProps)`
   display: ${props => (props.flexVertical ? "flex" : "block")};
   flex-direction: ${props => (props.flexVertical ? "column" : "row")};
   position: relative;
-  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.205);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.275);
   margin-bottom: 2rem;
   border-radius: ${props => props.theme.borderRadius};
   color: ${props =>

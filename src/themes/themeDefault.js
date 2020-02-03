@@ -33,7 +33,7 @@ const chartColors2 = [colorPurple, colorTeal, colorRed];
 
 export const themeDefault = {
   barFillOpacity: 0.85,
-  borderRadius: "0.85rem",
+  borderRadius: "0.25rem",
   borderButtonRadius: "0.675rem",
   defaultTransition: "0.25s",
   fontFamily: "Alata",

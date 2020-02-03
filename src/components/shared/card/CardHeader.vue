@@ -13,7 +13,7 @@ const StyledWrapper = styled("div", wrapperProps)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 72px;
   padding: 0 1.5rem;
 `;
 

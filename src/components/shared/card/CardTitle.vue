@@ -17,8 +17,7 @@ const theProps = { cardTitle: String, cardSubtitle: String, forDark: Boolean };
 const StyledWrapper = styled.div``;
 
 const StyledTitle = styled("div", theProps)`
-  font-size: 1rem;
-  font-weight: ${props => (props.forDark ? "normal" : "bold")};
+  font-size: 1.075rem;
   margin-bottom: ${props => (props.cardSubtitle ? "0.375rem" : "0")};
 `;
 

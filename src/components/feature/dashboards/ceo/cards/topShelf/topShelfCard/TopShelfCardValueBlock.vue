@@ -18,7 +18,7 @@ const StyledWrapper = styled.div`
 
 const StyledLabel = styled.div`
   color: ${props => props.theme.colorText};
-  font-size: 13px;
+  font-size: 14px;
   font-weight: normal;
   margin-bottom: 0.375rem;
 `;

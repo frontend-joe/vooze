@@ -34,7 +34,7 @@
         <apexchart
           v-if="chartOptions && series"
           width="100%"
-          :height="200"
+          :height="250"
           type="line"
           :options="chartOptions"
           :categories="categories"
@@ -72,6 +72,7 @@ const StyledDropdownButton = styled.button`
   padding: 0 1rem;
   height: 48px;
   line-height: 48px;
+  font-size: 13px;
 
   &:hover {
     background: ${props => props.theme.colorHover};
@@ -138,7 +139,7 @@ export default {
 
       let stroke = {
         curve: "smooth",
-        width: 3,
+        width: 4,
         lineCap: "round",
         borderRadius: 20
       };
@@ -148,7 +149,9 @@ export default {
         grid: {
           show: true,
           borderColor:
-            this.cardTheme === "default" ? "#e7e7e7" : rgba("white", 0.05),
+            this.cardTheme === "default"
+              ? rgba("black", 0.05)
+              : rgba("white", 0.05),
           padding: {
             top: 0,
             right: 0,
@@ -163,11 +166,11 @@ export default {
           dropShadow: {
             enabled: true,
             enabledOnSeries: undefined,
-            top: 25,
+            top: 30,
             left: 0,
-            blur: 8,
-            color: "#000",
-            opacity: 0.275
+            blur: 4,
+            color: theme.colorAccent,
+            opacity: 0.1175
           }
         },
         fill: {
@@ -216,22 +219,29 @@ export default {
         yaxis: {
           show: true,
           showAlways: true,
+          tickAmount: 4,
           axisBorder: {
             show: false,
             color: theme.colorBorder
           },
           axisTicks: {
-            show: true
+            show: true,
+            max: 2
           },
           labels: {
             style: {
               maxWidth: 30,
-              fontSize: "10px",
+              fontSize: "12px",
               fontFamily: theme.fontFamily,
-              color: theme.colorLabel
+              color:
+                this.cardTheme === "default"
+                  ? rgba("black", 0.25)
+                  : rgba("white", 0.5)
+            },
+            formatter: function(value) {
+              return `${value}K`;
             }
-          },
-          offsetX: 10
+          }
         },
         xaxis: {
           show: false,
@@ -243,8 +253,7 @@ export default {
           },
           axisTicks: {
             show: false
-          },
-          offsetX: 10
+          }
         },
         legend: {
           show: true

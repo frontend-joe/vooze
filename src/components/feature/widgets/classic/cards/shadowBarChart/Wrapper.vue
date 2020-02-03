@@ -89,6 +89,7 @@ const StyledWrapper = styled.div`
     color: ${props => props.theme.colorSubtitle};
     font-size: 0.875rem;
     margin-bottom: 0.325rem;
+    text-shadow: 0px 5px 4px ${props => rgba(props.theme.colorAccent, 0.15)};
   }
 
   & .ct-donut-label-value {
@@ -131,7 +132,7 @@ export default {
   data: function() {
     return {
       chartData: {
-        series: [1, 3, 2]
+        series: [1, 2]
       },
       chartOptions: {
         donut: true,

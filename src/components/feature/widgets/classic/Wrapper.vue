@@ -3,14 +3,14 @@
     <PageTitle>Classic</PageTitle>
 
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-4">
+        <GradientPieChart />
+      </div>
+      <div class="col-lg-8">
         <ShadowLineChart />
       </div>
       <div class="col-lg-3">
         <ShadowStackedBarChart />
-      </div>
-      <div class="col-lg-3">
-        <GradientPieChart />
       </div>
     </div>
   </StyledWrapper>

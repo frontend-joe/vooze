@@ -17,13 +17,13 @@ const theProps = { cardTitle: String, cardSubtitle: String, forDark: Boolean };
 const StyledWrapper = styled.div``;
 
 const StyledTitle = styled("div", theProps)`
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: ${props => (props.forDark ? "normal" : "bold")};
-  margin-bottom: ${props => (props.cardSubtitle ? "0.3rem" : "0")};
+  margin-bottom: ${props => (props.cardSubtitle ? "0.375rem" : "0")};
 `;
 
 const StyledSubtitle = styled("div", theProps)`
-  font-size: 12px;
+  font-size: 0.8rem;
   font-weight: normal;
   color: ${props =>
     props.forDark ? "rgba(255,255,255,0.57)" : props.theme.colorSubtitle};

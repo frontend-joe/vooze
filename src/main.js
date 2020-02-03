@@ -26,6 +26,8 @@ Vue.config.productionTip = false;
 Vue.use(PolygonFillpattern);
 Vue.use(VueTippy);
 
+Vue.use(require("vue-chartist"));
+
 new Vue({
   store,
   router,

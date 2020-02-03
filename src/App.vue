@@ -28,6 +28,7 @@ import SettingsButton from "./components/layout/settingsButton/Wrapper";
 import { Overlay } from "./components/shared/common";
 require("./assets/css/bootstrap.css");
 require("./assets/css/tonicons.css");
+require("chartist/dist/chartist.min.css");
 
 export default {
   name: "app",

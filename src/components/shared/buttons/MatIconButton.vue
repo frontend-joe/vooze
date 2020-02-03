@@ -2,7 +2,7 @@
   <StyledWrapper
     :circle="circle"
     :backgroundColor="backgroundColor"
-    @click="$emit('click')"
+    @click="$emit('click', $event)"
     v-bind:style="{ width: width, height: height }"
   >
     <MatIcon

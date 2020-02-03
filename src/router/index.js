@@ -9,14 +9,21 @@ import Buttons from "../components/feature/components/button/Wrapper";
 import Alerts from "../components/feature/components/alert/Wrapper";
 import ChartJs from "../components/feature/charts/chartjs/Wrapper";
 import Table from "../components/feature/components/table/Wrapper";
+import ModernWidgets from "../components/feature/widgets/modern/Wrapper";
+import ClassicWidgets from "../components/feature/widgets/classic/Wrapper";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "home",
-    component: CeoDashboard
+    path: "/widgets/modern",
+    name: "modern widgets",
+    component: ModernWidgets
+  },
+  {
+    path: "/widgets/classic",
+    name: "classic widgets",
+    component: ClassicWidgets
   },
   {
     path: "/charts/apex",

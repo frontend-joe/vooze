@@ -106,7 +106,7 @@ export default {
             {
               name: "Dashboards",
               icon: "dashboard",
-              isOpen: true,
+              isOpen: false,
               items: [
                 {
                   name: "CEO",
@@ -127,6 +127,23 @@ export default {
                   name: "Designer",
                   icon: "color_lens",
                   url: "/dashboards/designer"
+                }
+              ]
+            },
+            {
+              name: "Widgets",
+              icon: "widgets",
+              isOpen: true,
+              items: [
+                {
+                  name: "Classic",
+                  icon: "account_balance",
+                  url: "/widgets/classic"
+                },
+                {
+                  name: "Modern",
+                  icon: "waves",
+                  url: "/widgets/modern"
                 }
               ]
             }

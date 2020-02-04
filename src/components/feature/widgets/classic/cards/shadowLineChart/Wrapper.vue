@@ -170,7 +170,7 @@ export default {
             left: 0,
             blur: 4,
             color: theme.colorAccent,
-            opacity: 0.1175
+            opacity: 0.095
           }
         },
         fill: {

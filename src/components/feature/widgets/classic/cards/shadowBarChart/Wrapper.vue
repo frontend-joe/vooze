@@ -1,38 +1,44 @@
 <template>
   <Card>
     <CardHeader>
-      <CardTitle
-        cardTitle="Current Balance"
-        cardSubtitle="This billing period"
-      />
+      <CardTitle cardTitle="User Statistics" />
       <MatIconButton>more_vert</MatIconButton>
     </CardHeader>
     <CardContent>
       <styled-wrapper>
+        <StyledFiguresRow class="row">
+          <div class="col-md-6">
+            <StyledStatBlock>
+              <BadgeIcon color="Primary">trending_up</BadgeIcon>
+              <StyledTitleStack label="This year" value="60%" />
+            </StyledStatBlock>
+          </div>
+          <div class="col-md-6">
+            <StyledStatBlock>
+              <BadgeIcon color="Secondary">trending_down</BadgeIcon>
+              <StyledTitleStack label="Last year" value="40%" />
+            </StyledStatBlock>
+          </div>
+        </StyledFiguresRow>
         <StyledChartWrapper>
           <chartist
-            type="Pie"
+            v-if="settings && settings.theme && settings.theme.chartColors"
+            type="Bar"
             ratio="ct-major-second"
+            :event-handlers="eventHandlers"
             :data="chartData"
             :options="chartOptions"
           >
           </chartist>
         </StyledChartWrapper>
-        <StyledFooter>
-          <StyledFooterValue>
-            £50,409.23
-          </StyledFooterValue>
-          <StyledFooterLabel>
-            Used balance this billing cycle
-          </StyledFooterLabel>
-        </StyledFooter>
       </styled-wrapper>
     </CardContent>
   </Card>
 </template>
 
 <script>
-import { rgba } from "polished";
+import { mapGetters } from "vuex";
+import { lighten, rgba } from "polished";
 import styled from "vue-styled-components";
 import {
   Card,
@@ -41,116 +47,188 @@ import {
   CardTitle
 } from "../../../../../shared/card";
 import { MatIconButton } from "../../../../../shared/buttons";
+import { BadgeIcon } from "../../../../../shared/icons";
+import { TitleStack } from "../../../../../shared/common";
 
-import Plugin from "chartist-plugin-fill-donut";
+const StyledChartWrapper = styled.div``;
 
-const StyledChartWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70%;
-  margin: 0 auto 1rem;
+const StyledFiguresRow = styled.div`
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
 `;
 
 const StyledWrapper = styled.div`
   & .ct-major-second {
-    height: 200px;
-    max-height: 200px;
+    height: 160px;
+    max-height: 160px;
   }
 
-  & .ct-series-a .ct-slice-donut {
-    stroke: ${props =>
-      props.theme.chartColors ? props.theme.chartColors[0] : "red"};
+  & .ct-label {
+    color: ${props => props.theme.colorChartLabel};
   }
 
-  & .ct-series-b .ct-slice-donut {
-    stroke: ${props =>
-      props.theme.chartColors ? props.theme.chartColors[1] : "blue"};
+  & .ct-label.ct-horizontal {
+    font-size: 14px;
+    padding: 0.5rem 0;
   }
 
-  & .ct-series-c .ct-slice-donut {
-    stroke: ${props => (props.theme.chartColors ? "#f7f7f7" : "green")};
-  }
-
-  & .ct-chart-donut {
+  & .ct-chart-bar {
     filter: drop-shadow(
-      0px 10px 4px ${props => rgba(props.theme.colorAccent, 0.15)}
+      5px 5px 5px ${props => rgba(props.theme.colorAccent, 0.15)}
     );
   }
 
-  & .ct-fill-donut-label {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  & .ct-bar {
+    stroke-linecap: round;
+    stroke-width: 12px;
   }
 
-  & .ct-donut-label-text {
-    color: ${props => props.theme.colorSubtitle};
-    font-size: 0.875rem;
-    margin-bottom: 0.325rem;
-    text-shadow: 0px 5px 4px ${props => rgba(props.theme.colorAccent, 0.15)};
+  & .ct-series-a .ct-bar {
+    stroke: url(#gradientA);
   }
 
-  & .ct-donut-label-value {
-    font-size: 1.5rem;
-    text-shadow: 0px 5px 4px ${props => rgba(props.theme.colorAccent, 0.15)};
+  & .ct-series-b .ct-bar {
+    stroke: url(#gradientB);
   }
 `;
 
-const StyledFooter = styled.div`
+const StyledStatBlock = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 50px;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+
+  @media (min-width: ${props => props.theme.screenWidthSm}) {
+    justify-content: center;
+  }
 `;
 
-const StyledFooterLabel = styled.div`
-  color: ${props => props.theme.colorLabel};
-  font-size: 0.875rem;
-`;
-
-const StyledFooterValue = styled.div`
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+const StyledTitleStack = styled(TitleStack)`
+  margin-left: 0.75rem;
 `;
 
 export default {
   components: {
     StyledWrapper,
     StyledChartWrapper,
-    StyledFooter,
-    StyledFooterLabel,
-    StyledFooterValue,
     Card,
     CardContent,
     CardHeader,
     CardTitle,
-    MatIconButton
+    MatIconButton,
+    BadgeIcon,
+    StyledFiguresRow,
+    StyledTitleStack,
+    StyledStatBlock
+  },
+  watch: {
+    settings: function(val) {
+      console.log("settings has updated!", val);
+
+      // if (this.$chartist) {
+      //   this.$chartist.update();
+      // }
+
+      //this.$chartist.Base.update();
+
+      console.log("chart instance", this.$chartist.Base);
+      //
+      // this.$chartist.Base.update();
+    }
   },
   data: function() {
     return {
       chartData: {
-        series: [1, 2]
+        labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        series: [
+          [5, 4, 3, 7, 5, 10],
+          [3, 2, 9, 5, 4, 6]
+        ]
       },
       chartOptions: {
-        donut: true,
-        donutWidth: 10,
-        showLabel: false,
-        lineSmooth: false,
-        plugins: [
-          Plugin({
-            items: [
-              {
-                content:
-                  '<div class="ct-donut-label-text">Balance</div><div class="ct-donut-label-value">$10K</div>'
-              }
-            ]
-          })
-        ]
+        axisX: {
+          padding: 20,
+          showGrid: false
+        },
+        axisY: {
+          showGrid: false,
+          labelInterpolationFnc: function(value) {
+            return value + "K";
+          }
+        }
       }
     };
+  },
+  computed: {
+    ...mapGetters(["settings"]),
+    eventHandlers: function() {
+      if (
+        !this.settings ||
+        !this.settings.theme ||
+        !this.settings.theme.chartColors
+      ) {
+        console.log("settings is null", this.settings);
+        return undefined;
+      }
+
+      const { theme } = this.settings;
+
+      console.log("settings is there", this.settings);
+
+      return [
+        {
+          event: "draw",
+          fn(ctx) {
+            if (ctx.type === "bar") {
+              ctx.element.attr({
+                x1: ctx.x1 + 0.001
+              });
+            }
+          }
+        },
+        {
+          event: "created",
+          fn(ctx) {
+            var defs = ctx.svg.elem("defs");
+            defs
+              .elem("linearGradient", {
+                id: "gradientA",
+                x1: 0,
+                y1: 1,
+                x2: 0,
+                y2: 0
+              })
+              .elem("stop", {
+                offset: 0,
+                "stop-color": lighten(0.25, theme.chartColors[0])
+              })
+              .parent()
+              .elem("stop", {
+                offset: 1,
+                "stop-color": theme.chartColors[0]
+              });
+
+            defs
+              .elem("linearGradient", {
+                id: "gradientB",
+                x1: 0,
+                y1: 1,
+                x2: 0,
+                y2: 0
+              })
+              .elem("stop", {
+                offset: 0,
+                "stop-color": lighten(0.25, theme.chartColors[1])
+              })
+              .parent()
+              .elem("stop", {
+                offset: 1,
+                "stop-color": theme.chartColors[1]
+              });
+          }
+        }
+      ];
+    }
   }
 };
 </script>

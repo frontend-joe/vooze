@@ -97,7 +97,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Alata", sans-serif;
-  color: #585861;
+  color: #606060;
 }
 
 * {

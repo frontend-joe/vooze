@@ -9,7 +9,10 @@
       <div class="col-lg-8">
         <ShadowLineChart />
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-8">
+        <ShadowBarChart />
+      </div>
+      <div class="col-lg-4">
         <ShadowStackedBarChart />
       </div>
     </div>
@@ -22,6 +25,7 @@ import { PageTitle } from "../../../shared/page";
 import ShadowLineChart from "./cards/shadowLineChart/Wrapper";
 import ShadowStackedBarChart from "./cards/shadowStackedBarChart/Wrapper";
 import GradientPieChart from "./cards/gradientPieChart/Wrapper";
+import ShadowBarChart from "./cards/shadowBarChart/Wrapper";
 
 const StyledWrapper = styled.div``;
 
@@ -31,7 +35,8 @@ export default {
     PageTitle,
     ShadowLineChart,
     ShadowStackedBarChart,
-    GradientPieChart
+    GradientPieChart,
+    ShadowBarChart
   }
 };
 </script>

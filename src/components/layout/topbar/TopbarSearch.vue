@@ -33,11 +33,11 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledTextbox = styled.input`
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 21px;
+  border-bottom-left-radius: 21px;
   border: 0;
-  height: 36px;
-  width: 200px;
+  height: 42px;
+  width: 240px;
   font-size: 13px;
   font-weight: 200;
   padding: 0;
@@ -56,8 +56,8 @@ const StyledButton = styled.button`
   font-size: 13px;
   padding: 0 1rem 0 1rem;
   color: white;
-  height: 36px;
-  line-height: 36px;
+  height: 42px;
+  line-height: 42px;
   display: flex;
   align-items: center;
 

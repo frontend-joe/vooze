@@ -2,7 +2,7 @@
   <styled-wrapper>
     <MatIconButton
       forDark
-      iconSize="22px"
+      iconSize="28px"
       @click="toggleSidebarCollapsed(!sidebar.isCollapsed)"
       height="72px"
       width="64px"

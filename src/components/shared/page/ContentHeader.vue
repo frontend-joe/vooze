@@ -14,7 +14,7 @@ const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #e2ecf9;
+  border-bottom: 1px solid #efefef;
   margin-bottom: 2rem;
 
   &::before {

@@ -7,13 +7,13 @@
     <CardContent>
       <styled-wrapper>
         <StyledFiguresRow class="row">
-          <div class="col-md-6">
+          <div class="col-6">
             <StyledStatBlock>
               <BadgeIcon color="Primary">trending_up</BadgeIcon>
               <StyledTitleStack label="This year" value="60%" />
             </StyledStatBlock>
           </div>
-          <div class="col-md-6">
+          <div class="col-6">
             <StyledStatBlock>
               <BadgeIcon color="Secondary">trending_down</BadgeIcon>
               <StyledTitleStack label="Last year" value="40%" />
@@ -24,7 +24,7 @@
           <chartist
             v-if="settings && settings.theme && settings.theme.chartColors"
             type="Bar"
-            ratio="ct-major-second"
+            ratio="ct-double-octave"
             :event-handlers="eventHandlers"
             :data="chartData"
             :options="chartOptions"
@@ -50,7 +50,10 @@ import { MatIconButton } from "../../../../../shared/buttons";
 import { BadgeIcon } from "../../../../../shared/icons";
 import { TitleStack } from "../../../../../shared/common";
 
-const StyledChartWrapper = styled.div``;
+const StyledChartWrapper = styled.div`
+  height: 160px;
+  max-height: 160px;
+`;
 
 const StyledFiguresRow = styled.div`
   margin-bottom: 1.5rem;
@@ -58,11 +61,6 @@ const StyledFiguresRow = styled.div`
 `;
 
 const StyledWrapper = styled.div`
-  & .ct-major-second {
-    height: 160px;
-    max-height: 160px;
-  }
-
   & .ct-label {
     color: ${props => props.theme.colorChartLabel};
   }
@@ -146,6 +144,8 @@ export default {
         ]
       },
       chartOptions: {
+        fullWidth: true,
+        height: "160px",
         axisX: {
           padding: 20,
           showGrid: false

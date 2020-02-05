@@ -10,7 +10,7 @@
           <chartist
             v-if="settings && settings.theme && settings.theme.chartColors"
             type="Bar"
-            ratio="ct-major-second"
+            ratio="ct-double-octave"
             :event-handlers="eventHandlers"
             :data="chartData"
             :options="chartOptions"
@@ -36,14 +36,12 @@ import {
 import { MatIconButton } from "../../../../../shared/buttons";
 import { TitleStack } from "../../../../../shared/common";
 
-const StyledChartWrapper = styled.div``;
+const StyledChartWrapper = styled.div`
+  height: 200px;
+  max-height: 200px;
+`;
 
 const StyledWrapper = styled.div`
-  & .ct-major-second {
-    height: 200px;
-    max-height: 200px;
-  }
-
   & .ct-label {
     color: ${props => props.theme.colorChartLabel};
   }
@@ -94,6 +92,8 @@ export default {
         series: [[5], [2], [3]]
       },
       chartOptions: {
+        fullWidth: true,
+        height: "200px",
         stackBars: true,
         axisX: {
           padding: 20,

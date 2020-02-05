@@ -1,12 +1,12 @@
 <template>
   <StyledDropdownWrapper>
     <StyledButton v-on:click="handleToggleActiveDropdown($event)">
-      <StyledButtonIcon iconSize="20px">
+      <StyledButtonIcon iconSize="24px">
         apps
       </StyledButtonIcon>
-      <StyledButtonText>
+      <span>
         Apps
-      </StyledButtonText>
+      </span>
     </StyledButton>
     <DropdownMenu
       minWidth="240px"
@@ -54,8 +54,6 @@ const StyledButtonIcon = styled(MatIcon)`
   color: rgba(255, 255, 255, 0.75) !important;
 `;
 
-const StyledButtonText = styled.span``;
-
 export default {
   props: {
     buttonWidth: String,
@@ -67,7 +65,6 @@ export default {
     DropdownMenu,
     StyledDropdownWrapper,
     StyledButtonIcon,
-    StyledButtonText,
     AppList
   },
   methods: {

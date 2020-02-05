@@ -6,19 +6,19 @@
         cardSubtitle="This month impressions"
       />
     </CardHeader>
-    <CardContent>
+    <StyledCardContent>
       <styled-wrapper>
         <chartist
           v-if="settings && settings.theme && settings.theme.chartColors"
+          ratio="ct-double-octave"
           type="Line"
-          ratio="ct-major-second"
           :event-handlers="eventHandlers"
           :data="chartData"
           :options="chartOptions"
         >
         </chartist>
       </styled-wrapper>
-    </CardContent>
+    </StyledCardContent>
   </Card>
 </template>
 
@@ -32,15 +32,15 @@ import {
   CardHeader,
   CardTitle
 } from "../../../../../shared/card";
+import Vue from "vue";
 
 const StyledWrapper = styled.div`
-  & .ct-major-second {
-    height: 266px;
-    max-height: 266px;
-  }
+  max-height: 266px;
+  height: 266px;
 
   & .ct-series .ct-line {
     stroke: url(#shadowLineChartGradient);
+    stroke-linecap: round;
   }
 
   & .ct-grid {
@@ -48,22 +48,37 @@ const StyledWrapper = styled.div`
     stroke-dasharray: 0;
   }
 
-  & .ct-label.ct-vertical {
-    padding-right: 2px;
+  & .ct-point {
+    display: none;
   }
 
-  & .ct-series {
+  & .ct-label.ct-vertical {
+    padding-right: 2px;
+    color: rgba(0, 0, 0, 0.25);
+  }
+
+  & .ct-chart-line {
     filter: drop-shadow(
-      5px 5px 5px ${props => rgba(props.theme.colorAccent, 0.15)}
+      0px 35px 5px ${props => rgba(props.theme.colorAccent, 0.25)}
     );
   }
+
+  & .ct-line-marker {
+    fill: white;
+    stroke: ${props => props.theme.chartColors[0]};
+    stroke-width: 4px;
+  }
+`;
+
+const StyledCardContent = styled(CardContent)`
+  padding-bottom: 2.5rem;
 `;
 
 export default {
   components: {
     StyledWrapper,
     Card,
-    CardContent,
+    StyledCardContent,
     CardHeader,
     CardTitle
   },
@@ -78,25 +93,30 @@ export default {
         ]
       },
       chartOptions: {
+        fullWidth: true,
+        height: "266px",
         series: {
           series1: {
-            showPoint: false
+            showPoint: true
           }
         },
         fixedScaleAxis: true,
         divisor: 4,
         axisX: {
-          padding: 20,
-          showGrid: false
+          showGrid: false,
+          showLabel: false,
+          offset: 0
         },
         axisY: {
           scaleMinSpace: 45,
-          showLabels: false,
           showGrid: true,
           labelInterpolationFnc: function(value) {
             return value + "K";
           }
-        }
+        },
+        lineSmooth: Vue.chartist.Interpolation.monotoneCubic({
+          tension: 1
+        })
       }
     };
   },
@@ -120,12 +140,22 @@ export default {
         {
           event: "draw",
           fn(ctx) {
-            console.log("type", ctx.type);
+            if (ctx.type === "point") {
+              if (ctx.index === 5) {
+                console.log("ctx", ctx);
 
-            if (ctx.type === "line") {
-              ctx.element.attr({
-                x1: ctx.x1 + 0.001
-              });
+                var circle = new Vue.chartist.Svg(
+                  "circle",
+                  {
+                    cx: ctx.x,
+                    cy: ctx.y,
+                    r: 7
+                  },
+                  "ct-line-marker"
+                );
+
+                ctx.element.replace(circle);
+              }
             }
           }
         },

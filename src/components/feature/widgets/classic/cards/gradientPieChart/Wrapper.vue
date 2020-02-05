@@ -7,7 +7,7 @@
       />
       <MatIconButton>more_vert</MatIconButton>
     </CardHeader>
-    <CardContent>
+    <StyledCardContent>
       <styled-wrapper>
         <StyledChartWrapper>
           <chartist
@@ -27,7 +27,7 @@
           </StyledFooterLabel>
         </StyledFooter>
       </styled-wrapper>
-    </CardContent>
+    </StyledCardContent>
   </Card>
 </template>
 
@@ -97,6 +97,10 @@ const StyledWrapper = styled.div`
   }
 `;
 
+const StyledCardContent = styled(CardContent)`
+  padding-bottom: 2rem;
+`;
+
 const StyledFooter = styled.div`
   display: flex;
   flex-direction: column;
@@ -123,7 +127,7 @@ export default {
     StyledFooterLabel,
     StyledFooterValue,
     Card,
-    CardContent,
+    StyledCardContent,
     CardHeader,
     CardTitle,
     MatIconButton

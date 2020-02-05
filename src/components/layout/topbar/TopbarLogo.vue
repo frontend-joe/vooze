@@ -17,7 +17,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledImage = styled.img`
-  height: 19px;
+  height: 22px;
   transform-origin: left;
   transform: scale(0.85, 0.85);
   transition: transform 0.25s;

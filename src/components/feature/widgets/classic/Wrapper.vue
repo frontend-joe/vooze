@@ -7,8 +7,8 @@
         <GradientPieChart />
       </div>
       <div class="col-lg-8">
-        <!-- <ShadowLineChart2 /> -->
-        <ShadowLineChart />
+        <ShadowLineChart2 />
+        <!-- <ShadowLineChart /> -->
       </div>
       <div class="col-lg-8">
         <ShadowBarChart />
@@ -23,8 +23,8 @@
 <script>
 import styled from "vue-styled-components";
 import { PageTitle } from "../../../shared/page";
-import ShadowLineChart from "./cards/shadowLineChart/Wrapper";
-// import ShadowLineChart2 from "./cards/shadowLineChart2/Wrapper";
+// import ShadowLineChart from "./cards/shadowLineChart/Wrapper";
+import ShadowLineChart2 from "./cards/shadowLineChart2/Wrapper";
 import ShadowStackedBarChart from "./cards/shadowStackedBarChart/Wrapper";
 import GradientPieChart from "./cards/gradientPieChart/Wrapper";
 import ShadowBarChart from "./cards/shadowBarChart/Wrapper";
@@ -35,8 +35,8 @@ export default {
   components: {
     StyledWrapper,
     PageTitle,
-    ShadowLineChart,
-    // ShadowLineChart2,
+    // ShadowLineChart,
+    ShadowLineChart2,
     ShadowStackedBarChart,
     GradientPieChart,
     ShadowBarChart

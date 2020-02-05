@@ -15,7 +15,11 @@ const badgeProps = {
 const StyledWrapper = styled("div", badgeProps)`
   border-radius: 50%;
   width: 42px;
+  max-width: 42px;
+  min-width: 42px;
   height: 42px;
+  max-height: 42px;
+  min-height: 42px;
   background: ${props => props.theme[`color${props.color}`]};
   display: flex;
   align-items: center;

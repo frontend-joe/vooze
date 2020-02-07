@@ -5,10 +5,14 @@
         cardTitle="Total Reach"
         cardSubtitle="This month impressions"
       />
+      <MatIconButton>
+        refresh
+      </MatIconButton>
     </CardHeader>
     <StyledCardContent>
       <styled-wrapper>
         <chartist
+          id="test"
           v-if="settings && settings.theme && settings.theme.chartColors"
           ratio="ct-double-octave"
           type="Line"
@@ -26,6 +30,7 @@
 import { mapGetters } from "vuex";
 import { rgba } from "polished";
 import styled from "vue-styled-components";
+import { MatIconButton } from "../../../../../shared/buttons";
 import {
   Card,
   CardContent,
@@ -33,6 +38,7 @@ import {
   CardTitle
 } from "../../../../../shared/card";
 import Vue from "vue";
+import Chartist from "chartist";
 
 const StyledWrapper = styled.div`
   max-height: 266px;
@@ -75,12 +81,37 @@ const StyledCardContent = styled(CardContent)`
 `;
 
 export default {
+  props: {
+    chartTheme: Array
+  },
   components: {
     StyledWrapper,
     Card,
     StyledCardContent,
     CardHeader,
-    CardTitle
+    CardTitle,
+    MatIconButton
+  },
+  mounted() {
+    this.chartInstance = new Chartist.Line(
+      "test",
+      this.chartData,
+      this.chartOptions
+    );
+  },
+  watch: {
+    chartTheme: function(newValue, oldValue) {
+      if (JSON.stringify(newValue) !== JSON.stringify(oldValue)) {
+        // update chart
+        //const element = document.getElementById("test");
+        console.log("chartTheme updated", this.chartInstance);
+
+        // this.chartInstance.detach();
+        // this.chartInstance.update();
+        this.$forceUpdate();
+        // element.detach();
+      }
+    }
   },
   data: function() {
     return {

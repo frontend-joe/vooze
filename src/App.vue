@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <StyledWrapper id="app">
     <theme-provider v-bind:theme="settings.theme || themeDefault">
       <SettingsButton v-on:toggle-settings-open="handleSettingsButtonClicked" />
       <Settings :isOpen="settings.isOpen" />
@@ -13,12 +13,13 @@
         <router-view :theme="settings.theme || themeDefault" />
       </Content>
     </theme-provider>
-  </div>
+  </StyledWrapper>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { ThemeProvider } from "vue-styled-components";
+import styled, { injectGlobal, ThemeProvider } from "vue-styled-components";
+import VuePerfectScrollbar from "vue-perfect-scrollbar";
 import { themeDefault } from "./themes/themeDefault";
 import Topbar from "./components/layout/topbar/Topbar";
 import Sidebar from "./components/layout/sidebar/Sidebar";
@@ -30,6 +31,56 @@ require("./assets/css/bootstrap.css");
 require("./assets/css/tonicons.css");
 require("chartist/dist/chartist.min.css");
 
+const StyledWrapper = styled(VuePerfectScrollbar)`
+  height: calc(100vh - 72px);
+  margin-top: 72px;
+`;
+
+injectGlobal`
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Alata", sans-serif;
+  color: #606060;
+  background: ${props => props.theme.colorPrimary};
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+#chart .chart-legend {
+  display: none;
+}
+
+.graph-svg-tip.comparison {
+  display: none;
+}
+
+input,
+button,
+select,
+label {
+  outline: none;
+  font-family: "Alata", sans-serif;
+}
+
+::selection {
+  background: #2f2da8;
+  color: white;
+}
+`;
+
 export default {
   name: "app",
   components: {
@@ -39,7 +90,8 @@ export default {
     Content,
     Overlay,
     Settings,
-    SettingsButton
+    SettingsButton,
+    StyledWrapper
   },
   computed: mapGetters(["settings", "sidebar", "app"]),
   methods: {
@@ -92,46 +144,4 @@ export default {
 };
 </script>
 
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Alata", sans-serif;
-  color: #606060;
-}
-
-* {
-  box-sizing: border-box;
-  line-height: 1;
-}
-
-button,
-a {
-  cursor: pointer;
-}
-
-a {
-  text-decoration: none;
-}
-
-#chart .chart-legend {
-  display: none;
-}
-
-.graph-svg-tip.comparison {
-  display: none;
-}
-
-input,
-button,
-select,
-label {
-  outline: none;
-  font-family: "Alata", sans-serif;
-}
-
-::selection {
-  background: #2f2da8;
-  color: white;
-}
-</style>
+<style></style>

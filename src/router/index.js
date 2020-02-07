@@ -9,19 +9,15 @@ import Buttons from "../components/feature/components/button/Wrapper";
 import Alerts from "../components/feature/components/alert/Wrapper";
 import ChartJs from "../components/feature/charts/chartjs/Wrapper";
 import Table from "../components/feature/components/table/Wrapper";
-import ModernWidgets from "../components/feature/widgets/modern/Wrapper";
+// import ModernWidgets from "../components/feature/widgets/modern/Wrapper";
 import ClassicWidgets from "../components/feature/widgets/classic/Wrapper";
+import Chips from "../components/feature/components/chip/Wrapper";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/widgets/modern",
-    name: "modern widgets",
-    component: ModernWidgets
-  },
-  {
-    path: "/widgets/classic",
     name: "classic widgets",
     component: ClassicWidgets
   },
@@ -44,6 +40,11 @@ const routes = [
     path: "/components/alerts",
     name: "alerts",
     component: Alerts
+  },
+  {
+    path: "/components/chips",
+    name: "chips",
+    component: Chips
   },
   {
     path: "/components/table",

@@ -105,8 +105,8 @@ export default {
           blocks: [
             {
               name: "Dashboards",
-              icon: "dashboard",
-              isOpen: false,
+              icon: "speed",
+              isOpen: true,
               items: [
                 {
                   name: "CEO",
@@ -133,13 +133,8 @@ export default {
             {
               name: "Widgets",
               icon: "widgets",
-              isOpen: true,
+              isOpen: false,
               items: [
-                {
-                  name: "Classic",
-                  icon: "account_balance",
-                  url: "/widgets/classic"
-                },
                 {
                   name: "Modern",
                   icon: "waves",
@@ -190,6 +185,11 @@ export default {
                   name: "Button",
                   icon: "space_bar",
                   url: "/components/buttons"
+                },
+                {
+                  name: "Chip",
+                  icon: "remove",
+                  url: "/components/chips"
                 },
                 {
                   name: "Table",

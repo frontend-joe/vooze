@@ -12,6 +12,10 @@
         v-on:toggle-chart-theme="handleChartThemeToggled"
       />
     </StyledBlock>
+    <StyledBlock>
+      <StyledBlockHeader>Card Style</StyledBlockHeader>
+      <CardStylePicker v-on:toggle-card-style="handleCardStyleToggled" />
+    </StyledBlock>
   </styled-wrapper>
 </template>
 
@@ -19,7 +23,11 @@
 import { mapActions, mapGetters } from "vuex";
 import styled from "vue-styled-components";
 import Header from "./Header";
-import { ThemePicker, ChartThemePicker } from "../../shared/pickers";
+import {
+  ThemePicker,
+  ChartThemePicker,
+  CardStylePicker
+} from "../../shared/pickers";
 
 const componentProps = { isOpen: Boolean };
 const StyledWrapper = styled("div", componentProps)`
@@ -41,6 +49,8 @@ const StyledBlock = styled.div`
 const StyledBlockHeader = styled.div`
   padding: 0 1rem;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 3;
 `;
 
 export default {
@@ -53,7 +63,8 @@ export default {
     StyledBlockHeader,
     Header,
     ThemePicker,
-    ChartThemePicker
+    ChartThemePicker,
+    CardStylePicker
   },
   computed: mapGetters(["settings"]),
   methods: {
@@ -63,25 +74,14 @@ export default {
       this.toggleSettingsOpen(!this.settings.isOpen);
     },
     handleThemeToggled(themeId) {
-      console.log("handleThemeToggled", this.settings.chartThemeId);
-      //console.log("handleThemeToggled", themeId);
-      // this.toggleTheme({
-      //   themeId: themeId,
-      //   chartThemeId: this.settings.chartThemeId
-      // });
-
-      this.settings.themeId = themeId;
-
+      //this.settings.themeId = themeId;
       this.updateSettings({ themeId });
-
-      //this.updateSettings(this.settings);
+    },
+    handleCardStyleToggled(cardStyleId) {
+      //this.settings.themeId = themeId;
+      this.updateSettings({ cardStyleId });
     },
     handleChartThemeToggled(chartThemeId) {
-      console.log("handleThemeToggled", chartThemeId);
-      // this.toggleTheme({
-      //   themeId: this.settings.themeId,
-      //   chartThemeId: chartThemeId
-      // });
       this.updateSettings({ chartThemeId });
     }
   }

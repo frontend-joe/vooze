@@ -9,7 +9,7 @@ import { darken } from "polished";
 const StyledWrapper = styled.div`
   position: relative;
   height: 67px;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
   display: flex;
   align-items: center;

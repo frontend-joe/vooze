@@ -33,8 +33,8 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledTextbox = styled.input`
-  border-top-left-radius: 21px;
-  border-bottom-left-radius: 21px;
+  border-top-left-radius: ${props => props.theme.borderRadius};
+  border-bottom-left-radius: ${props => props.theme.borderRadius};
   border: 0;
   height: 42px;
   width: 240px;
@@ -46,11 +46,19 @@ const StyledTextbox = styled.input`
   &::placeholder {
     color: #a7a7a7;
   }
+
+  &:focus {
+    background: #f2f2f2;
+  }
+
+  &:focus::placeholder {
+    color: #808080;
+  }
 `;
 
 const StyledButton = styled.button`
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-right-radius: ${props => props.theme.borderRadius};
+  border-bottom-right-radius: ${props => props.theme.borderRadius};
   background: ${props => props.theme.colorSecondary};
   border: 0;
   font-size: 13px;

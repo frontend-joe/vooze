@@ -9,6 +9,7 @@
     :flexVertical="flexVertical"
     :color="color"
     :isDark="isDark"
+    :cardStyleId="settings.cardStyleId"
   >
     <CardSpinner v-if="showLoadingSpinner" :loading="loading" />
     <CardGlimmer v-if="isSkeleton && loading" />
@@ -20,7 +21,8 @@
 </template>
 
 <script>
-import styled from "vue-styled-components";
+import { mapGetters } from "vuex";
+import styled, { css } from "vue-styled-components";
 import CardGlimmer from "./CardGlimmer";
 import CardLabel from "./CardLabel";
 import CardSpinner from "./CardSpinner";
@@ -39,8 +41,15 @@ const cardProps = {
   loading: Boolean,
   isSkeleton: Boolean,
   showLoadingSpinner: Boolean,
-  showSkeletonCardTitle: Boolean
+  showSkeletonCardTitle: Boolean,
+  cardStyleId: String
 };
+
+const neumorphicCard = css`
+  border-radius: 10px;
+  ${"" /* background: linear-gradient(145deg, #efefef, #ffffff); */}
+  box-shadow: ${props => props.theme.boxShadowNeu};
+`;
 
 const StyledWrapper = styled("div", cardProps)`
   min-height: ${props => props.minHeight || "auto"};
@@ -50,17 +59,24 @@ const StyledWrapper = styled("div", cardProps)`
   display: ${props => (props.flexVertical ? "flex" : "block")};
   flex-direction: ${props => (props.flexVertical ? "column" : "row")};
   position: relative;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.275);
+  box-shadow: ${props => props.theme.boxShadowDefault};
   margin-bottom: 2rem;
   border-radius: ${props => props.theme.borderRadius};
   color: ${props =>
     props.primary || props.isDark ? "white" : props.theme.colorText};
 
   background: ${props => props.theme.colorCardBackground};
+
+  ${props => (props.cardStyleId === "neumorphic" ? neumorphicCard : "")};
+
+  ${"" /* background: linear-gradient(145deg, #ececec, #f7f7f7);
+  border-radius: 20px;
+  box-shadow: 10px 10px 60px #d7d7d7, -20px -20px 60px #ffffff; */}
+
   ${props => (props.primary ? `background: ${props.theme.colorPrimary}` : "")};
   ${props => (props.accent ? `background: ${props.theme.colorAccent}` : "")}
   ${props =>
-    props.color ? `background: ${props.theme[`color${props.color}`]}` : ""}
+    props.color ? `background: ${props.theme[`color${props.color}`]}` : ""};
 `;
 
 export default {
@@ -70,6 +86,7 @@ export default {
     CardLabel,
     CardGlimmer,
     CardSpinner
-  }
+  },
+  computed: mapGetters(["settings"])
 };
 </script>

@@ -50,7 +50,9 @@ export const createTheme = (
     colorTopbar: colorPrimary,
     chartColors3,
     chartColors,
-    colorSidebar
+    colorSidebar,
+    colorGradientLeft,
+    colorGradientRight
   };
 
   return newTheme;

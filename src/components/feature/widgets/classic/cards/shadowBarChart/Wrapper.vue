@@ -2,7 +2,7 @@
   <Card>
     <CardHeader>
       <CardTitle cardTitle="User Statistics" />
-      <MatIconButton>more_vert</MatIconButton>
+      <MatIconButton>refresh</MatIconButton>
     </CardHeader>
     <CardContent>
       <styled-wrapper>

@@ -5,7 +5,7 @@
         cardTitle="Current Balance"
         cardSubtitle="This billing period"
       />
-      <MatIconButton>more_vert</MatIconButton>
+      <MatIconButton isNeumorphic>more_vert</MatIconButton>
     </CardHeader>
     <StyledCardContent>
       <styled-wrapper>

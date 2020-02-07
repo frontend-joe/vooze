@@ -1,5 +1,8 @@
 <template>
-  <styled-wrapper :sidebarIsCollapsed="sidebar.isCollapsed">
+  <styled-wrapper
+    :sidebarIsCollapsed="sidebar.isCollapsed"
+    :cardStyleId="settings.cardStyleId"
+  >
     <slot />
   </styled-wrapper>
 </template>
@@ -9,14 +12,18 @@ import styled from "vue-styled-components";
 import { mapGetters } from "vuex";
 
 const wrapperProps = {
-  sidebarIsCollapsed: Boolean
+  sidebarIsCollapsed: Boolean,
+  cardStyleId: String
 };
 const StyledWrapper = styled("div", wrapperProps)`
-  padding: 72px 1.625rem;
+  padding: 0 1.625rem;
   transform: translateX(0);
 
+  background: ${props =>
+    props.cardStyleId === "neumorphic" ? "#f5f5f5" : "white"};
+
   @media (min-width: ${props => props.theme.screenWidthMd}) {
-    padding: 72px 1.625rem 0;
+    padding: 0 1.625rem 0;
     transform: ${props =>
       props.sidebarIsCollapsed ? "translateX(64px)" : "translateX(200px)"};
     width: ${props =>
@@ -28,6 +35,6 @@ export default {
   components: {
     StyledWrapper
   },
-  computed: mapGetters(["sidebar"])
+  computed: mapGetters(["sidebar", "settings"])
 };
 </script>

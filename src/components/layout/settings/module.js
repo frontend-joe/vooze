@@ -10,8 +10,9 @@ const state = {
   settings: {
     themeId: "vuezy",
     chartThemeId: "default",
+    cardStyleId: "neumorphic",
     theme: themeDefault,
-    isOpen: false
+    isOpen: true
   }
 };
 

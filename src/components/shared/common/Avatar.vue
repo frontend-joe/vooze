@@ -1,19 +1,27 @@
 <template>
-  <StyledImage :src="imageSrc" :size="size"> </StyledImage>
+  <StyledImage :src="imageSrc" :size="size" :hasShadow="hasShadow">
+  </StyledImage>
 </template>
 
 <script>
 import styled from "vue-styled-components";
+import { rgba } from "polished";
 
 const avatarProps = {
   size: String,
-  name: String
+  name: String,
+  hasShadow: Boolean
 };
 
 const StyledImage = styled("img", avatarProps)`
   width: ${props => props.size || "40px"};
   height: ${props => props.size || "40px"};
   border-radius: 50%;
+
+  ${props =>
+    props.isShadow
+      ? `box-shadow: 0 6px 20px 0 ${rgba(props.theme.colorAccent, 0.5)}`
+      : ""};
 `;
 
 export default {

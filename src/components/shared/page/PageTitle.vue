@@ -14,7 +14,7 @@ export default {};
   height: 80px;
   display: flex;
   font-size: 17px;
-  font-weight: bold;
+  font-weight: normal;
   align-items: center;
 }
 </style>

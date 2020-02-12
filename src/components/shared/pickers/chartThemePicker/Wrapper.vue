@@ -38,10 +38,9 @@ const StyledBlock = styled("button", theProps)`
   align-items: flex-end;
   margin: 0;
   margin-right: 1.25rem;
-  margin-bottom: 1rem;
   background: transparent;
   border: 0;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0;
 `;
 
 const theProps = { color: String, index: Number };

@@ -4,18 +4,19 @@
 
 <script>
 import styled from "vue-styled-components";
-import { darken } from "polished";
+//import { darken } from "polished";
 
 const StyledWrapper = styled.div`
   position: relative;
-  height: 67px;
+  height: 56px;
   font-weight: normal;
   font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #efefef;
   margin-bottom: 2rem;
+  ${"" /* border-bottom: 1px solid #efefef;
+
 
   &::before {
     content: "";
@@ -29,7 +30,7 @@ const StyledWrapper = styled.div`
     border: 2px solid ${props => darken(0.075, props.theme.colorAccentFaint)}
     border-radius: 50%;
     transform: translate(-2px, 50%);
-  }
+  } */}
 `;
 
 export default {

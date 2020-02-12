@@ -1,6 +1,6 @@
 <template>
   <styled-wrapper>
-    <PageTitle>Designer</PageTitle>
+    <PageTitle section="Dashboards">Designer</PageTitle>
 
     <div class="row">
       <div class="col-lg-6">

@@ -1,6 +1,6 @@
 <template>
   <div v-if="manager">
-    <page-title>Manager</page-title>
+    <page-title section="Dashboards">Manager</page-title>
 
     <div class="row">
       <div class="col-lg-6">

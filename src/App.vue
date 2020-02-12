@@ -12,6 +12,7 @@
       <Content>
         <router-view :theme="settings.theme || themeDefault" />
       </Content>
+      <!-- <Rightbar /> -->
     </theme-provider>
   </StyledWrapper>
 </template>
@@ -24,6 +25,7 @@ import { themeDefault } from "./themes/themeDefault";
 import Topbar from "./components/layout/topbar/Topbar";
 import Sidebar from "./components/layout/sidebar/Sidebar";
 import Content from "./components/layout/content/Content";
+// import Rightbar from "./components/layout/rightbar/Rightbar";
 import Settings from "./components/layout/settings/Wrapper";
 import SettingsButton from "./components/layout/settingsButton/Wrapper";
 import { Overlay } from "./components/shared/common";
@@ -67,6 +69,10 @@ a {
   display: none;
 }
 
+.ps__rail-y {
+  z-index: 10000 !important;
+}
+
 input,
 button,
 select,
@@ -87,6 +93,7 @@ export default {
     ThemeProvider,
     Topbar,
     Sidebar,
+    // Rightbar,
     Content,
     Overlay,
     Settings,

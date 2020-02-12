@@ -1,5 +1,5 @@
 <template>
-  <Card v-if="options" padding="0" fixedHeight="300px" overflowHidden>
+  <StyledCard v-if="options" padding="0" overflowHidden>
     <CardHeader floating>
       <CardTitle cardTitle="Revenue" cardSubtitle="This year" />
       <Legend />
@@ -7,13 +7,13 @@
     <styled-wrapper>
       <apexchart
         width="100%"
-        height="300px"
+        height="100%"
         type="area"
         :options="options"
         :series="series"
       ></apexchart>
     </styled-wrapper>
-  </Card>
+  </StyledCard>
 </template>
 
 <script>
@@ -27,11 +27,24 @@ import Legend from "./Legend";
 
 const StyledWrapper = styled.div`
   position: relative;
+  height: 300px;
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    height: 400px;
+  }
+`;
+
+const StyledCard = styled(Card)`
+  height: 300px;
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    height: 400px;
+  }
 `;
 
 export default {
   components: {
-    Card,
+    StyledCard,
     CardHeader,
     CardTitle,
     StyledWrapper,

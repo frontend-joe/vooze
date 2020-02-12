@@ -1,6 +1,6 @@
 <template>
   <styled-wrapper>
-    <PageTitle>
+    <PageTitle section="Dashboards">
       Developer
     </PageTitle>
     <TopShelf :loading="developer.loading" :data="developer.topShelf" />

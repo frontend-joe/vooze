@@ -109,7 +109,7 @@ export default {
               isOpen: true,
               items: [
                 {
-                  name: "CEO",
+                  name: "Director",
                   icon: "meeting_room",
                   url: "/"
                 },

@@ -38,8 +38,12 @@ const StyledTotalBlock = styled.div`
 `;
 
 const StyledTotalBlock__value = styled.div`
-  font-weight: bold;
+  font-weight: normal;
   font-size: 25px;
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    font-size: 32px;
+  }
 `;
 
 const StyledTotalBlock__label = styled.div`
@@ -47,6 +51,10 @@ const StyledTotalBlock__label = styled.div`
   font-size: 13px;
   font-weight: 400;
   margin-bottom: 0.325rem;
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    font-size: 14px;
+  }
 `;
 
 const StyledLegendList = styled.div`

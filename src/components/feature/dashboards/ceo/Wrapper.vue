@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-title>CEO</page-title>
+    <page-title section="Dashboards">Director</page-title>
     <top-shelf :loading="ceo.loading" />
     <!-- <ContentHeader>
       Finance & People

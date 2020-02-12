@@ -1,7 +1,7 @@
 <template>
   <StyledWrapper>
     <Skeleton v-if="loading" />
-    <card v-if="!loading" padding="0" fixedHeight="100px">
+    <StyledCard v-if="!loading" padding="0">
       <StyledCardContent>
         <StyledTopRow>
           <TopShelfCardValueBlock :card="card" />
@@ -11,7 +11,7 @@
         </StyledTopRow>
         <TopShelfCardPowerbar :card="card" />
       </StyledCardContent>
-    </card>
+    </StyledCard>
   </StyledWrapper>
 </template>
 
@@ -29,6 +29,15 @@ const StyledCardContent = styled.div`
   padding: 1rem;
 `;
 
+const StyledCard = styled(Card)`
+  height: 100px;
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    height: auto;
+    padding-bottom: 0.75rem;
+  }
+`;
+
 const StyledTopRow = styled.div`
   display: flex;
   align-items: center;
@@ -44,7 +53,7 @@ export default {
   components: {
     Skeleton,
     StyledWrapper,
-    Card,
+    StyledCard,
     StyledCardContent,
     TopShelfCardValueBlock,
     TopShelfCardPowerbar,

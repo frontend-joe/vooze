@@ -1,5 +1,8 @@
 <template>
-  <styled-wrapper :isOpen="isOpen">
+  <styled-wrapper
+    :isOpen="isOpen"
+    :isNeumorphic="settings.cardStyleId === 'neumorphic'"
+  >
     <Header />
     <StyledBlock>
       <StyledBlockHeader>Colors</StyledBlockHeader>
@@ -29,7 +32,7 @@ import {
   CardStylePicker
 } from "../../shared/pickers";
 
-const componentProps = { isOpen: Boolean };
+const componentProps = { isOpen: Boolean, isNeumorphic: Boolean };
 const StyledWrapper = styled("div", componentProps)`
   position: fixed;
   top: 0;
@@ -37,9 +40,25 @@ const StyledWrapper = styled("div", componentProps)`
   z-index: 15;
   width: 260px;
   height: 100%;
-  background: white;
   transform: translateX(${props => (props.isOpen ? "0" : "260px")});
   transition: transform 0.25s;
+
+  background: ${props =>
+    props.isNeumorphic
+      ? props.theme.colorCardBackgroundNeu
+      : props.theme.colorCardBackground};
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    transform: translateX(0);
+    top: 72px;
+    width: 340px;
+    z-index: 10;
+
+    box-shadow: ${props =>
+      props.isNeumorphic
+        ? props.theme.boxShadowNeu
+        : props.theme.boxShadowDefault};
+  }
 `;
 
 const StyledBlock = styled.div`

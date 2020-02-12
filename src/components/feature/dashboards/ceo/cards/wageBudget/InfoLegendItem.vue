@@ -38,12 +38,22 @@ const StyledText = styled.div`
   font-size: 13px;
   margin-left: 0.5rem;
   color: rgba(255, 255, 255, 0.57);
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    width: 50%;
+    font-size: 14px;
+  }
 `;
 
 const StyledValue = styled.div`
   text-align: right;
   font-size: 13px;
   flex: 1;
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    text-align: left;
+    font-size: 14px;
+  }
 `;
 
 export default {

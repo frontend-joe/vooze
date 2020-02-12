@@ -1,6 +1,6 @@
 <template>
   <StyledWrapper>
-    <PageTitle>Classic</PageTitle>
+    <PageTitle section="Widgets">Modern</PageTitle>
 
     <div class="row">
       <div class="col-lg-4">

@@ -12,7 +12,7 @@ const StyledWrapper = styled.th`
   font-size: 13px;
   font-weight: normal;
   padding: 1.25rem 1rem;
-  background: #f0f3f7;
+  background: rgba(0, 0, 0, 0.05);
   color: ${props => props.theme.colorSubtitle};
 `;
 

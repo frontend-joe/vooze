@@ -14,16 +14,21 @@ import { MatIconButton } from "../../shared/buttons";
 
 const StyledWrapper = styled.div`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: normal;
   height: 72px;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  margin: 0 1rem 1.5rem;
   border-bottom: 1px solid ${props => props.theme.colorBorder};
-  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    & button {
+      display: none;
+    }
+  }
 `;
 
 export default {

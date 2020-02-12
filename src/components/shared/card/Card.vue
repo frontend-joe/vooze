@@ -47,7 +47,8 @@ const cardProps = {
 
 const neumorphicCard = css`
   border-radius: 10px;
-  ${"" /* background: linear-gradient(145deg, #efefef, #ffffff); */}
+  background: ${props => props.theme.colorCardBackgroundNeu};
+  ${"" /* background: linear-gradient(135deg, #efefef, #ffffff); */}
   box-shadow: ${props => props.theme.boxShadowNeu};
 `;
 

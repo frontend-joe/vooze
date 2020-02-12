@@ -12,7 +12,7 @@ const state = {
     chartThemeId: "default",
     cardStyleId: "neumorphic",
     theme: themeDefault,
-    isOpen: true
+    isOpen: false
   }
 };
 

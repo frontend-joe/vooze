@@ -1,12 +1,5 @@
 <template>
-  <card
-    primary
-    isDark
-    fixedHeight="300px"
-    padding="0 0 20px"
-    overflowHidden
-    flexVertical
-  >
+  <StyledCard primary isDark padding="0 0 20px" overflowHidden flexVertical>
     <CardHeader>
       <CardTitle forDark cardTitle="Wage Budget" cardSubtitle="Total used" />
       <StyledCardTitleLink>More Options</StyledCardTitleLink>
@@ -19,7 +12,7 @@
         <InfoLegend />
       </StyledCardContentRight>
     </StyledCardContent>
-  </card>
+  </StyledCard>
 </template>
 
 <script>
@@ -31,6 +24,15 @@ import InfoLegend from "./InfoLegend";
 const StyledCardTitleLink = styled.a`
   font-size: 13px;
   color: rgba(255, 255, 255, 0.75);
+`;
+
+const StyledCard = styled(Card)`
+  height: 300px;
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    height: 400px;
+    padding-bottom: 2rem;
+  }
 `;
 
 const StyledCardContent = styled.div`
@@ -47,6 +49,10 @@ const StyledCardContentLeft = styled.div`
   max-width: 220px;
   position: relative;
   padding-right: 1rem;
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    max-width: 320px;
+  }
 `;
 
 const StyledCardContentRight = styled.div`
@@ -57,7 +63,7 @@ const StyledCardContentRight = styled.div`
 
 export default {
   components: {
-    Card,
+    StyledCard,
     CardHeader,
     CardTitle,
     StyledCardTitleLink,

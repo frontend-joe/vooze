@@ -20,7 +20,7 @@ const StyledWrapper = styled("div", wrapperProps)`
   transform: translateX(0);
 
   background: ${props =>
-    props.cardStyleId === "neumorphic" ? "#f5f5f5" : "white"};
+    props.cardStyleId === "neumorphic" ? "#f3f3f3" : "white"};
 
   @media (min-width: ${props => props.theme.screenWidthMd}) {
     padding: 0 1.625rem 0;
@@ -28,6 +28,13 @@ const StyledWrapper = styled("div", wrapperProps)`
       props.sidebarIsCollapsed ? "translateX(64px)" : "translateX(200px)"};
     width: ${props =>
       props.sidebarIsCollapsed ? "calc(100% - 64px)" : "calc(100% - 200px)"};
+  }
+
+  @media (min-width: ${props => props.theme.screenWidthXl}) {
+    width: ${props =>
+      props.sidebarIsCollapsed
+        ? "calc(100% - 64px - 340px)"
+        : "calc(100% - 200px - 340px)"};
   }
 `;
 

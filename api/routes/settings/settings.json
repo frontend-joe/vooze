@@ -1,4 +1,5 @@
 {
   "themeId": "vuezy",
-  "chartThemeId": "theme"
+  "chartThemeId": "theme",
+  "chartStyleId": "default"
 }

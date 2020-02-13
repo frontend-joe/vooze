@@ -6,7 +6,6 @@
       </CardHeader>
       <ApexComposedChart
         width="100%"
-        height="200px"
         type="line"
         :series="series"
         :categories="categories"

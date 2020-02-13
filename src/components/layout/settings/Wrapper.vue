@@ -3,19 +3,23 @@
     :isOpen="isOpen"
     :isNeumorphic="settings.cardStyleId === 'neumorphic'"
   >
-    <Header />
+    <Header v-on:close-button-clicked="toggleSettingsOpen(false)" />
     <StyledBlock>
-      <StyledBlockHeader>Colors</StyledBlockHeader>
-      <ThemePicker v-on:toggle-theme="handleThemeToggled" />
+      <StyledBlockHeader>Theme</StyledBlockHeader>
+      <ThemeModePicker v-on:toggle-theme-mode="handleThemeModeToggled" />
     </StyledBlock>
-    <StyledBlock>
+    <StyledBlock v-if="settings.themeModeId !== 'dark'">
+      <StyledBlockHeader>Colors</StyledBlockHeader>
+      <ColorPicker v-on:toggle-theme="handleThemeToggled" />
+    </StyledBlock>
+    <StyledBlock v-if="settings.themeModeId !== 'dark'">
       <StyledBlockHeader>Chart Colors</StyledBlockHeader>
       <ChartThemePicker
         :chartColors="settings.theme.chartColors3"
         v-on:toggle-chart-theme="handleChartThemeToggled"
       />
     </StyledBlock>
-    <StyledBlock>
+    <StyledBlock v-if="settings.themeModeId !== 'dark'">
       <StyledBlockHeader>Card Style</StyledBlockHeader>
       <CardStylePicker v-on:toggle-card-style="handleCardStyleToggled" />
     </StyledBlock>
@@ -27,9 +31,10 @@ import { mapActions, mapGetters } from "vuex";
 import styled from "vue-styled-components";
 import Header from "./Header";
 import {
-  ThemePicker,
+  ColorPicker,
   ChartThemePicker,
-  CardStylePicker
+  CardStylePicker,
+  ThemeModePicker
 } from "../../shared/pickers";
 
 const componentProps = { isOpen: Boolean, isNeumorphic: Boolean };
@@ -48,7 +53,7 @@ const StyledWrapper = styled("div", componentProps)`
       ? props.theme.colorCardBackgroundNeu
       : props.theme.colorCardBackground};
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     transform: translateX(0);
     top: 72px;
     width: 340px;
@@ -81,24 +86,31 @@ export default {
     StyledBlock,
     StyledBlockHeader,
     Header,
-    ThemePicker,
+    ColorPicker,
     ChartThemePicker,
-    CardStylePicker
+    CardStylePicker,
+    ThemeModePicker
   },
   computed: mapGetters(["settings"]),
   methods: {
-    ...mapActions(["toggleTheme", "toggleChartTheme", "updateSettings"]),
+    ...mapActions([
+      "toggleTheme",
+      "toggleChartTheme",
+      "updateSettings",
+      "toggleSettingsOpen"
+    ]),
     handleSettingsButtonClicked() {
-      //console.log("handleSettingsButtonClicked", this.settings.isOpen);
       this.toggleSettingsOpen(!this.settings.isOpen);
     },
     handleThemeToggled(themeId) {
-      //this.settings.themeId = themeId;
       this.updateSettings({ themeId });
     },
     handleCardStyleToggled(cardStyleId) {
-      //this.settings.themeId = themeId;
       this.updateSettings({ cardStyleId });
+    },
+    handleThemeModeToggled(themeModeId) {
+      console.log("handleThemeModeToggled");
+      this.updateSettings({ themeModeId });
     },
     handleChartThemeToggled(chartThemeId) {
       this.updateSettings({ chartThemeId });

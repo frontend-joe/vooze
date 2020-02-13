@@ -20,8 +20,8 @@ const buttonDefaults = css`
   position: relative;
   background: transparent;
   border: 0;
-  height: 60px;
-  min-width: 90px;
+  height: 40px;
+  min-width: 60px;
   margin-right: 1rem;
   font-size: 0.75rem;
   border-radius: ${props => props.theme.borderRadius};

@@ -27,7 +27,7 @@ const StyledValue = styled.div`
   font-size: 22px;
   font-weight: bold;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     font-size: 32px;
   }
 `;

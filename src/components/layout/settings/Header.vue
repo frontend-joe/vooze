@@ -1,8 +1,7 @@
 <template>
   <styled-wrapper>
     Settings
-
-    <MatIconButton>
+    <MatIconButton @click="$emit('close-button-clicked')">
       close
     </MatIconButton>
   </styled-wrapper>
@@ -24,7 +23,7 @@ const StyledWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     & button {
       display: none;
     }

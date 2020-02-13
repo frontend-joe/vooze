@@ -29,7 +29,7 @@ const StyledCardTitleLink = styled.a`
 const StyledCard = styled(Card)`
   height: 300px;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     height: 400px;
     padding-bottom: 2rem;
   }
@@ -50,7 +50,7 @@ const StyledCardContentLeft = styled.div`
   position: relative;
   padding-right: 1rem;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     max-width: 320px;
   }
 `;

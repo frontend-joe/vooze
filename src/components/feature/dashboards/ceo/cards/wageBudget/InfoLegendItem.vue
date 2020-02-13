@@ -39,7 +39,7 @@ const StyledText = styled.div`
   margin-left: 0.5rem;
   color: rgba(255, 255, 255, 0.57);
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     width: 50%;
     font-size: 14px;
   }
@@ -50,7 +50,7 @@ const StyledValue = styled.div`
   font-size: 13px;
   flex: 1;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     text-align: left;
     font-size: 14px;
   }

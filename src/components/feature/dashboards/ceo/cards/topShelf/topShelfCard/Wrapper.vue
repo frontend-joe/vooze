@@ -32,9 +32,8 @@ const StyledCardContent = styled.div`
 const StyledCard = styled(Card)`
   height: 100px;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
-    height: auto;
-    padding-bottom: 0.75rem;
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
+    height: 124px;
   }
 `;
 

@@ -41,7 +41,7 @@ const StyledTotalBlock__value = styled.div`
   font-weight: normal;
   font-size: 25px;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     font-size: 32px;
   }
 `;
@@ -52,7 +52,7 @@ const StyledTotalBlock__label = styled.div`
   font-weight: 400;
   margin-bottom: 0.325rem;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     font-size: 14px;
   }
 `;

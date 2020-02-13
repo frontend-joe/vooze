@@ -4,15 +4,17 @@ import { themePink } from "../../../themes/themePink";
 import { themeRed } from "../../../themes/themeRed";
 import { themeBlue } from "../../../themes/themeBlue";
 import { themeOrange } from "../../../themes/themeOrange";
+import { themeDark } from "../../../themes/themeDark";
 import { createTheme } from "./functions";
 
 const state = {
   settings: {
     themeId: "vuezy",
     chartThemeId: "default",
-    cardStyleId: "neumorphic",
+    cardStyleId: "default",
+    themeModeId: "semidark",
     theme: themeDefault,
-    isOpen: false
+    isOpen: true
   }
 };
 
@@ -23,7 +25,6 @@ const getters = {
 const actions = {
   loadSettings({ commit, dispatch }) {
     axios.get("/api/settings").then(res => {
-      console.log("loadSettings", res);
       commit("setSettings", res.data);
       dispatch("toggleTheme", {
         themeId: res.data.data.themeId,
@@ -33,25 +34,22 @@ const actions = {
   },
   updateSettings({ commit, dispatch }, params) {
     axios.put("/api/settings", params).then(res => {
-      console.log("updateSettings", res.data);
       commit("setSettings", res.data);
       dispatch("toggleTheme", {
+        themeModeId: res.data.themeModeId,
         themeId: res.data.themeId,
         chartThemeId: res.data.chartThemeId
       });
     });
   },
   async toggleSettingsOpen({ commit }, isOpen) {
-    //console.log("toggleSettingsOpen", isOpen);
     commit("setSettingsOpen", isOpen);
   },
   async toggleChartTheme({ commit }, chartThemeId) {
     commit("setSettingsChartTheme", chartThemeId);
   },
   async toggleTheme({ commit }, params) {
-    const { themeId, chartThemeId } = params;
-
-    console.log("toggleTheme", themeId, chartThemeId);
+    let { themeId, chartThemeId, themeModeId } = params;
 
     let baseTheme = themeDefault;
     let colorAccent = themeDefault.colorAccent;
@@ -63,47 +61,67 @@ const actions = {
     let colorGradientLeft = colorSecondary;
     let colorGradientRight = "#00d677";
     let colorSidebar = themeDefault.colorSidebar;
+    let colorTopbar;
+    let colorBackground;
+    let colorCardBackground;
 
-    if (themeId === "pink") {
-      colorPrimary = themePink.colorPrimary;
-      colorPrimaryFaint = themePink.colorPrimaryFaint;
-      colorSecondary = themePink.colorSecondary;
-      colorSecondaryFaint = themePink.colorSecondaryFaint;
-      colorAccent = themePink.colorAccent;
-      colorAccentFaint = themePink.colorAccentFaint;
-      colorGradientLeft = colorPrimary;
-      colorGradientRight = colorSecondary;
-      colorSidebar = themePink.colorSidebar;
-    } else if (themeId === "red") {
-      colorPrimary = themeRed.colorPrimary;
-      colorSecondary = themeRed.colorSecondary;
-      colorPrimaryFaint = themeRed.colorPrimaryFaint;
-      colorSecondaryFaint = themeRed.colorSecondaryFaint;
-      colorAccent = themeRed.colorAccent;
-      colorAccentFaint = themeRed.colorAccentFaint;
-      colorGradientLeft = colorPrimary;
-      colorGradientRight = colorSecondary;
-      colorSidebar = themeRed.colorSidebar;
-    } else if (themeId === "blue") {
-      colorPrimary = themeBlue.colorPrimary;
-      colorSecondary = themeBlue.colorSecondary;
-      colorPrimaryFaint = themeBlue.colorPrimaryFaint;
-      colorSecondaryFaint = themeBlue.colorSecondaryFaint;
-      colorAccent = themeBlue.colorAccent;
-      colorAccentFaint = themeBlue.colorAccentFaint;
-      colorGradientLeft = colorPrimary;
-      colorGradientRight = colorSecondary;
-      colorSidebar = themeBlue.colorSidebar;
-    } else if (themeId === "orange") {
-      colorPrimary = themeOrange.colorPrimary;
-      colorSecondary = themeOrange.colorSecondary;
-      colorPrimaryFaint = themeOrange.colorPrimaryFaint;
-      colorSecondaryFaint = themeOrange.colorSecondaryFaint;
-      colorAccent = themeOrange.colorAccent;
-      colorAccentFaint = themeOrange.colorAccentFaint;
-      colorGradientLeft = colorPrimary;
-      colorGradientRight = colorSecondary;
-      colorSidebar = themeOrange.colorSidebar;
+    if (themeModeId === "dark") {
+      colorPrimary = themeDark.colorPrimary;
+      colorPrimaryFaint = themeDark.colorPrimaryFaint;
+      colorSecondary = themeDark.colorSecondary;
+      colorSecondaryFaint = themeDark.colorSecondaryFaint;
+      colorSidebar = themeDark.colorSidebar;
+      colorTopbar = themeDark.colorTopbar;
+      colorAccent = themeDark.colorAccent;
+      colorBackground = themeDark.colorBackground;
+      colorCardBackground = themeDark.colorCardBackground;
+
+      chartThemeId = "default";
+      const cardStyleId = "default";
+
+      commit("setSettings", { cardStyleId });
+    } else {
+      if (themeId === "pink") {
+        colorPrimary = themePink.colorPrimary;
+        colorPrimaryFaint = themePink.colorPrimaryFaint;
+        colorSecondary = themePink.colorSecondary;
+        colorSecondaryFaint = themePink.colorSecondaryFaint;
+        colorAccent = themePink.colorAccent;
+        colorAccentFaint = themePink.colorAccentFaint;
+        colorGradientLeft = colorPrimary;
+        colorGradientRight = colorSecondary;
+        colorSidebar = themePink.colorSidebar;
+      } else if (themeId === "red") {
+        colorPrimary = themeRed.colorPrimary;
+        colorSecondary = themeRed.colorSecondary;
+        colorPrimaryFaint = themeRed.colorPrimaryFaint;
+        colorSecondaryFaint = themeRed.colorSecondaryFaint;
+        colorAccent = themeRed.colorAccent;
+        colorAccentFaint = themeRed.colorAccentFaint;
+        colorGradientLeft = colorPrimary;
+        colorGradientRight = colorSecondary;
+        colorSidebar = themeRed.colorSidebar;
+      } else if (themeId === "blue") {
+        colorPrimary = themeBlue.colorPrimary;
+        colorSecondary = themeBlue.colorSecondary;
+        colorPrimaryFaint = themeBlue.colorPrimaryFaint;
+        colorSecondaryFaint = themeBlue.colorSecondaryFaint;
+        colorAccent = themeBlue.colorAccent;
+        colorAccentFaint = themeBlue.colorAccentFaint;
+        colorGradientLeft = colorPrimary;
+        colorGradientRight = colorSecondary;
+        colorSidebar = themeBlue.colorSidebar;
+      } else if (themeId === "orange") {
+        colorPrimary = themeOrange.colorPrimary;
+        colorSecondary = themeOrange.colorSecondary;
+        colorPrimaryFaint = themeOrange.colorPrimaryFaint;
+        colorSecondaryFaint = themeOrange.colorSecondaryFaint;
+        colorAccent = themeOrange.colorAccent;
+        colorAccentFaint = themeOrange.colorAccentFaint;
+        colorGradientLeft = colorPrimary;
+        colorGradientRight = colorSecondary;
+        colorSidebar = themeOrange.colorSidebar;
+      }
     }
 
     const chartColors3 = [
@@ -137,7 +155,10 @@ const actions = {
       colorGradientRight,
       chartColors3,
       chartColors,
-      colorSidebar
+      colorSidebar,
+      colorTopbar,
+      colorBackground,
+      colorCardBackground
     );
 
     commit("setSettingsTheme", createdTheme);
@@ -148,13 +169,11 @@ const actions = {
 const mutations = {
   setSettings: (state, settings) => {
     state.settings = Object.assign(state.settings, settings);
-    console.log("setSettings", state.settings);
   },
   setSettingsOpen: (state, isOpen) =>
     (state.settings = { ...state.settings, isOpen }),
   setSettingsTheme: (state, theme) => {
     state.settings = { ...state.settings, theme };
-    console.log("setSettingsTheme", state.settings);
   },
   setSettingsChartTheme: (state, chartThemeId) =>
     (state.settings = { ...state.settings, chartThemeId })

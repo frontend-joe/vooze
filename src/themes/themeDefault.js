@@ -42,6 +42,7 @@ export const themeDefault = {
   screenWidthMd: "992px",
   screenWidthLg: "1200px",
   screenWidthXl: "1440px",
+  screenWidthXxl: "1600px",
   boxShadowDefault: "0 0 6px 0 rgba(0, 0, 0, 0.275)",
   boxShadowNeu: "8px 8px 10px #e0e0e0, -2px -2px 15px #ffffff",
   chartColors1,

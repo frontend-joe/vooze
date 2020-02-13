@@ -29,7 +29,7 @@ const StyledWrapper = styled.div`
   position: relative;
   height: 300px;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     height: 400px;
   }
 `;
@@ -37,7 +37,7 @@ const StyledWrapper = styled.div`
 const StyledCard = styled(Card)`
   height: 300px;
 
-  @media (min-width: ${props => props.theme.screenWidthXl}) {
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
     height: 400px;
   }
 `;

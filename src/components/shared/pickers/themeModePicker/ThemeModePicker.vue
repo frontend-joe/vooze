@@ -17,7 +17,7 @@
       <StyledScreen>
         <StyledScreenTopbar :style="{ background: item.topbarColor }" />
         <StyledContentRow>
-          <StyledScreenSidebar :style="{ background: item.sidebarColor }" />
+          <StyledScreenSidebar :color="item.sidebarColor" />
           <StyledScreenContent :style="{ background: item.contentColor }" />
         </StyledContentRow>
       </StyledScreen>
@@ -70,14 +70,18 @@ const StyledContentRow = styled.div`
   flex: 1;
 `;
 
-const StyledScreenTopbar = styled.div`
+const topbarProps = { color: String };
+const StyledScreenTopbar = styled("div", topbarProps)`
   width: 100%;
   height: 10px;
+  background: ${props => props.theme[`color${props.color}`]};
   border-bottom: 1px solid ${props => props.theme.colorBorder};
 `;
 
-const StyledScreenSidebar = styled.div`
+const sidebarProps = { color: String };
+const StyledScreenSidebar = styled("div", sidebarProps)`
   flex: 1;
+  background: ${props => props.theme[`color${props.color}`]};
   border-right: 1px solid ${props => props.theme.colorBorder};
 `;
 
@@ -102,24 +106,24 @@ export default {
           disabled: false,
           id: "light",
           label: "Light",
-          topbarColor: "#f7f7f7",
-          sidebarColor: "white",
+          topbarColor: "White",
+          sidebarColor: "White",
           contentColor: "white"
         },
         {
           disabled: false,
           id: "dark",
           label: "Dark",
-          topbarColor: "#1a1323",
-          sidebarColor: "#1a1323",
+          topbarColor: "Black",
+          sidebarColor: "Black",
           contentColor: "#1a1323"
         },
         {
           disabled: false,
           id: "semidark",
           label: "Semi Dark",
-          topbarColor: "#6228ea",
-          sidebarColor: "#1a1323",
+          topbarColor: "Primary",
+          sidebarColor: "SidebarDefault",
           contentColor: "white"
         }
       ]

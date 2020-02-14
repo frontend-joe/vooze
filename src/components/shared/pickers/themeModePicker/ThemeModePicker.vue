@@ -15,7 +15,7 @@
         check
       </StyledBadgeIcon>
       <StyledScreen>
-        <StyledScreenTopbar :style="{ background: item.topbarColor }" />
+        <StyledScreenTopbar :color="item.topbarColor" />
         <StyledContentRow>
           <StyledScreenSidebar :color="item.sidebarColor" />
           <StyledScreenContent :style="{ background: item.contentColor }" />

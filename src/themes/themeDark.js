@@ -7,7 +7,7 @@ const colorSecondaryFaint = rgba(colorSecondary, 0.1);
 const colorAccent = colorPrimary;
 const colorSidebar = "#131313";
 const colorTopbar = "#131313";
-const colorBackground = "#0e0e0e";
+const colorBackground = "#1b1b1b";
 const colorCardBackground = "#131212";
 const colorProgressBackground = rgba("white", 0.15);
 const colorText = rgba("white", 0.81);
@@ -18,6 +18,8 @@ const colorSkeleton = rgba("white", 0.05);
 const colorSkeletonGlimmer = "transparent";
 const colorRowAlternate = rgba("black", 0.3);
 const colorTableHeader = rgba("black", 0.3);
+const colorSpinnerGrey = rgba("white", 0.075);
+const colorIconHover = "white";
 
 export const themeDark = {
   colorPrimary,
@@ -37,5 +39,7 @@ export const themeDark = {
   colorSkeleton,
   colorSkeletonGlimmer,
   colorRowAlternate,
-  colorTableHeader
+  colorTableHeader,
+  colorSpinnerGrey,
+  colorIconHover
 };

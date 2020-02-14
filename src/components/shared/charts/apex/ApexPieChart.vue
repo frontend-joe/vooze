@@ -65,6 +65,10 @@ export default {
             }
           }
         },
+        stroke: {
+          show: false,
+          width: 0
+        },
         legend: {
           show: false
         },

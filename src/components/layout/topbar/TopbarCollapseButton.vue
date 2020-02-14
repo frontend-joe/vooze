@@ -1,7 +1,7 @@
 <template>
   <styled-wrapper>
     <MatIconButton
-      forDark
+      :forDark="settings.themeModeId !== 'light'"
       iconSize="28px"
       @click="toggleSidebarCollapsed(!sidebar.isCollapsed)"
       height="72px"
@@ -25,7 +25,7 @@ export default {
   methods: {
     ...mapActions(["toggleSidebarCollapsed"])
   },
-  computed: mapGetters(["sidebar"]),
+  computed: mapGetters(["sidebar", "settings"]),
   components: {
     StyledWrapper,
     MatIconButton

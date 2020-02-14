@@ -1,7 +1,7 @@
 <template>
   <styled-wrapper>
     <MatIconButton
-      forDark
+      :forDark="settings.themeModeId !== 'light'"
       color="red"
       iconSize="22px"
       @click="toggleSidebarOpen(true)"
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import styled from "vue-styled-components";
 import { MatIconButton } from "../../shared/buttons";
 
@@ -25,6 +25,7 @@ export default {
   methods: {
     ...mapActions(["toggleSidebarOpen"])
   },
+  computed: mapGetters(["settings"]),
   components: {
     StyledWrapper,
     MatIconButton

@@ -2,15 +2,33 @@
   <StyledWrapper>
     <StyledDefaultButton @click="$emit('toggle-card-style', 'default')">
       Default
+      <StyledBadgeIcon
+        badgeSize="16px"
+        iconSize="12px"
+        color="Green"
+        v-if="activeItem === 'default'"
+      >
+        check
+      </StyledBadgeIcon>
     </StyledDefaultButton>
     <StyledNeuButton @click="$emit('toggle-card-style', 'neumorphic')">
       Neumorphic
+
+      <StyledBadgeIcon
+        badgeSize="16px"
+        iconSize="12px"
+        color="Green"
+        v-if="activeItem === 'neumorphic'"
+      >
+        check
+      </StyledBadgeIcon>
     </StyledNeuButton>
   </StyledWrapper>
 </template>
 
 <script>
 import styled, { css } from "vue-styled-components";
+import { BadgeIcon } from "../../icons";
 
 const StyledWrapper = styled.div`
   padding: 0.5rem 1rem;
@@ -36,15 +54,24 @@ const StyledDefaultButton = styled.button`
 const StyledNeuButton = styled.button`
   z-index: 1;
   ${buttonDefaults};
-  ${"" /* background: linear-gradient(145deg, #ececec, #f5f5f5); */}
   box-shadow: ${props => props.theme.boxShadowNeu};
 `;
 
+const StyledBadgeIcon = styled(BadgeIcon)`
+  position: absolute;
+  right: -5px;
+  top: -5px;
+`;
+
 export default {
+  props: {
+    activeItem: String
+  },
   components: {
     StyledWrapper,
     StyledDefaultButton,
-    StyledNeuButton
+    StyledNeuButton,
+    StyledBadgeIcon
   }
 };
 </script>

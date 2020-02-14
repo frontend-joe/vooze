@@ -34,8 +34,8 @@ const StyledMarkerDot = styled("div", markerProps)`
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: ${props => props.theme[`color${props.color}Faint`]};
-  border: 1px solid
+  background: ${props => props.theme.colorCardBackground};
+  border: 2px solid
     ${props => darken(0.115, props.theme[`color${props.color}Faint`])};
 `;
 

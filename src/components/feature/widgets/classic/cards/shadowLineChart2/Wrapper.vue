@@ -70,7 +70,7 @@ const StyledWrapper = styled.div`
   }
 
   & .ct-line-marker {
-    fill: white;
+    fill: ${props => props.theme.colorCardBackground};
     stroke: ${props => props.theme.chartColors[0]};
     stroke-width: 4px;
   }
@@ -204,7 +204,7 @@ export default {
               })
               .elem("stop", {
                 offset: 0,
-                "stop-color": "white"
+                "stop-color": theme.colorCardBackground
               })
               .parent()
               .elem("stop", {
@@ -219,7 +219,7 @@ export default {
               .parent()
               .elem("stop", {
                 offset: 1,
-                "stop-color": "white"
+                "stop-color": theme.colorCardBackground
               })
               .parent();
           }

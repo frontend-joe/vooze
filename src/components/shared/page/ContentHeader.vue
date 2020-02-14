@@ -8,13 +8,14 @@ import styled from "vue-styled-components";
 
 const StyledWrapper = styled.div`
   position: relative;
-  height: 56px;
+  height: 40px;
   font-weight: normal;
   font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
+  color: ${props => props.theme.colorText};
   ${"" /* border-bottom: 1px solid #efefef;
 
 

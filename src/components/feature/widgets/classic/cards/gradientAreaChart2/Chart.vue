@@ -33,7 +33,7 @@ export default {
       gradient.addColorStop(1, this.theme.colorGradientRight);
 
       data.datasets[0].backgroundColor = gradient;
-      data.datasets[0].pointBackgroundColor = "white";
+      data.datasets[0].pointBackgroundColor = this.theme.colorCardBackground;
       data.datasets[0].pointBorderColor = this.theme.colorAccent;
       data.datasets[0].pointRadius = 5;
       data.datasets[0].pointHoverRadius = 6;

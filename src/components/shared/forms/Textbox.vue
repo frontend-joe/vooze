@@ -30,9 +30,10 @@ const StyledTextbox = styled("input", textboxProps)`
   width: 100%;
   height: 40px;
   line-height: 40px;
+  font-size: 14px;
   border-radius: ${props =>
     props.rounded ? "20px" : props.theme.borderButtonRadius};
-  background: white;
+  background: ${props => props.theme.colorBackground};
   color: ${props => props.theme.colorText};
   border: 1px solid ${props => props.theme.colorBorder};
   padding: ${props =>

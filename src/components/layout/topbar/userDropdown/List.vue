@@ -27,7 +27,7 @@ const StyledItem = styled.button`
   font-size: 0.875rem;
 
   &:hover {
-    background: ${props => props.theme.colorHover};
+    background: rgba(0, 0, 0, 0.05);
   }
 
   &:hover > i {

@@ -13,7 +13,8 @@ export const createTheme = (
   colorGradientRight,
   chartColors3,
   chartColors,
-  colorSidebar
+  colorSidebar,
+  colorTopbar
 ) => {
   //create gradient
   const gradientPrimary = css`
@@ -51,7 +52,8 @@ export const createTheme = (
     chartColors,
     colorSidebar,
     colorGradientLeft,
-    colorGradientRight
+    colorGradientRight,
+    colorTopbar
   };
 
   return newTheme;

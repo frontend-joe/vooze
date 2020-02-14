@@ -40,9 +40,6 @@ export default {
     List,
     Textbox,
     CoolButton
-  },
-  created: function() {
-    console.log("created", this.data);
   }
 };
 </script>

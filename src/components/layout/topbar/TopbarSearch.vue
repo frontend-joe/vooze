@@ -18,6 +18,7 @@
 
 <script>
 import styled from "vue-styled-components";
+import { darken } from "polished";
 import { MatIcon } from "../../shared/icons";
 import { MatIconButton } from "../../shared/buttons";
 import { Hidden } from "../../shared/responsive";
@@ -35,20 +36,22 @@ const StyledWrapper = styled.div`
 const StyledTextbox = styled.input`
   border-top-left-radius: ${props => props.theme.borderRadius};
   border-bottom-left-radius: ${props => props.theme.borderRadius};
-  border: 0;
+  border: 1px solid ${props => props.theme.colorBorder};
   height: 42px;
   width: 240px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 200;
   padding: 0;
+  color: ${props => props.theme.colorText};
   padding-left: 2rem;
+  background: ${props => props.theme.colorBackground};
 
   &::placeholder {
     color: #a7a7a7;
   }
 
   &:focus {
-    background: #f2f2f2;
+    background: ${props => darken(0.05, props.theme.colorBackground)};
   }
 
   &:focus::placeholder {
@@ -59,9 +62,9 @@ const StyledTextbox = styled.input`
 const StyledButton = styled.button`
   border-top-right-radius: ${props => props.theme.borderRadius};
   border-bottom-right-radius: ${props => props.theme.borderRadius};
-  background: ${props => props.theme.colorSecondary};
+  background: ${props => props.theme.colorAccent};
   border: 0;
-  font-size: 13px;
+  font-size: 14px;
   padding: 0 1rem 0 1rem;
   color: white;
   height: 42px;

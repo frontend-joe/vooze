@@ -32,7 +32,7 @@ const StyledDropdownWrapper = styled(DropdownWrapper)`
 const StyledButton = styled.button`
   background: transparent;
   border: 0;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${props => props.theme.colorTopbarButton};
   font-size: 14px;
   height: 72px;
   padding: 0 1rem;
@@ -40,18 +40,18 @@ const StyledButton = styled.button`
   align-items: center;
 
   &:hover {
-    color: white;
+    color: ${props => props.theme.colorTopbarButtonHover};
     background: transparent;
   }
 
   &:hover > i {
-    color: white !important;
+    color: ${props => props.theme.colorTopbarButtonHover} !important;
   }
 `;
 
 const StyledButtonIcon = styled(MatIcon)`
   margin-right: 0.5rem;
-  color: rgba(255, 255, 255, 0.75) !important;
+  color: ${props => props.theme.colorTopbarButton} !important;
 `;
 
 export default {
@@ -70,7 +70,6 @@ export default {
   methods: {
     ...mapActions(["toggleActiveDropdown"]),
     handleToggleActiveDropdown(e) {
-      console.log("handleToggleActiveDropdown", e);
       e.stopPropagation();
       this.toggleActiveDropdown("apps-dropdown");
     }

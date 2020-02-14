@@ -5,16 +5,13 @@ import { themeRed } from "../../../themes/themeRed";
 import { themeBlue } from "../../../themes/themeBlue";
 import { themeOrange } from "../../../themes/themeOrange";
 import { themeDark } from "../../../themes/themeDark";
+import { themeLight } from "../../../themes/themeLight";
 import { createTheme } from "./functions";
 
 const state = {
   settings: {
-    themeId: "vuezy",
-    chartThemeId: "default",
-    cardStyleId: "default",
-    themeModeId: "semidark",
     theme: themeDefault,
-    isOpen: true
+    isOpen: false
   }
 };
 
@@ -25,10 +22,11 @@ const getters = {
 const actions = {
   loadSettings({ commit, dispatch }) {
     axios.get("/api/settings").then(res => {
-      commit("setSettings", res.data);
+      commit("setSettings", res.data.data);
       dispatch("toggleTheme", {
         themeId: res.data.data.themeId,
-        chartThemeId: res.data.data.chartThemeId
+        chartThemeId: res.data.data.chartThemeId,
+        themeModeId: res.data.data.themeModeId
       });
     });
   },
@@ -61,26 +59,13 @@ const actions = {
     let colorGradientLeft = colorSecondary;
     let colorGradientRight = "#00d677";
     let colorSidebar = themeDefault.colorSidebar;
+    let colorTopbar = themeDefault.colorTopbar;
 
     if (themeModeId === "dark") {
       colorPrimary = themeDark.colorPrimary;
-      // colorPrimaryFaint = themeDark.colorPrimaryFaint;
       colorSecondary = themeDark.colorSecondary;
-      // colorSecondaryFaint = themeDark.colorSecondaryFaint;
-      // colorSidebar = themeDark.colorSidebar;
-      // colorTopbar = themeDark.colorTopbar;
-      // colorAccent = themeDark.colorAccent;
-      // colorBackground = themeDark.colorBackground;
-      // colorCardBackground = themeDark.colorCardBackground;
-      // colorCardHeader = themeDark.colorCardHeader;
-      // colorProgressBackground = themeDark.colorProgressBackground;
-      // colorText = themeDark.colorText;
-      // colorSubtitle = themeDark.colorSubtitle;
-      // colorBorder = themeDark.colorBorder;
       colorGradientLeft = themeDark.colorPrimary;
       colorGradientRight = themeDark.colorSecondary;
-      // colorSkeleton = themeDark.colorSkeleton;
-      //
       chartThemeId = "theme";
       const cardStyleId = "default";
 
@@ -96,6 +81,7 @@ const actions = {
         colorGradientLeft = colorPrimary;
         colorGradientRight = colorSecondary;
         colorSidebar = themePink.colorSidebar;
+        colorTopbar = colorPrimary;
       } else if (themeId === "red") {
         colorPrimary = themeRed.colorPrimary;
         colorSecondary = themeRed.colorSecondary;
@@ -106,6 +92,7 @@ const actions = {
         colorGradientLeft = colorPrimary;
         colorGradientRight = colorSecondary;
         colorSidebar = themeRed.colorSidebar;
+        colorTopbar = colorPrimary;
       } else if (themeId === "blue") {
         colorPrimary = themeBlue.colorPrimary;
         colorSecondary = themeBlue.colorSecondary;
@@ -116,6 +103,7 @@ const actions = {
         colorGradientLeft = colorPrimary;
         colorGradientRight = colorSecondary;
         colorSidebar = themeBlue.colorSidebar;
+        colorTopbar = colorPrimary;
       } else if (themeId === "orange") {
         colorPrimary = themeOrange.colorPrimary;
         colorSecondary = themeOrange.colorSecondary;
@@ -126,6 +114,7 @@ const actions = {
         colorGradientLeft = colorPrimary;
         colorGradientRight = colorSecondary;
         colorSidebar = themeOrange.colorSidebar;
+        colorTopbar = colorPrimary;
       }
     }
 
@@ -160,11 +149,16 @@ const actions = {
       colorGradientRight,
       chartColors3,
       chartColors,
-      colorSidebar
+      colorSidebar,
+      colorTopbar
     );
 
     if (themeModeId === "dark") {
       createdTheme = { ...createdTheme, ...themeDark };
+    }
+
+    if (themeModeId === "light") {
+      createdTheme = { ...createdTheme, ...themeLight };
     }
 
     console.log("createdTheme", createdTheme);

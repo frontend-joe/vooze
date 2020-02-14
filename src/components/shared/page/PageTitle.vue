@@ -20,6 +20,7 @@ const StyledWrapper = styled.div`
   font-size: 16px;
   font-weight: normal;
   align-items: center;
+  color: ${props => props.theme.colorText};
 `;
 
 const StyledBreadCrumb = styled.div`

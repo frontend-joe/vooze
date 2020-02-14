@@ -40,24 +40,24 @@ const StyledButton = styled.button`
   align-items: center;
 
   &:hover > .text {
-    color: white;
+    color: ${props => props.theme.colorTopbarButtonHover};
   }
 
   &:hover > i {
-    color: white !important;
+    color: ${props => props.theme.colorTopbarButtonHover} !important;
   }
 `;
 
 const StyledButtonText = styled.span`
   margin-left: 0.625rem;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${props => props.theme.colorTopbarButton};
 `;
 
 const StyledButtonIcon = styled(MatIcon)`
   margin-left: 0.325rem;
   transform: translateY(1px);
-  color: rgba(255, 255, 255, 0.75) !important;
+  color: ${props => props.theme.colorTopbarButton} !important;
 `;
 
 export default {

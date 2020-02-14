@@ -1,5 +1,6 @@
 {
   "themeId": "vuezy",
   "chartThemeId": "theme",
-  "chartStyleId": "default"
+  "cardStyleId": "default",
+  "themeModeId": "semidark"
 }

@@ -118,7 +118,7 @@ const StyledImage = styled.img`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 3px solid white;
+  border: 3px solid ${props => props.theme.colorCardBorder};
   transform: translateX(-10px);
 
   &:first-child {

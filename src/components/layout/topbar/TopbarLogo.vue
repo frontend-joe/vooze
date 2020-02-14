@@ -1,10 +1,17 @@
 <template>
   <StyledWrapper>
-    <StyledImage :src="require('../../../assets/images/vooze-logo.png')" />
+    <StyledImage
+      :src="
+        settings.themeModeId !== 'light'
+          ? require('../../../assets/images/vooze-logo.png')
+          : require('../../../assets/images/vooze-logo-dark.png')
+      "
+    />
   </StyledWrapper>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import styled from "vue-styled-components";
 
 const StyledWrapper = styled.div`
@@ -31,6 +38,9 @@ export default {
   components: {
     StyledWrapper,
     StyledImage
+  },
+  computed: {
+    ...mapGetters(["settings"])
   }
 };
 </script>

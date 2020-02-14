@@ -6,13 +6,14 @@
 
 <script>
 import styled from "vue-styled-components";
+import { rgba } from "polished";
 import TonIcon from "./TonIcon";
 
 const iconProps = { icon: String, iconSize: String, iconColor: String };
 const StyledWrapper = styled("div", iconProps)`
   width: ${props => props.iconSize || "40px"};
   height: ${props => props.iconSize || "40px"};
-  background: ${props => props.theme[`color${props.iconColor}Faint`]};
+  background: ${props => rgba(props.theme[`color${props.iconColor}`], 0.075)};
   border-radius: 50%;
   display: flex;
   align-items: center;

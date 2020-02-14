@@ -31,10 +31,12 @@ const colorIndigoFaint = lighten(0.55, colorIndigo);
 const chartColors1 = ["#6274F6", "#1dce8e", "#F6B569"];
 const chartColors2 = [colorPurple, colorTeal, colorRed];
 
+const colorText = "#606060";
+
 export const themeDefault = {
   barFillOpacity: 0.85,
   borderRadius: "0.25rem",
-  borderButtonRadius: "0.675rem",
+  borderButtonRadius: "0.375rem",
   defaultTransition: "0.25s",
   fontFamily: "Alata",
   screenWidthXs: "576px",
@@ -54,6 +56,7 @@ export const themeDefault = {
   colorAccent,
   colorAccentFaint,
   colorAqua: "#c9d7f3",
+  colorBackground: "#ffffff",
   colorBackgroundGrey: "#f8f8f9",
   colorBarChart1: "#9BA6F9",
   colorBarChart2: "#8FDAD1",
@@ -111,6 +114,7 @@ export const themeDefault = {
   colorRowAlternate: "#f7f6f9",
   colorRowHover: "#f9fbfd",
   colorSidebar: "#0d1023",
+  colorSidebarButtonText: colorText,
   colorSidebarBorder: "#2d2c44",
   colorSidebarHeader: "#5e6160",
   colorSidebarSectionDivider: "#232725",
@@ -124,9 +128,11 @@ export const themeDefault = {
   colorTableHeader: "rgba(0,0,0,0.05)",
   colorTeal,
   colorTealFaint,
-  colorText: "#606060",
+  colorText: colorText,
   colorTooltipBackground: "white",
   colorTopbar: colorPrimary,
+  colorTopbarButton: "rgba(255, 255, 255, 0.75)",
+  colorTopbarButtonHover: "rgba(255, 255, 255, 0.88)",
   colorWarning: "#F6B569",
   colorWhite: "#ffffff",
   colorYellow,

@@ -24,7 +24,7 @@ const StyledWrapper = styled("i", theProps)`
   font-size: ${props => props.iconSize || "24px"};
 
   ${props => (props.forLight ? `color: ${props.theme.colorIconActive}` : "")}
-  ${props => (props.forDark ? `color: white` : "")}
+  ${props => (props.forDark ? `color: rgba(255,255,255, 0.57)` : "")}
 `;
 
 export default {

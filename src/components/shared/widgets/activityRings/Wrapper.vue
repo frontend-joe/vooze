@@ -145,6 +145,9 @@ export default {
             hollow: {
               size: "30%"
             },
+            track: {
+              background: theme.colorProgressBackground
+            },
             dataLabels: {
               show: true,
               name: {

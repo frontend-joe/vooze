@@ -6,22 +6,32 @@
     <Header v-on:close-button-clicked="toggleSettingsOpen(false)" />
     <StyledBlock>
       <StyledBlockHeader>Theme</StyledBlockHeader>
-      <ThemeModePicker v-on:toggle-theme-mode="handleThemeModeToggled" />
+      <ThemeModePicker
+        :activeItem="settings.themeModeId"
+        v-on:toggle-theme-mode="handleThemeModeToggled"
+      />
     </StyledBlock>
     <StyledBlock v-if="settings.themeModeId !== 'dark'">
       <StyledBlockHeader>Colors</StyledBlockHeader>
-      <ColorPicker v-on:toggle-theme="handleThemeToggled" />
+      <ColorPicker
+        :activeItem="settings.themeId"
+        v-on:toggle-theme="handleThemeToggled"
+      />
     </StyledBlock>
     <StyledBlock v-if="settings.themeModeId !== 'dark'">
       <StyledBlockHeader>Chart Colors</StyledBlockHeader>
       <ChartThemePicker
+        :activeItem="settings.chartThemeId"
         :chartColors="settings.theme.chartColors3"
         v-on:toggle-chart-theme="handleChartThemeToggled"
       />
     </StyledBlock>
     <StyledBlock v-if="settings.themeModeId !== 'dark'">
       <StyledBlockHeader>Card Style</StyledBlockHeader>
-      <CardStylePicker v-on:toggle-card-style="handleCardStyleToggled" />
+      <CardStylePicker
+        :activeItem="settings.cardStyleId"
+        v-on:toggle-card-style="handleCardStyleToggled"
+      />
     </StyledBlock>
   </styled-wrapper>
 </template>

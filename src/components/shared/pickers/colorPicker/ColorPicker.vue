@@ -5,6 +5,14 @@
       v-for="theme in themes"
       :key="theme.primary"
     >
+      <StyledBadgeIcon
+        badgeSize="16px"
+        iconSize="12px"
+        color="Green"
+        v-if="activeItem === theme.id"
+      >
+        check
+      </StyledBadgeIcon>
       <StyledPrimaryColor :color="theme.primary" />
       <StyledSecondaryColor :color="theme.secondary" />
     </StyledColor>
@@ -18,6 +26,7 @@ import { themePink } from "../../../../themes/themePink";
 import { themeRed } from "../../../../themes/themeRed";
 import { themeBlue } from "../../../../themes/themeBlue";
 import { themeOrange } from "../../../../themes/themeOrange";
+import { BadgeIcon } from "../../icons";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -27,6 +36,7 @@ const StyledWrapper = styled.div`
 const StyledColor = styled.button`
   display: flex;
   background: transparent;
+  position: relative;
   border: 0;
   padding: 0;
   margin: 0;
@@ -55,7 +65,16 @@ const StyledSecondaryColor = styled("div", colorProps)`
   background: ${props => props.color};
 `;
 
+const StyledBadgeIcon = styled(BadgeIcon)`
+  position: absolute;
+  right: -5px;
+  top: -5px;
+`;
+
 export default {
+  props: {
+    activeItem: String
+  },
   data: function() {
     return {
       themes: [
@@ -91,7 +110,8 @@ export default {
     StyledWrapper,
     StyledColor,
     StyledPrimaryColor,
-    StyledSecondaryColor
+    StyledSecondaryColor,
+    StyledBadgeIcon
   }
 };
 </script>

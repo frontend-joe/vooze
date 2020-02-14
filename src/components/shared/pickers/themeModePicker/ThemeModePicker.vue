@@ -6,6 +6,14 @@
       :key="item.id"
       :disabled="item.disabled"
     >
+      <StyledBadgeIcon
+        badgeSize="16px"
+        iconSize="12px"
+        color="Green"
+        v-if="activeItem === item.id"
+      >
+        check
+      </StyledBadgeIcon>
       <StyledScreen>
         <StyledScreenTopbar :style="{ background: item.topbarColor }" />
         <StyledContentRow>
@@ -20,6 +28,7 @@
 
 <script>
 import styled from "vue-styled-components";
+import { BadgeIcon } from "../../icons";
 
 const StyledWrapper = styled.div`
   padding: 0 1rem;
@@ -30,6 +39,7 @@ const StyledWrapper = styled.div`
 const StyledButton = styled.button`
   border: 0;
   background: transparent;
+  position: relative;
   display: flex;
   padding: 0;
   justify-content: flex-start;
@@ -75,12 +85,21 @@ const StyledScreenContent = styled.div`
   width: 80%;
 `;
 
+const StyledBadgeIcon = styled(BadgeIcon)`
+  position: absolute;
+  right: -3px;
+  top: -3px;
+`;
+
 export default {
+  props: {
+    activeItem: String
+  },
   data: function() {
     return {
       items: [
         {
-          disabled: true,
+          disabled: false,
           id: "light",
           label: "Light",
           topbarColor: "#f7f7f7",
@@ -114,7 +133,8 @@ export default {
     StyledScreenContent,
     StyledContentRow,
     StyledButton,
-    StyledButtonLabel
+    StyledButtonLabel,
+    StyledBadgeIcon
   }
 };
 </script>

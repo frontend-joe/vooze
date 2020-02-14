@@ -33,13 +33,18 @@ const StyledWrapper = styled("button", wrapperProps)`
   border-radius: ${props => (props.circle ? "50%" : 0)};
 
   box-shadow: ${props =>
-    props.circle ? "0 1px 8px -1px rgba(0,0,0,0.2)" : "none"}
+    props.circle ? "0 1px 8px -1px rgba(0,0,0,0.2)" : "none"};
 
   &:hover {
     background: ${props =>
       props.circle
         ? darken(0.05, props.theme[`color${props.backgroundColor}`])
         : "transparent"};
+  }
+
+  &:hover > i {
+    color: ${props =>
+      props.forDark ? props.theme.colorIconHover : "white"} !important;
   }
 `;
 

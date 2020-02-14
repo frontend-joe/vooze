@@ -20,7 +20,7 @@ const StyledWrapper = styled("div", menuProps)`
   top: ${props => props.distance || "64px"};
   right: 0;
   min-width: ${props => props.minWidth || "200px"};
-  background: white;
+  background: ${props => props.theme.colorCardBackground};
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
   border-radius: ${props => props.theme.borderRadius};
   opacity: ${props => (props.isOpen ? 1 : 0)};

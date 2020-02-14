@@ -13,10 +13,7 @@ export const createTheme = (
   colorGradientRight,
   chartColors3,
   chartColors,
-  colorSidebar,
-  colorTopbar,
-  colorBackground,
-  colorCardBackground
+  colorSidebar
 ) => {
   //create gradient
   const gradientPrimary = css`
@@ -50,9 +47,6 @@ export const createTheme = (
     colorAccent,
     colorAccentFaint,
     colorOverlay: rgba(colorPrimary, 0.275),
-    colorTopbar: colorTopbar || colorPrimary,
-    colorBackground: colorBackground || "white",
-    colorCardBackground: colorCardBackground || "white",
     chartColors3,
     chartColors,
     colorSidebar,

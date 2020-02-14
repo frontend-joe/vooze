@@ -37,7 +37,7 @@ const StyledIcon = styled("div", iconProps)`
 const StyledText = styled.div`
   font-size: 13px;
   margin-left: 0.5rem;
-  color: rgba(255, 255, 255, 0.57);
+  color: ${props => props.theme.colorText};
 
   @media (min-width: ${props => props.theme.screenWidthXxl}) {
     width: 50%;

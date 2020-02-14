@@ -10,7 +10,7 @@ import { rgba } from "polished";
 
 const StyledWrapper = styled.div`
   position: relative;
-  background: #e9ecef;
+  background: ${props => props.theme.colorProgressBackground};
   height: 4px;
   width: 100%;
   border-radius: 4px;

@@ -1,7 +1,7 @@
 <template>
-  <StyledCard primary isDark padding="0 0 20px" overflowHidden flexVertical>
+  <StyledCard padding="0 0 20px" overflowHidden flexVertical>
     <CardHeader>
-      <CardTitle forDark cardTitle="Wage Budget" cardSubtitle="Total used" />
+      <CardTitle cardTitle="Wage Budget" cardSubtitle="Total used" />
       <StyledCardTitleLink>More Options</StyledCardTitleLink>
     </CardHeader>
     <StyledCardContent>
@@ -23,7 +23,7 @@ import InfoLegend from "./InfoLegend";
 
 const StyledCardTitleLink = styled.a`
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${props => props.theme.colorText};
 `;
 
 const StyledCard = styled(Card)`

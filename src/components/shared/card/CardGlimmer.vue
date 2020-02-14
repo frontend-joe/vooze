@@ -4,6 +4,7 @@
 
 <script>
 import styled, { keyframes } from "vue-styled-components";
+import { rgba } from "polished";
 
 const glimmerAnimation = keyframes`
   0%   {
@@ -21,12 +22,11 @@ const StyledGlimmer = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgb(255, 255, 255);
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.35) 18%,
-    rgba(255, 255, 255, 0) 36%
+    ${props => rgba(props.theme.colorSkeletonGlimmer, 0)} 0%,
+    ${props => rgba(props.theme.colorSkeletonGlimmer, 0.5)} 18%,
+    ${props => rgba(props.theme.colorSkeletonGlimmer, 0)} 36%
   );
   animation: ${glimmerAnimation} 2.175s infinite;
 `;

@@ -9,8 +9,10 @@ import styled from "vue-styled-components";
 
 const buttonProps = { active: Boolean };
 const StyledWrapper = styled("button", buttonProps)`
-  background: ${props => (props.active ? "white" : "transparent")}
-  color: ${props => props.active ? props.theme.colorPrimary : props.theme.colorSubtitle};
+  background: ${props =>
+    props.active ? props.theme.colorCardBackground : "transparent"}
+  color: ${props =>
+    props.active ? props.theme.colorPrimary : props.theme.colorSubtitle};
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
   padding: 0 0.75rem;

@@ -16,7 +16,7 @@ const StyledPowerBarWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  background: #e9ecef;
+  background: ${props => props.theme.colorProgressBackground};
   border-radius: 2px;
 `;
 
@@ -39,7 +39,7 @@ const StyledPowerBar = styled("div", powerbarProps)`
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: white;
+    background: ${props => props.theme.colorCardBackground};
     border: 2px solid ${props => props.theme[`color${props.color}`]};
   }
 `;

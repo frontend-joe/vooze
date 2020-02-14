@@ -14,7 +14,7 @@
         :tabId="tab"
         :active="tab === activeTab"
       >
-        {{tab}}
+        {{ tab }}
       </header-tab-list-button>
     </header-tab-list>
   </styled-wrapper>
@@ -29,7 +29,7 @@ import HeaderTabList from "./HeaderTabList";
 import HeaderTabListButton from "./HeaderTabListButton";
 
 const StyledWrapper = styled.div`
-  background: #f0f1f3;
+  background: ${props => props.theme.colorCardHeader};
   padding: 1rem 2rem 0;
 `;
 
@@ -47,13 +47,8 @@ export default {
   },
   data: function() {
     return {
-      tabs: [
-        'Popular',
-        'Birmingham',
-        'Solihull',
-        'Coventry'
-      ]
-    }
+      tabs: ["Popular", "Birmingham", "Solihull", "Coventry"]
+    };
   }
 };
 </script>

@@ -61,22 +61,27 @@ const actions = {
     let colorGradientLeft = colorSecondary;
     let colorGradientRight = "#00d677";
     let colorSidebar = themeDefault.colorSidebar;
-    let colorTopbar;
-    let colorBackground;
-    let colorCardBackground;
 
     if (themeModeId === "dark") {
       colorPrimary = themeDark.colorPrimary;
-      colorPrimaryFaint = themeDark.colorPrimaryFaint;
+      // colorPrimaryFaint = themeDark.colorPrimaryFaint;
       colorSecondary = themeDark.colorSecondary;
-      colorSecondaryFaint = themeDark.colorSecondaryFaint;
-      colorSidebar = themeDark.colorSidebar;
-      colorTopbar = themeDark.colorTopbar;
-      colorAccent = themeDark.colorAccent;
-      colorBackground = themeDark.colorBackground;
-      colorCardBackground = themeDark.colorCardBackground;
-
-      chartThemeId = "default";
+      // colorSecondaryFaint = themeDark.colorSecondaryFaint;
+      // colorSidebar = themeDark.colorSidebar;
+      // colorTopbar = themeDark.colorTopbar;
+      // colorAccent = themeDark.colorAccent;
+      // colorBackground = themeDark.colorBackground;
+      // colorCardBackground = themeDark.colorCardBackground;
+      // colorCardHeader = themeDark.colorCardHeader;
+      // colorProgressBackground = themeDark.colorProgressBackground;
+      // colorText = themeDark.colorText;
+      // colorSubtitle = themeDark.colorSubtitle;
+      // colorBorder = themeDark.colorBorder;
+      colorGradientLeft = themeDark.colorPrimary;
+      colorGradientRight = themeDark.colorSecondary;
+      // colorSkeleton = themeDark.colorSkeleton;
+      //
+      chartThemeId = "theme";
       const cardStyleId = "default";
 
       commit("setSettings", { cardStyleId });
@@ -143,7 +148,7 @@ const actions = {
         break;
     }
 
-    const createdTheme = createTheme(
+    let createdTheme = createTheme(
       baseTheme,
       colorPrimary,
       colorPrimaryFaint,
@@ -155,11 +160,14 @@ const actions = {
       colorGradientRight,
       chartColors3,
       chartColors,
-      colorSidebar,
-      colorTopbar,
-      colorBackground,
-      colorCardBackground
+      colorSidebar
     );
+
+    if (themeModeId === "dark") {
+      createdTheme = { ...createdTheme, ...themeDark };
+    }
+
+    console.log("createdTheme", createdTheme);
 
     commit("setSettingsTheme", createdTheme);
     commit("setSettingsChartTheme", chartThemeId);

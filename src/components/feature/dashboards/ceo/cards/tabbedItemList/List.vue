@@ -14,8 +14,6 @@ import ListItemLeft from "./ListItemLeft";
 import ListItemRight from "./ListItemRight";
 
 const StyledWrapper = styled.div`
-  background: white;
-
   @media (max-width: ${props => props.theme.screenWidthMd}) {
     margin: 0 1rem 1rem;
     overflow: hidden;

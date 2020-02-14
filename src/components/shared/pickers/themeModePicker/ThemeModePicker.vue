@@ -4,6 +4,7 @@
       @click="$emit('toggle-theme-mode', item.id)"
       v-for="item in items"
       :key="item.id"
+      :disabled="item.disabled"
     >
       <StyledScreen>
         <StyledScreenTopbar :style="{ background: item.topbarColor }" />
@@ -79,6 +80,7 @@ export default {
     return {
       items: [
         {
+          disabled: true,
           id: "light",
           label: "Light",
           topbarColor: "#f7f7f7",
@@ -86,6 +88,7 @@ export default {
           contentColor: "white"
         },
         {
+          disabled: false,
           id: "dark",
           label: "Dark",
           topbarColor: "#1a1323",
@@ -93,6 +96,7 @@ export default {
           contentColor: "#1a1323"
         },
         {
+          disabled: false,
           id: "semidark",
           label: "Semi Dark",
           topbarColor: "#6228ea",

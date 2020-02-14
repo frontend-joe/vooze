@@ -249,11 +249,22 @@ export default {
         cutoutPercentage = 80;
       }
 
+      let segmentShowStroke = true;
+      if (this.type === "Pie" || this.type === "Donut") {
+        segmentShowStroke = false;
+      }
+
       const newOptions = {
         ...this.options,
         cutoutPercentage,
         scales,
-        layout
+        layout,
+        segmentShowStroke,
+        elements: {
+          arc: {
+            borderWidth: 0
+          }
+        }
       };
 
       return newOptions;

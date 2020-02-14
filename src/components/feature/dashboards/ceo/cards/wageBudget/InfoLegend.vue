@@ -33,13 +33,14 @@ const StyledTotalBlock = styled.div`
   align-items: flex-start;
   flex-direction: column;
   padding: 0 0 1.25rem;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 3px solid ${props => props.theme.colorBorder};
   margin-bottom: 1rem;
 `;
 
 const StyledTotalBlock__value = styled.div`
   font-weight: normal;
   font-size: 25px;
+  color: ${props => props.theme.colorText};
 
   @media (min-width: ${props => props.theme.screenWidthXxl}) {
     font-size: 32px;
@@ -47,7 +48,7 @@ const StyledTotalBlock__value = styled.div`
 `;
 
 const StyledTotalBlock__label = styled.div`
-  color: rgba(255, 255, 255, 0.57);
+  color: ${props => props.theme.colorText};
   font-size: 13px;
   font-weight: 400;
   margin-bottom: 0.325rem;

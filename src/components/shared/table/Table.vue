@@ -83,7 +83,7 @@ const tableProps = {
 
 const StyledTable = styled("table", tableProps)`
   width: 100%;
-  background: white;
+  background: ${props => props.theme.colorCardBackground};
   border-collapse: separate !important;
   border-spacing: 0;
   border-style: hidden;

@@ -199,6 +199,24 @@ export default {
               ]
             }
           ]
+        },
+        {
+          header: "Pages",
+          showDivider: true,
+          blocks: [
+            {
+              name: "Auth",
+              icon: "fiber_manual_record",
+              isOpen: false,
+              items: [
+                {
+                  name: "Login",
+                  icon: "account_circle",
+                  url: "/pages/auth/login"
+                }
+              ]
+            }
+          ]
         }
       ]
     };

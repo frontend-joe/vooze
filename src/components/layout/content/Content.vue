@@ -2,6 +2,7 @@
   <styled-wrapper
     :sidebarIsCollapsed="sidebar.isCollapsed"
     :cardStyleId="settings.cardStyleId"
+    :isPage="isPage"
   >
     <slot />
   </styled-wrapper>
@@ -13,7 +14,8 @@ import { mapGetters } from "vuex";
 
 const wrapperProps = {
   sidebarIsCollapsed: Boolean,
-  cardStyleId: String
+  cardStyleId: String,
+  isPage: Boolean
 };
 const StyledWrapper = styled("div", wrapperProps)`
   padding: 0 1.625rem;
@@ -37,9 +39,14 @@ const StyledWrapper = styled("div", wrapperProps)`
         ? "calc(100% - 64px - 340px)"
         : "calc(100% - 200px - 340px)"};
   }
+
+  ${props => (props.isPage ? "transform: translateX(0);" : "")};
 `;
 
 export default {
+  props: {
+    isPage: Boolean
+  },
   components: {
     StyledWrapper
   },

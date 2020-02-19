@@ -38,6 +38,7 @@ export const themeDefault = {
   borderRadius: "0.25rem",
   borderButtonRadius: "0.375rem",
   defaultTransition: "0.25s",
+  transition: "0.25s",
   fontFamily: "Alata",
   screenWidthXs: "576px",
   screenWidthSm: "768px",

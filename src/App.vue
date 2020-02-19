@@ -1,17 +1,26 @@
 <template>
   <StyledWrapper id="app">
     <theme-provider v-bind:theme="settings.theme || themeDefault">
-      <SettingsButton v-on:toggle-settings-open="handleSettingsButtonClicked" />
-      <Settings :isOpen="settings.isOpen" />
-      <Overlay
-        @click="handleOverlayClicked"
-        :open="sidebar.isOpen || settings.isOpen"
-      />
-      <Topbar v-on:toggle-sidebar-open="toggleSidebarOpen" />
-      <Sidebar :open="sidebarOpen" />
-      <Content>
+      <div v-if="$route.path.indexOf('pages') === -1">
+        <Topbar v-on:toggle-sidebar-open="toggleSidebarOpen" />
+        <SettingsButton
+          v-on:toggle-settings-open="handleSettingsButtonClicked"
+        />
+        <Settings :isOpen="settings.isOpen" />
+        <Overlay
+          @click="handleOverlayClicked"
+          :open="sidebar.isOpen || settings.isOpen"
+        />
+
+        <Sidebar :open="sidebarOpen" />
+        <Content>
+          <router-view :theme="settings.theme || themeDefault" />
+        </Content>
+      </div>
+      <div v-if="$route.path.indexOf('pages') > -1">
         <router-view :theme="settings.theme || themeDefault" />
-      </Content>
+      </div>
+
       <!-- <Rightbar /> -->
     </theme-provider>
   </StyledWrapper>

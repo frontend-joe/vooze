@@ -12,6 +12,7 @@ import Table from "../components/feature/components/table/Wrapper";
 // import ModernWidgets from "../components/feature/widgets/modern/Wrapper";
 import ClassicWidgets from "../components/feature/widgets/classic/Wrapper";
 import Chips from "../components/feature/components/chip/Wrapper";
+import LoginPage from "../components/feature/pages/login/Wrapper";
 
 Vue.use(VueRouter);
 
@@ -65,6 +66,11 @@ const routes = [
     path: "/dashboards/designer",
     name: "designer",
     component: DesignerDashboard
+  },
+  {
+    path: "/pages/auth/login",
+    name: "login",
+    component: LoginPage
   },
   {
     path: "*",

@@ -44,7 +44,7 @@ const StyledWrapper = styled("button", wrapperProps)`
 
   &:hover > i {
     color: ${props =>
-      props.forDark ? props.theme.colorIconHover : "white"} !important;
+      props.forDark ? "white" : props.theme.colorIconHover} !important;
   }
 `;
 

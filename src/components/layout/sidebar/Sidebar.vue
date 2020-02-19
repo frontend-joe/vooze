@@ -5,6 +5,9 @@
     :open="sidebar.isOpen"
     :isCollapsed="sidebar.isCollapsed"
     :isHovered="sidebar.isHovered"
+    :isNeumorphic="
+      settings.cardStyleId === 'neumorphic' && settings.themeModeId === 'light'
+    "
   >
     <sidebar-nav
       :isCollapsed="sidebar.isCollapsed"
@@ -20,7 +23,8 @@ import styled from "vue-styled-components";
 const theProps = {
   open: Boolean,
   isCollapsed: Boolean,
-  isHovered: Boolean
+  isHovered: Boolean,
+  isNeumorphic: Boolean
 };
 
 const StyledWrapper = styled("div", theProps)`
@@ -30,7 +34,11 @@ const StyledWrapper = styled("div", theProps)`
   left: 0;
   height: 100%;
   width: 200px;
-  background: ${props => props.theme.colorSidebar};
+  background: ${props =>
+    props.isNeumorphic
+      ? props.theme.colorCardBackgroundNeu
+      : props.theme.colorSidebar};
+
   color: white;
   padding-top: 0;
   transform: ${props => (props.open ? "translateX(0)" : "translateX(-200px)")};
@@ -60,6 +68,6 @@ export default {
   methods: {
     ...mapActions(["toggleIsHovered"])
   },
-  computed: mapGetters(["sidebar"])
+  computed: mapGetters(["sidebar", "settings"])
 };
 </script>

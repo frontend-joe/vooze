@@ -52,16 +52,16 @@ const colorProps = { color: String };
 const StyledPrimaryColor = styled("div", colorProps)`
   width: ${colorWidth};
   height: ${colorHeight};
-  border-top-left-radius: ${colorWidth};
-  border-bottom-left-radius: ${colorWidth};
+  border-top-left-radius: ${props => props.theme.borderButtonRadius};
+  border-bottom-left-radius: ${props => props.theme.borderButtonRadius};
   background: ${props => props.color};
 `;
 
 const StyledSecondaryColor = styled("div", colorProps)`
   width: ${colorWidth};
   height: ${colorHeight};
-  border-top-right-radius: ${colorWidth};
-  border-bottom-right-radius: ${colorWidth};
+  border-top-right-radius: ${props => props.theme.borderButtonRadius};
+  border-bottom-right-radius: ${props => props.theme.borderButtonRadius};
   background: ${props => props.color};
 `;
 

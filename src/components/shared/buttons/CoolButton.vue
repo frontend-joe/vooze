@@ -1,6 +1,9 @@
 <template>
   <cool-button
     :sm="sm"
+    :lg="lg"
+    :isGradient="isGradient"
+    :isFullWidth="isFullWidth"
     :icon="icon"
     :iconPosition="iconPosition"
     :primary="primary"
@@ -52,7 +55,10 @@ const btnProps = {
     type: Function,
     required: false
   },
+  isFullWidth: Boolean,
+  isGradient: Boolean,
   sm: Boolean,
+  lg: Boolean,
   primary: Boolean,
   secondary: Boolean,
   success: Boolean,
@@ -88,11 +94,17 @@ const buttonDefaults = css`
   padding: ${props =>
     props.dropdown ? "" : props.sm ? "0 0.75rem" : "0 1rem"};
   min-width: 80px;
-  font-size: ${props => (props.sm ? "12px" : "13px")};
+  width: ${props => (props.isFullWidth ? "100%" : "auto")};
+
+  font-weight: normal;
+  font-size: 13px;
+  ${props => (props.sm ? "font-size: 12px" : "")};
+  ${props => (props.lg ? "font-size: 14px" : "")};
+
   display: ${props => (props.dropdown || props.icon ? "flex" : "inline-block")};
   ${props => (props.dropdown || props.icon ? "align-items: center;" : "")};
   height: ${props => (props.sm ? "32px" : "40px")};
-  line-height: 1.1;
+  line-height: 1;
   border-radius: ${props =>
     props.rounded ? "20px" : props.theme.borderButtonRadius};
 `;
@@ -105,17 +117,20 @@ const generateButton = (
   textColorOutline,
   textColorHover,
   textColorOutlineHover,
-  borderColorHover
+  borderColorHover,
+  isGradient
 ) => {
   return css`
     background: ${!outline ? color : "transparent"};
+
+    ${props => (isGradient ? props.theme.colorPrimaryGradient : "")};
     color: ${!outline ? textColor : textColorOutline};
     border: 1px solid ${color};
 
     &:hover {
       background: ${colorHover || (!outline ? darken(0.05, color) : color)};
       border-color: ${borderColorHover ||
-        (!outline ? darken(0.05, color) : color)};
+        (!outline && !isGradient ? darken(0.05, color) : color)};
       color: ${!outline ? textColorHover : textColorOutlineHover};
 
       & > i {
@@ -153,6 +168,30 @@ const plainButton = css`
       props.theme.colorText,
       props.theme.colorWhite
     )}
+`;
+
+const gradientButton = css`
+  ${props => props.theme.colorPrimaryGradient};
+  color: white;
+
+  ${"" /* ${props => (props.isGradient ? props.theme.colorPrimaryGradient : "")};
+  color: ${!outline ? textColor : textColorOutline};
+  border: 1px solid ${color}; */}
+
+  ${"" /* &:hover {
+    background: ${colorHover || (!outline ? darken(0.05, color) : color)};
+    border-color: ${borderColorHover ||
+      (!outline && !isGradient ? darken(0.05, color) : color)};
+    color: ${!outline ? textColorHover : textColorOutlineHover};
+
+    & > i {
+      color: ${!outline ? textColorHover : textColorOutlineHover} !important;
+    }
+  }
+
+  & > i {
+    color: ${!outline ? textColor : textColorOutline} !important;
+  } */}
 `;
 
 const standardColorButton = color => {
@@ -202,11 +241,13 @@ const CoolButton = styled("button", btnProps)`
     !props.teal &&
     !props.yellow &&
     !props.pink &&
-    !props.indigo
+    !props.indigo &&
+    !props.isGradient
       ? defaultButton
       : ""}
 
   ${props => (props.plain ? plainButton : "")};
+  ${props => (props.isGradient ? gradientButton : "")};
 
   & > span {
     transform: translateY(-1px);

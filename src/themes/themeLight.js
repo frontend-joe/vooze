@@ -6,6 +6,7 @@ const colorSidebarButtonBackgroundActive = "rgba(0,0,0,0.05)";
 const colorSidebarSectionDivider = "rgba(0,0,0,0.05)";
 const colorTopbarButton = "rgba(0,0,0,0.57)";
 const colorTopbarButtonHover = "rgba(0,0,0,0.88)";
+const colorIconHover = "rgba(0,0,0,0.5)";
 
 export const themeLight = {
   colorSidebar,
@@ -15,5 +16,6 @@ export const themeLight = {
   colorSidebarSectionDivider,
   colorTopbar,
   colorTopbarButton,
-  colorTopbarButtonHover
+  colorTopbarButtonHover,
+  colorIconHover
 };

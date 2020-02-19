@@ -71,12 +71,10 @@ const StyledBlockColorList = styled.div`
 
   & > .block-color:first-child {
     height: 12px;
-    margin-right: 2px;
   }
 
   & > .block-color:last-child {
-    height: 14px;
-    margin-left: 2px;
+    height: 18px;
   }
 `;
 
@@ -87,10 +85,8 @@ const StyledBlockColor = styled("div", theProps)`
   margin: 0;
   padding: 0;
   width: 33.33%;
-  height: 22px;
+  height: 28px;
   flex: 1 0 33.33%;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
 `;
 
 const StyledBadgeIcon = styled(BadgeIcon)`

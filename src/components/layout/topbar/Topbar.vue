@@ -1,5 +1,5 @@
 <template>
-  <styled-wrapper>
+  <styled-wrapper :isNeumorphic="settings.cardStyleId === 'neumorphic'">
     <Hidden xs sm>
       <topbar-collapse-button />
     </Hidden>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import styled from "vue-styled-components";
 import TopbarCollapseButton from "./TopbarCollapseButton";
 import TopbarBurgerButton from "./TopbarBurgerButton";
@@ -23,14 +24,18 @@ import UserDropdown from "./userDropdown/Wrapper";
 import AppsDropdown from "./appsDropdown/Wrapper";
 import { Hidden } from "../../shared/responsive";
 
-const StyledWrapper = styled.div`
+const wrapperProps = { isNeumorphic: Boolean };
+const StyledWrapper = styled("div", wrapperProps)`
   position: fixed;
   z-index: 11;
   top: 0;
   left: 0;
   height: 72px;
   width: 100%;
-  background: ${props => props.theme.colorTopbar};
+  background: ${props =>
+    props.isNeumorphic
+      ? props.theme.colorCardBackgroundNeu
+      : props.theme.colorTopbar};
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
   color: white;
   display: flex;
@@ -48,11 +53,7 @@ export default {
     StyledWrapper,
     AppsDropdown,
     Hidden
-  }
+  },
+  computed: mapGetters(["settings"])
 };
 </script>
-
-<style module>
-.wrapper {
-}
-</style>

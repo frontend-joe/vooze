@@ -1,5 +1,9 @@
 <template>
-  <styled-wrapper :isNeumorphic="settings.cardStyleId === 'neumorphic'">
+  <styled-wrapper
+    :isNeumorphic="
+      settings.cardStyleId === 'neumorphic' && settings.themeModeId === 'light'
+    "
+  >
     <Hidden xs sm>
       <topbar-collapse-button />
     </Hidden>

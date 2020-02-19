@@ -1,6 +1,7 @@
 <template>
   <StyledWrapper
     :circle="circle"
+    :forDark="forDark"
     :backgroundColor="backgroundColor"
     @click="$emit('click', $event)"
     v-bind:style="{ width: width, height: height }"
@@ -21,7 +22,11 @@ import styled from "vue-styled-components";
 import { MatIcon } from "../icons";
 import { darken } from "polished";
 
-const wrapperProps = { circle: Boolean, backgroundColor: String };
+const wrapperProps = {
+  circle: Boolean,
+  backgroundColor: String,
+  forDark: Boolean
+};
 const StyledWrapper = styled("button", wrapperProps)`
   padding: 0;
   margin: 0;

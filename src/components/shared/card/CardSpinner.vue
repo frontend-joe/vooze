@@ -1,5 +1,5 @@
 <template>
-  <StyledWrapper :loading="loading">
+  <StyledWrapper :isNeumorphic="isNeumorphic" :loading="loading">
     <StyledSkeletonTitle>
       <SkeletonRectangle skeletonWidth="100px" />
     </StyledSkeletonTitle>
@@ -14,7 +14,8 @@ import { Spinner } from "../common";
 import SkeletonRectangle from "../skeleton/SkeletonRectangle";
 
 const wrapperProps = {
-  loading: Boolean
+  loading: Boolean,
+  isNeumorphic: Boolean
 };
 
 const StyledWrapper = styled("div", wrapperProps)`
@@ -24,7 +25,10 @@ const StyledWrapper = styled("div", wrapperProps)`
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${props => props.theme.colorCardBackground};
+  background: ${props =>
+    props.isNeumorphic
+      ? props.theme.colorCardBackgroundNeu
+      : props.theme.colorCardBackground};
   display: flex;
   align-items: center;
   justify-content: center;

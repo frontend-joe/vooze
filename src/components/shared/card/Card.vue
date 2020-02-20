@@ -11,8 +11,19 @@
     :isDark="isDark"
     :cardStyleId="settings.cardStyleId"
   >
-    <CardSpinner v-if="showLoadingSpinner" :loading="loading" />
-    <CardGlimmer v-if="isSkeleton && loading" />
+    <CardSpinner
+      v-if="showLoadingSpinner"
+      :loading="loading"
+      :isNeumorphic="
+        settings.cardStyleId === 'neumorphic' && settings.themeModeId !== 'dark'
+      "
+    />
+    <CardGlimmer
+      v-if="isSkeleton && loading"
+      :isNeumorphic="
+        settings.cardStyleId === 'neumorphic' && settings.themeModeId !== 'dark'
+      "
+    />
     <CardLabel :isSkeleton="isSkeleton" :loading="loading" v-if="cardLabel">
       {{ cardLabel }}
     </CardLabel>

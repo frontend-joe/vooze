@@ -11,7 +11,12 @@
       <topbar-burger-button />
     </Hidden>
     <topbar-logo />
-    <topbar-search />
+    <topbar-search
+      :isNeumorphic="
+        settings.cardStyleId === 'neumorphic' &&
+          settings.themeModeId === 'light'
+      "
+    />
     <AppsDropdown />
     <UserDropdown />
   </styled-wrapper>

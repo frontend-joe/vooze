@@ -4,7 +4,11 @@
       <styled-textbox-icon>
         search
       </styled-textbox-icon>
-      <styled-textbox type="text" placeholder="Find something" />
+      <styled-textbox
+        :isNeumorphic="isNeumorphic"
+        type="text"
+        placeholder="Find something"
+      />
       <styled-button>
         <span>Search</span>
         <mat-icon iconSize="18px" forDark>keyboard_arrow_down</mat-icon>
@@ -33,7 +37,9 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledTextbox = styled.input`
+const textboxProps = { isNeumorphic: Boolean };
+
+const StyledTextbox = styled("input", textboxProps)`
   border-top-left-radius: ${props => props.theme.borderRadius};
   border-bottom-left-radius: ${props => props.theme.borderRadius};
   border: 1px solid ${props => props.theme.colorBorder};
@@ -44,14 +50,18 @@ const StyledTextbox = styled.input`
   padding: 0;
   color: ${props => props.theme.colorText};
   padding-left: 2rem;
-  background: ${props => props.theme.colorBackground};
+  background: ${props =>
+    props.isNeumorphic
+      ? props.theme.colorCardBackgroundNeu
+      : props.theme.colorBackground};
 
   &::placeholder {
     color: #a7a7a7;
   }
 
   &:focus {
-    background: ${props => darken(0.05, props.theme.colorBackground)};
+    background: ${props =>
+      props.isNeumorphic ? "white" : darken(0.05, props.theme.colorBackground)};
   }
 
   &:focus::placeholder {
@@ -62,7 +72,7 @@ const StyledTextbox = styled.input`
 const StyledButton = styled.button`
   border-top-right-radius: ${props => props.theme.borderRadius};
   border-bottom-right-radius: ${props => props.theme.borderRadius};
-  background: ${props => props.theme.colorAccent};
+  background: ${props => props.theme.colorSecondary};
   border: 0;
   font-size: 14px;
   padding: 0 1rem 0 1rem;
@@ -88,6 +98,7 @@ const StyledTextboxIcon = styled(MatIcon)`
 `;
 
 export default {
+  props: textboxProps,
   components: {
     StyledWrapper,
     StyledTextbox,

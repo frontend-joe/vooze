@@ -1,7 +1,7 @@
 import Color from "color";
 
-const colorPrimary = "#1b8681";
-const colorSecondary = "#8EC0ED";
+const colorPrimary = "#ff6f4f";
+const colorSecondary = "#2F2963";
 const colorAccent = colorPrimary;
 
 const colorPrimaryFaint = Color(colorPrimary)
@@ -14,7 +14,7 @@ const colorSecondaryFaint = Color(colorSecondary)
 
 const colorAccentFaint = colorPrimaryFaint;
 
-const colorSidebar = "#101010";
+const colorSidebar = "#333333";
 
 export const themeOrange = {
   colorPrimary,

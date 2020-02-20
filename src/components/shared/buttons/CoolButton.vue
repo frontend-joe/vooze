@@ -83,7 +83,12 @@ const buttonDefaults = css`
   border: 0;
 
   ${props =>
-    !props.dropdown && !props.icon ? (props.sm ? "0 0.625rem" : "0 1rem") : ""};
+    !props.dropdown && !props.icon
+      ? props.sm
+        ? "padding: 0 0.625rem"
+        : "padding: 0 1rem"
+      : ""};
+
   ${props =>
     props.dropdown
       ? props.sm
@@ -173,25 +178,6 @@ const plainButton = css`
 const gradientButton = css`
   ${props => props.theme.colorPrimaryGradient};
   color: white;
-
-  ${"" /* ${props => (props.isGradient ? props.theme.colorPrimaryGradient : "")};
-  color: ${!outline ? textColor : textColorOutline};
-  border: 1px solid ${color}; */}
-
-  ${"" /* &:hover {
-    background: ${colorHover || (!outline ? darken(0.05, color) : color)};
-    border-color: ${borderColorHover ||
-      (!outline && !isGradient ? darken(0.05, color) : color)};
-    color: ${!outline ? textColorHover : textColorOutlineHover};
-
-    & > i {
-      color: ${!outline ? textColorHover : textColorOutlineHover} !important;
-    }
-  }
-
-  & > i {
-    color: ${!outline ? textColor : textColorOutline} !important;
-  } */}
 `;
 
 const standardColorButton = color => {

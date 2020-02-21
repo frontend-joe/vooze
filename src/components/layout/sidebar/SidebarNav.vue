@@ -206,7 +206,7 @@ export default {
           blocks: [
             {
               name: "Auth",
-              icon: "fiber_manual_record",
+              icon: "lock",
               isOpen: false,
               items: [
                 {

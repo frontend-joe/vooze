@@ -1,7 +1,18 @@
 <template>
   <StyledWrapper>
-    <StyledCheckboxControl name="test" type="checkbox" />
-    <StyledCheckboxLabel for="test">{{ label }}</StyledCheckboxLabel>
+    <StyledCheckboxControl
+      id="test"
+      value="john"
+      @change="onChange"
+      type="checkbox"
+      v-model="checked"
+    />
+    <StyledCheckboxLabel for="test">
+      <StyledCheckboxTick />
+      <StyledCheckboxText :isChecked="checked">
+        {{ label }}
+      </StyledCheckboxText>
+    </StyledCheckboxLabel>
   </StyledWrapper>
 </template>
 
@@ -14,18 +25,61 @@ const StyledWrapper = styled.div`
   margin-bottom: 2rem;
 `;
 
-const StyledCheckboxControl = styled.input``;
+const checkboxProps = { isChecked: String };
 
-const StyledCheckboxLabel = styled.label``;
+const StyledCheckboxControl = styled.input`
+  position: absolute;
+  top: 0;
+  left: -9999px;
+`;
+
+const StyledCheckboxLabel = styled.label`
+  display: flex;
+  align-items: center;
+`;
+
+const StyledCheckboxText = styled("div", checkboxProps)`
+  font-size: 1rem;
+  color: ${props =>
+    props.isChecked === "true"
+      ? props.theme.colorText
+      : props.theme.colorPlaceholder};
+`;
+
+const StyledCheckboxTick = styled.div`
+  border: 2px solid ${props => props.theme.colorBorder};
+  height: 24px;
+  width: 24px;
+  margin-left: 6px;
+  margin-right: 20px;
+`;
 
 export default {
   props: {
     label: String
   },
+  data: function() {
+    return {
+      checked: "false"
+    };
+  },
+  methods: {
+    onChange(e) {
+      console.log(this.checked);
+      // if (e.target.value === "false") {
+      //   this.checkboxValue = e.target.value === "false";
+      // }
+      //
+      // //this.checkboxValue = e.target.value;
+      console.log("changed!", e.target.checked);
+    }
+  },
   components: {
     StyledWrapper,
     StyledCheckboxControl,
-    StyledCheckboxLabel
+    StyledCheckboxLabel,
+    StyledCheckboxText,
+    StyledCheckboxTick
   }
 };
 </script>

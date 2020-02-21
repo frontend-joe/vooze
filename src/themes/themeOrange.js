@@ -1,7 +1,7 @@
 import Color from "color";
 
 const colorPrimary = "#ff6f4f";
-const colorSecondary = "#2F2963";
+const colorSecondary = "#413C71";
 const colorAccent = colorPrimary;
 
 const colorPrimaryFaint = Color(colorPrimary)

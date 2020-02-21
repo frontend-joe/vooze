@@ -1,8 +1,8 @@
 import Color from "color";
 
-const colorPrimary = "#465775";
-const colorSecondary = "#48A9A6";
-const colorAccent = colorSecondary;
+const colorPrimary = "#4357AD";
+const colorSecondary = "#3EAA96";
+const colorAccent = colorPrimary;
 
 const colorPrimaryFaint = Color(colorPrimary)
   .lighten(1.575)

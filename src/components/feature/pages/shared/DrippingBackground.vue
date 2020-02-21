@@ -1,23 +1,25 @@
 <template>
   <StyledWrapper>
-    <StyledDripWrapper
-      v-for="(drip, index) in dripArray"
-      :key="drip.id"
-      :style="{ width: dripWidth }"
-      :dripWidth="dripWidth"
-    >
-      <StyledDripUp
+    <StyledDrippingWrapper>
+      <StyledDripWrapper
+        v-for="(drip, index) in dripArray"
+        :key="drip.id"
+        :style="{ width: dripWidth }"
         :dripWidth="dripWidth"
-        :dripHeight="drip.height"
-        :style="{ height: `${drip.height}%` }"
-      />
-      <StyledDripUpCircle :dripHeight="drip.height" :dripWidth="dripWidth" />
-      <StyledDripDown
-        :dripWidth="dripWidth"
-        v-if="index % 2 !== 0"
-        :style="{ height: `${drip.dripDownHeight}%` }"
-      />
-    </StyledDripWrapper>
+      >
+        <StyledDripUp
+          :dripWidth="dripWidth"
+          :dripHeight="drip.height"
+          :style="{ height: `${drip.height}%` }"
+        />
+        <StyledDripUpCircle :dripHeight="drip.height" :dripWidth="dripWidth" />
+        <StyledDripDown
+          :dripWidth="dripWidth"
+          v-if="index % 2 !== 0"
+          :style="{ height: `${drip.dripDownHeight}%` }"
+        />
+      </StyledDripWrapper>
+    </StyledDrippingWrapper>
   </StyledWrapper>
 </template>
 
@@ -25,6 +27,13 @@
 import styled from "vue-styled-components";
 
 const StyledWrapper = styled.div`
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+`;
+
+const StyledDrippingWrapper = styled.div`
   width: 100%;
   height: 300px;
   background: #242424;
@@ -80,6 +89,7 @@ export default {
   },
   components: {
     StyledWrapper,
+    StyledDrippingWrapper,
     StyledDripWrapper,
     StyledDripUp,
     StyledDripDown,

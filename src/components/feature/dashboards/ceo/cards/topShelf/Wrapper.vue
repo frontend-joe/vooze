@@ -89,7 +89,7 @@ export default {
           border: "SecondaryLighten3",
           color: "Secondary",
           icon: "ti-Line-Cog",
-          mobileColor: "white"
+          mobileColor: "White"
         }
       ]
     };

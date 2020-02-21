@@ -45,7 +45,7 @@ const StyledTitle = styled("div", theProps)`
 `;
 
 const StyledValue = styled.div`
-  font-size: 28px;
+  font-size: 34px;
   font-weight: normal;
   margin-bottom: 0.5rem;
 `;
@@ -65,7 +65,9 @@ const StyledIcon = styled(TonIcon, theProps)`
   font-size: 100px !important;
   transform: translate(0, 35%);
   color: ${props =>
-    props.isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.075)"} !important;
+    props.isDark
+      ? props.theme.colorIconForDark
+      : props.theme.colorIconForLight} !important;
 
   @media (min-width: ${props => props.theme.screenWidthXs}) {
     transform: translate(0, -50%);

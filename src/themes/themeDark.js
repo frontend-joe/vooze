@@ -21,6 +21,8 @@ const colorTableHeader = rgba("black", 0.3);
 const colorSpinnerGrey = rgba("white", 0.075);
 const colorIconHover = "white";
 const colorButtonDefault = "#1a1a1a";
+const colorWhite = "#131212";
+const colorIconForLight = "rgba(255, 255, 255, 0.15)";
 
 export const themeDark = {
   colorPrimary,
@@ -43,5 +45,7 @@ export const themeDark = {
   colorTableHeader,
   colorSpinnerGrey,
   colorIconHover,
-  colorButtonDefault
+  colorButtonDefault,
+  colorWhite,
+  colorIconForLight
 };

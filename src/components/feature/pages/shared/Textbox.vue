@@ -13,7 +13,7 @@
         v-model="textboxValue"
         @focus="onFocus"
         @blur="onBlur"
-        type="text"
+        :type="isPassword ? 'password' : 'text'"
       />
       <StyledTextboxBorder :focused="focused" />
     </StyledTextboxWrapper>
@@ -85,7 +85,8 @@ export default {
   props: {
     icon: String,
     placeholder: String,
-    autoFocus: Boolean
+    autoFocus: Boolean,
+    isPassword: Boolean
   },
   components: {
     StyledWrapper,
@@ -121,9 +122,6 @@ export default {
   mounted: function() {
     if (this.autoFocus) {
       this.focusInput();
-
-      //console.log("refs", this.$refs.textboxRef);
-      // this.$refs.textboxRef.focus();
     }
   }
 };

@@ -13,6 +13,9 @@ import Table from "../components/feature/components/table/Wrapper";
 import ClassicWidgets from "../components/feature/widgets/classic/Wrapper";
 import Chips from "../components/feature/components/chip/Wrapper";
 import LoginPage from "../components/feature/pages/login/Wrapper";
+import RegisterPage from "../components/feature/pages/register/Wrapper";
+import LockedPage from "../components/feature/pages/locked/Wrapper";
+import ForgotPage from "../components/feature/pages/forgot/Wrapper";
 
 Vue.use(VueRouter);
 
@@ -71,6 +74,21 @@ const routes = [
     path: "/pages/auth/login",
     name: "login",
     component: LoginPage
+  },
+  {
+    path: "/pages/auth/register",
+    name: "register",
+    component: RegisterPage
+  },
+  {
+    path: "/pages/auth/forgot",
+    name: "forgot",
+    component: ForgotPage
+  },
+  {
+    path: "/pages/auth/locked",
+    name: "locked",
+    component: LockedPage
   },
   {
     path: "*",

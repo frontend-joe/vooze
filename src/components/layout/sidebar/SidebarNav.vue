@@ -213,6 +213,21 @@ export default {
                   name: "Login",
                   icon: "account_circle",
                   url: "/pages/auth/login"
+                },
+                {
+                  name: "Register",
+                  icon: "assignment",
+                  url: "/pages/auth/register"
+                },
+                {
+                  name: "Forgot Password",
+                  icon: "feedback",
+                  url: "/pages/auth/forgot"
+                },
+                {
+                  name: "Lock Screen",
+                  icon: "lock_open",
+                  url: "/pages/auth/locked"
                 }
               ]
             }

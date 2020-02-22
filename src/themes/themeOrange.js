@@ -14,7 +14,7 @@ const colorSecondaryFaint = Color(colorSecondary)
 
 const colorAccentFaint = colorPrimaryFaint;
 
-const colorSidebar = "#333333";
+const colorSidebar = "#1a182b";
 
 export const themeOrange = {
   colorPrimary,

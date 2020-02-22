@@ -52,12 +52,7 @@ const StyledDripUp = styled("div", dripProps)`
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgb(62, 32, 156);
-  background: linear-gradient(
-    0deg,
-    rgba(62, 32, 156, 1) 0%,
-    rgba(133, 43, 191, 1) 75%
-  );
+  background: ${props => props.theme.colorAccent};
 `;
 
 const StyledDripUpCircle = styled("div", dripProps)`
@@ -67,7 +62,7 @@ const StyledDripUpCircle = styled("div", dripProps)`
   position: absolute;
   top: ${props => 100 - props.dripHeight}%;
   transform: translateY(-50%);
-  background: #852bbf;
+  background: ${props => props.theme.colorAccent};
 `;
 
 const StyledDripDown = styled("div", dripProps)`
@@ -121,7 +116,7 @@ export default {
           if (i % 2 === 0) {
             height = getRndInteger(previousHeight, 75);
           } else {
-            height = getRndInteger(10, previousHeight);
+            height = getRndInteger(35, previousHeight);
           }
         }
 

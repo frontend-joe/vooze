@@ -140,6 +140,7 @@ export const themeDefault = {
   colorTopbarButtonHover: "rgba(255, 255, 255, 0.88)",
   colorWarning: "#F6B569",
   colorWhite: "#ffffff",
+  colorWhiteAlways: "#ffffff",
   colorYellow,
   colorYellowFaint
 };

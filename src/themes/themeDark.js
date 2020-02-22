@@ -1,8 +1,8 @@
 import { rgba } from "polished";
 
-const colorPrimary = "#de6f1e";
+const colorPrimary = "#7940FF";
 const colorPrimaryFaint = rgba(colorPrimary, 0.1);
-const colorSecondary = "#FF4081";
+const colorSecondary = "#DF33FF";
 const colorSecondaryFaint = rgba(colorSecondary, 0.1);
 const colorAccent = colorPrimary;
 const colorSidebar = "#131313";

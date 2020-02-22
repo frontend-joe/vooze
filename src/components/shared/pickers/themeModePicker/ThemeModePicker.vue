@@ -106,8 +106,8 @@ export default {
           disabled: false,
           id: "light",
           label: "Light",
-          topbarColor: "White",
-          sidebarColor: "White",
+          topbarColor: "WhiteAlways",
+          sidebarColor: "WhiteAlways",
           contentColor: "white"
         },
         {

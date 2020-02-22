@@ -5,7 +5,6 @@
 
 <script>
 import styled from "vue-styled-components";
-import { rgba } from "polished";
 
 const avatarProps = {
   size: String,
@@ -19,9 +18,7 @@ const StyledImage = styled("img", avatarProps)`
   border-radius: 50%;
 
   ${props =>
-    props.isShadow
-      ? `box-shadow: 0 6px 20px 0 ${rgba(props.theme.colorAccent, 0.5)}`
-      : ""};
+    props.hasShadow ? `box-shadow: 0 6px 20px 0 rgba(0,0,0,0.15)` : ""};
 `;
 
 export default {

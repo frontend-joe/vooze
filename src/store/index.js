@@ -7,6 +7,7 @@ import developerDashboard from "../components/feature/dashboards/developer/modul
 import designerDashboard from "../components/feature/dashboards/designer/module";
 import settings from "../components/layout/settings/module";
 import sidebar from "../components/layout/sidebar/module";
+import intro from "../components/layout/intro/module";
 
 Vue.use(Vuex);
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     developerDashboard,
     designerDashboard,
     settings,
-    sidebar
+    sidebar,
+    intro
   }
 });

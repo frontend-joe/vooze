@@ -9,10 +9,10 @@
         <Settings :isOpen="settings.isOpen" />
         <Overlay
           @click="handleOverlayClicked"
-          :open="sidebar.isOpen || settings.isOpen"
+          :open="sidebar.isOpen || settings.isOpen || intro.isOpen"
         />
-
-        <Sidebar :open="sidebarOpen" />
+        <Intro :isOpen="intro.isOpen" />
+        <Sidebar :open="sidebar.isOpen" />
         <Content>
           <router-view :theme="settings.theme || themeDefault" />
         </Content>
@@ -34,7 +34,7 @@ import { themeDefault } from "./themes/themeDefault";
 import Topbar from "./components/layout/topbar/Topbar";
 import Sidebar from "./components/layout/sidebar/Sidebar";
 import Content from "./components/layout/content/Content";
-// import Rightbar from "./components/layout/rightbar/Rightbar";
+import Intro from "./components/layout/intro/Wrapper";
 import Settings from "./components/layout/settings/Wrapper";
 import SettingsButton from "./components/layout/settingsButton/Wrapper";
 import { Overlay } from "./components/shared/common";
@@ -102,21 +102,22 @@ export default {
     ThemeProvider,
     Topbar,
     Sidebar,
-    // Rightbar,
+    Intro,
     Content,
     Overlay,
     Settings,
     SettingsButton,
     StyledWrapper
   },
-  computed: mapGetters(["settings", "sidebar", "app"]),
+  computed: mapGetters(["settings", "sidebar", "app", "intro"]),
   methods: {
     ...mapActions([
       "loadSettings",
       "toggleSettingsOpen",
       "toggleSidebarOpen",
       "toggleTheme",
-      "toggleActiveDropdown"
+      "toggleActiveDropdown",
+      "toggleIntroOpen"
     ]),
     handleSettingsButtonClicked() {
       this.toggleSettingsOpen(!this.settings.isOpen);
@@ -127,6 +128,10 @@ export default {
       }
       if (this.settings.isOpen) {
         this.toggleSettingsOpen(false);
+      }
+
+      if (this.intro.isOpen) {
+        this.toggleIntroOpen(false);
       }
     }
   },
@@ -145,6 +150,10 @@ export default {
         this.toggleActiveDropdown(undefined);
       }
     });
+
+    setTimeout(() => {
+      this.toggleIntroOpen(true);
+    }, 5000);
   },
   destroyed: function() {
     window.removeEventListener("click", () =>
@@ -153,7 +162,6 @@ export default {
   },
   data: function() {
     return {
-      sidebarOpen: false,
       themeDefault: themeDefault
     };
   }

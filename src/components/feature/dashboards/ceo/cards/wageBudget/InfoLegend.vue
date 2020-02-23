@@ -43,7 +43,7 @@ const StyledTotalBlock__value = styled.div`
   color: ${props => props.theme.colorText};
 
   @media (min-width: ${props => props.theme.screenWidthXxl}) {
-    font-size: 32px;
+    font-size: 34px;
   }
 `;
 

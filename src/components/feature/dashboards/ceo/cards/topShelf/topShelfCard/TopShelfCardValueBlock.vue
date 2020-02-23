@@ -25,10 +25,10 @@ const StyledLabel = styled.div`
 
 const StyledValue = styled.div`
   font-size: 22px;
-  font-weight: bold;
+  font-weight: normal;
 
   @media (min-width: ${props => props.theme.screenWidthXxl}) {
-    font-size: 32px;
+    font-size: 34px;
   }
 `;
 

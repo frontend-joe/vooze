@@ -15,6 +15,9 @@ const colorAccentFaint = colorPrimaryFaint;
 
 const colorSidebar = "#100d0d";
 
+const colorGradientLeft = colorPrimary;
+const colorGradientRight = colorSecondary;
+
 export const themeRed = {
   colorPrimary,
   colorPrimaryFaint,
@@ -22,5 +25,7 @@ export const themeRed = {
   colorSecondaryFaint,
   colorAccent,
   colorAccentFaint,
-  colorSidebar
+  colorSidebar,
+  colorGradientLeft,
+  colorGradientRight
 };

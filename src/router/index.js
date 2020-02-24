@@ -9,21 +9,26 @@ import Buttons from "../components/feature/components/button/Wrapper";
 import Alerts from "../components/feature/components/alert/Wrapper";
 import ChartJs from "../components/feature/charts/chartjs/Wrapper";
 import Table from "../components/feature/components/table/Wrapper";
-// import ModernWidgets from "../components/feature/widgets/modern/Wrapper";
-import ClassicWidgets from "../components/feature/widgets/classic/Wrapper";
+import ModernWidgets from "../components/feature/widgets/modern/Wrapper";
 import Chips from "../components/feature/components/chip/Wrapper";
 import LoginPage from "../components/feature/pages/login/Wrapper";
 import RegisterPage from "../components/feature/pages/register/Wrapper";
 import LockedPage from "../components/feature/pages/locked/Wrapper";
 import ForgotPage from "../components/feature/pages/forgot/Wrapper";
+import MetricWidgets from "../components/feature/widgets/metrics/Wrapper";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/widgets/modern",
-    name: "classic widgets",
-    component: ClassicWidgets
+    name: "modern widgets",
+    component: ModernWidgets
+  },
+  {
+    path: "/widgets/metrics",
+    name: "metrics",
+    component: MetricWidgets
   },
   {
     path: "/charts/apex",

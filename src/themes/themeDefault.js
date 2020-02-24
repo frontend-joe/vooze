@@ -28,6 +28,15 @@ const colorPurpleFaint = lighten(0.485, colorPurple);
 const colorGreenFaint = lighten(0.425, colorGreen);
 const colorIndigoFaint = lighten(0.55, colorIndigo);
 
+const gradientBackgroundBlueLeft = "#0288d1";
+const gradientBackgroundBlueRight = "#26c6da";
+const gradientBackgroundPinkLeft = "#ff5252";
+const gradientBackgroundPinkRight = "#f48fb1";
+const gradientBackgroundYellowLeft = "#ff6f00";
+const gradientBackgroundYellowRight = "#ffca28";
+const gradientBackgroundGreenLeft = "#43a047";
+const gradientBackgroundGreenRight = "#1de9b6";
+
 const chartColors1 = ["#6274F6", "#1dce8e", "#F6B569"];
 const chartColors2 = [colorPurple, colorTeal, colorRed];
 
@@ -142,5 +151,13 @@ export const themeDefault = {
   colorWhite: "#ffffff",
   colorWhiteAlways: "#ffffff",
   colorYellow,
-  colorYellowFaint
+  colorYellowFaint,
+  gradientBackgroundBlueLeft,
+  gradientBackgroundBlueRight,
+  gradientBackgroundPinkLeft,
+  gradientBackgroundPinkRight,
+  gradientBackgroundYellowLeft,
+  gradientBackgroundYellowRight,
+  gradientBackgroundGreenLeft,
+  gradientBackgroundGreenRight
 };

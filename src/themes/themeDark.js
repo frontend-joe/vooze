@@ -15,7 +15,7 @@ const colorSubtitle = rgba("white", 0.65);
 const colorBorder = rgba("white", 0.075);
 const colorCardHeader = rgba("black", 0.81);
 const colorSkeleton = rgba("white", 0.05);
-const colorSkeletonGlimmer = "transparent";
+const colorSkeletonGlimmer = "#131212";
 const colorRowAlternate = rgba("black", 0.3);
 const colorTableHeader = rgba("black", 0.3);
 const colorSpinnerGrey = rgba("white", 0.075);
@@ -23,6 +23,8 @@ const colorIconHover = "white";
 const colorButtonDefault = "#1a1a1a";
 const colorWhite = "#131212";
 const colorIconForLight = "rgba(255, 255, 255, 0.15)";
+const colorGradientLeft = colorPrimary;
+const colorGradientRight = colorSecondary;
 
 export const themeDark = {
   colorPrimary,
@@ -47,5 +49,7 @@ export const themeDark = {
   colorIconHover,
   colorButtonDefault,
   colorWhite,
-  colorIconForLight
+  colorIconForLight,
+  colorGradientLeft,
+  colorGradientRight
 };

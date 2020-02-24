@@ -139,6 +139,11 @@ export default {
                   name: "Modern",
                   icon: "waves",
                   url: "/widgets/modern"
+                },
+                {
+                  name: "Metrics",
+                  icon: "pie_chart",
+                  url: "/widgets/metrics"
                 }
               ]
             }

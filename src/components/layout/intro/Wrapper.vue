@@ -1,7 +1,12 @@
 <template>
   <StyledWrapper :isOpen="isOpen">
     <StyledHeader>
-      <CoolButton plain icon="close" iconPosition="right">
+      <CoolButton
+        @click="toggleIntroOpen(false)"
+        plain
+        icon="close"
+        iconPosition="right"
+      >
         Skip Intro
       </CoolButton>
     </StyledHeader>
@@ -45,6 +50,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import styled from "vue-styled-components";
 import { VueAgile } from "vue-agile";
 import { CoolButton, MatIconButton } from "../../shared/buttons";
@@ -57,7 +63,7 @@ const StyledWrapper = styled("div", wrapperProps)`
   z-index: 100;
   top: 50%;
   left: 50%;
-  width: 300px;
+  width: 400px;
   height: 535px;
   border-radius: 10px;
   visibility: ${props => (props.isOpen ? "visible" : "hidden")};
@@ -139,6 +145,7 @@ export default {
     StyledNavButton
   },
   methods: {
+    ...mapActions(["toggleIntroOpen"]),
     onDotClicked(dot) {
       this.$refs.carousel.goTo(dot);
     },

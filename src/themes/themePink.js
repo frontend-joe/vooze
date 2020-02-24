@@ -4,6 +4,8 @@ const colorPrimary = "#522cad";
 const colorSecondary = "#C322E0";
 const colorAccent = colorSecondary;
 const colorSidebar = "#1a1323";
+const colorGradientLeft = colorPrimary;
+const colorGradientRight = colorSecondary;
 
 const colorPrimaryFaint = Color(colorPrimary)
   .lighten(1.25)
@@ -22,5 +24,7 @@ export const themePink = {
   colorAccentFaint,
   colorPrimaryFaint,
   colorSecondaryFaint,
-  colorSidebar
+  colorSidebar,
+  colorGradientLeft,
+  colorGradientRight
 };

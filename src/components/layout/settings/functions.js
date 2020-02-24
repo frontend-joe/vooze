@@ -1,23 +1,8 @@
-import { rgba } from "polished";
+//import { rgba } from "polished";
 import { css } from "vue-styled-components";
 
-export const createTheme = (
-  baseTheme,
-  colorPrimary,
-  colorPrimaryFaint,
-  colorSecondary,
-  colorSecondaryFaint,
-  colorAccent,
-  colorAccentFaint,
-  colorGradientLeft,
-  colorGradientRight,
-  chartColors3,
-  chartColors,
-  colorSidebar,
-  colorTopbar
-) => {
-  //create gradient
-  const gradientPrimary = css`
+const createGradient = (colorGradientLeft, colorGradientRight) => {
+  return css`
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#243444+0,41b883+100 */
     background: ${colorGradientLeft}; /* Old browsers */
     background: -moz-linear-gradient(
@@ -37,23 +22,42 @@ export const createTheme = (
     ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='${colorGradientLeft}', endColorstr='${colorGradientRight}',GradientType=1 ); /* IE6-9 */
   `;
+};
+
+export const addGradients = baseTheme => {
+  //create gradient
+  const gradientPrimary = createGradient(
+    baseTheme.colorGradientLeft,
+    baseTheme.colorGradientRight
+  );
+
+  const gradientBlue = createGradient(
+    baseTheme.gradientBackgroundBlueLeft,
+    baseTheme.gradientBackgroundBlueRight
+  );
+
+  const gradientPink = createGradient(
+    baseTheme.gradientBackgroundPinkLeft,
+    baseTheme.gradientBackgroundPinkRight
+  );
+
+  const gradientYellow = createGradient(
+    baseTheme.gradientBackgroundYellowLeft,
+    baseTheme.gradientBackgroundYellowRight
+  );
+
+  const gradientGreen = createGradient(
+    baseTheme.gradientBackgroundGreenLeft,
+    baseTheme.gradientBackgroundGreenRight
+  );
 
   let newTheme = {
     ...baseTheme,
     colorPrimaryGradient: gradientPrimary,
-    colorPrimary,
-    colorPrimaryFaint,
-    colorSecondary,
-    colorSecondaryFaint,
-    colorAccent,
-    colorAccentFaint,
-    colorOverlay: rgba(colorPrimary, 0.275),
-    chartColors3,
-    chartColors,
-    colorSidebar,
-    colorGradientLeft,
-    colorGradientRight,
-    colorTopbar
+    gradientBlue,
+    gradientPink,
+    gradientYellow,
+    gradientGreen
   };
 
   return newTheme;

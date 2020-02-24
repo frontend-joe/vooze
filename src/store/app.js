@@ -10,7 +10,6 @@ const getters = {
 
 const actions = {
   toggleActiveDropdown({ commit }, dropdown) {
-    console.log("toggleActiveDropdown", dropdown);
     commit("setAppDropdown", dropdown);
   }
 };

@@ -28,7 +28,7 @@ const dotProps = {
 };
 const StyledDot = styled("button", dotProps)`
   border: 2px solid
-    ${props => (props.active ? props.theme.colorPrimary : "#a9a7ac")};
+    ${props => (props.active ? props.theme.colorAccent : "#a9a7ac")};
   transform: translateY(${props => (props.active ? "-1px" : "0")});
   background: ${props => props.theme.colorCardBackground};
   padding: 0;

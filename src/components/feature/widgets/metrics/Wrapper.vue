@@ -2,14 +2,6 @@
   <StyledWrapper>
     <PageTitle section="Widgets">Metrics</PageTitle>
     <div class="row">
-      <div class="col-lg-4">
-        <NewsletterCard />
-      </div>
-      <div class="col-lg-4">
-        <AreaChartCard />
-      </div>
-    </div>
-    <div class="row">
       <div class="col-sm-6 col-lg-3" v-for="card in headlines" :key="card.id">
         <GradientHeadlineCard :card="card" />
       </div>
@@ -21,6 +13,14 @@
       </div>
     </div>
     <ContentHeader>Misc</ContentHeader>
+    <div class="row">
+      <div class="col-lg-4">
+        <NewsletterCard />
+      </div>
+      <div class="col-lg-4">
+        <AreaChartCard />
+      </div>
+    </div>
   </StyledWrapper>
 </template>
 

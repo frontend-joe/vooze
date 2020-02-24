@@ -34,12 +34,16 @@ const StyledCard = styled(Card)`
 
 const StyledImage = styled.img`
   max-width: 100%;
+  max-height: 240px;
   border-radius: 0.5rem;
   transform: translateY(-40px);
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
     0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
 
   transition: transform 0.25s;
+
+  @media (min-width: ${props => props.theme.screenWidthXxl}) {
+  }
 `;
 
 const StyledTitle = styled.div`

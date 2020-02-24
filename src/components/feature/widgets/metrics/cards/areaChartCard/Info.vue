@@ -16,7 +16,7 @@ import InfoRight from "./InfoRight";
 
 const StyledWrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 1.5rem 1.5rem 0;
 `;

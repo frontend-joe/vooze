@@ -2,6 +2,14 @@
   <StyledWrapper>
     <PageTitle section="Widgets">Metrics</PageTitle>
     <div class="row">
+      <div class="col-lg-4">
+        <NewsletterCard />
+      </div>
+      <div class="col-lg-4">
+        <AreaChartCard />
+      </div>
+    </div>
+    <div class="row">
       <div class="col-sm-6 col-lg-3" v-for="card in headlines" :key="card.id">
         <GradientHeadlineCard :card="card" />
       </div>
@@ -12,7 +20,7 @@
         <BlogCard :card="card" />
       </div>
     </div>
-    <ContentHeader>Statistics</ContentHeader>
+    <ContentHeader>Misc</ContentHeader>
   </StyledWrapper>
 </template>
 
@@ -21,6 +29,8 @@ import styled from "vue-styled-components";
 import { PageTitle, ContentHeader } from "../../../shared/page";
 import GradientHeadlineCard from "./cards/gradientHeadlineCard/Wrapper";
 import BlogCard from "./cards/blogCard/Wrapper";
+import NewsletterCard from "./cards/newsletterCard/Wrapper";
+import AreaChartCard from "./cards/areaChartCard/Wrapper";
 
 const StyledWrapper = styled.div``;
 
@@ -30,7 +40,9 @@ export default {
     PageTitle,
     ContentHeader,
     GradientHeadlineCard,
-    BlogCard
+    BlogCard,
+    NewsletterCard,
+    AreaChartCard
   },
   data: function() {
     return {

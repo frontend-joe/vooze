@@ -1,5 +1,5 @@
 <template>
-  <StyledCard padding="1.5rem" fixedHeight="400px">
+  <StyledCard padding="1.5rem">
     <StyledImage :src="card.image" />
     <StyledTitle>
       {{ card.title }}

@@ -1,6 +1,6 @@
 <template>
   <StyledWrapper>
-    <PageTitle section="Widgets">Modern</PageTitle>
+    <PageTitle section="Widgets">Charts</PageTitle>
 
     <div class="row">
       <div class="col-lg-4">
@@ -28,6 +28,14 @@
       <div class="col-lg-8">
         <TableCard />
       </div>
+
+      <div class="col-lg-4">
+        <LineChartCard />
+      </div>
+
+      <div class="col-lg-4">
+        <AreaChartCard />
+      </div>
     </div>
   </StyledWrapper>
 </template>
@@ -36,6 +44,10 @@
 import { mapGetters } from "vuex";
 import styled from "vue-styled-components";
 import { PageTitle } from "../../../shared/page";
+import {
+  LineChart as LineChartCard,
+  AreaChart as AreaChartCard
+} from "../../../shared/widgets";
 // import ShadowLineChart from "./cards/shadowLineChart/Wrapper";
 import ShadowLineChart2 from "./cards/shadowLineChart2/Wrapper";
 import ShadowStackedBarChart from "./cards/shadowStackedBarChart/Wrapper";
@@ -60,7 +72,9 @@ export default {
     ShadowIconCard,
     // GradientAreaChart,
     GradientAreaChart2,
-    TableCard
+    TableCard,
+    LineChartCard,
+    AreaChartCard
   },
   computed: mapGetters(["settings"])
 };

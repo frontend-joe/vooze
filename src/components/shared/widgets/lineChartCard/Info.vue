@@ -15,7 +15,7 @@
 
 <script>
 import styled from "vue-styled-components";
-import { MatIcon } from "../../../../../shared/icons";
+import { MatIcon } from "../../../shared/icons";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ const StyledWrapper = styled.div`
 const StyledBlock = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   margin-right: 1rem;
 `;

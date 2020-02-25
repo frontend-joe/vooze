@@ -1,6 +1,6 @@
 <template>
   <StyledWrapper>
-    <PageTitle section="Widgets">Metrics</PageTitle>
+    <PageTitle section="Widgets">Colorful</PageTitle>
     <div class="row">
       <div class="col-sm-6 col-lg-3" v-for="card in headlines" :key="card.id">
         <GradientHeadlineCard :card="card" />
@@ -18,34 +18,21 @@
         <ProfileImageList />
         <div class="row">
           <div class="col-lg-6">
+            <ArticleCard />
+            <NewsletterCard />
+          </div>
+          <div class="col-lg-6">
             <CarouselCard />
+
             <div class="row">
-              <div class="col-lg-6">
-                <IconCard
-                  backgroundColor="Primary"
-                  textColor="WhiteAlways"
-                  icon="ti-Line-Battery"
-                  label="Battery Status"
-                />
-                <IconCard
-                  backgroundColor="White"
-                  textColor="Accent"
-                  icon="ti-Line-Camera-1"
-                  label="Images"
-                />
-                <IconCard
-                  backgroundColor="Secondary"
-                  textColor="WhiteAlways"
-                  icon="ti-Line-File-12"
-                  label="Files"
-                />
-              </div>
-              <div class="col-lg-6">
+              <div class="col-6">
                 <GradientIconCard
                   gradient="Blue"
                   cardValue="254"
                   cardTitle="Unread"
                 />
+              </div>
+              <div class="col-6">
                 <GradientStatCard
                   gradient="Purple"
                   cardValue="624"
@@ -55,17 +42,31 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <AreaChartCard />
-            <ArticleCard />
-            <NewsletterCard />
-          </div>
         </div>
       </div>
       <div class="col-lg-4">
         <SubscribeCard gradient="Purple" />
+
+        <div class="row">
+          <div class="col-6">
+            <IconCard
+              backgroundColor="White"
+              textColor="Accent"
+              icon="ti-Line-Camera-1"
+              label="Images"
+            />
+          </div>
+          <div class="col-6">
+            <IconCard
+              backgroundColor="Secondary"
+              textColor="WhiteAlways"
+              icon="ti-Line-Battery"
+              label="Battery Status"
+            />
+          </div>
+        </div>
+
         <ProfileCard />
-        <LineChartCard />
       </div>
     </div>
   </StyledWrapper>
@@ -77,13 +78,12 @@ import { PageTitle, ContentHeader } from "../../../shared/page";
 import GradientHeadlineCard from "./cards/gradientHeadlineCard/Wrapper";
 import BlogCard from "./cards/blogCard/Wrapper";
 import NewsletterCard from "./cards/newsletterCard/Wrapper";
-import AreaChartCard from "./cards/areaChartCard/Wrapper";
+
 import CarouselCard from "./cards/carouselCard/Wrapper";
 import GradientStatCard from "./cards/gradientStatCard/Wrapper";
 import GradientIconCard from "./cards/gradientIconCard/Wrapper";
 import IconCard from "./cards/iconCard/Wrapper";
 import ArticleCard from "./cards/articleCard/Wrapper";
-import LineChartCard from "./cards/lineChartCard/Wrapper";
 import SubscribeCard from "./cards/subscribeCard/Wrapper";
 import ProfileCard from "./cards/profileCard/Wrapper";
 import ProfileImageList from "./cards/profileImageList/Wrapper";
@@ -98,13 +98,11 @@ export default {
     GradientHeadlineCard,
     BlogCard,
     NewsletterCard,
-    AreaChartCard,
     CarouselCard,
     GradientStatCard,
     GradientIconCard,
     IconCard,
     ArticleCard,
-    LineChartCard,
     SubscribeCard,
     ProfileCard,
     ProfileImageList

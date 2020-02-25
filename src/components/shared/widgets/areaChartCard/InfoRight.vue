@@ -6,7 +6,7 @@
 
 <script>
 import styled from "vue-styled-components";
-import { MatIcon } from "../../../../../shared/icons";
+import { MatIcon } from "../../../shared/icons";
 
 const StyledWrapper = styled.div``;
 

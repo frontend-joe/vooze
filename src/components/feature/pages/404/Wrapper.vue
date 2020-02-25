@@ -10,13 +10,13 @@
       fixedWidth="324px"
       placeholder="Search for something..."
     />
-    <CoolButton isGradient lg>Go Back Home</CoolButton>
+    <!-- <CoolButton isGradient lg>Go Back Home</CoolButton> -->
   </PageWrapper>
 </template>
 
 <script>
 import styled from "vue-styled-components";
-import { CoolButton } from "../../../shared/buttons";
+// import { CoolButton } from "../../../shared/buttons";
 import { Textbox } from "../../../shared/forms";
 import { PageWrapper, ErrorText } from "../shared";
 
@@ -27,7 +27,7 @@ const StyledTextbox = styled(Textbox)`
 export default {
   components: {
     PageWrapper,
-    CoolButton,
+    // CoolButton,
     ErrorText,
     StyledTextbox
   }

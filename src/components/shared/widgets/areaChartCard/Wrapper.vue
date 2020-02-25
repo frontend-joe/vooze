@@ -7,7 +7,7 @@
 
 <script>
 import styled from "vue-styled-components";
-import { Card } from "../../../../../shared/card";
+import { Card } from "../../card";
 import Chart from "./Chart";
 import Info from "./Info";
 

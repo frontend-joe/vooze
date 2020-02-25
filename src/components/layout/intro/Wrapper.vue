@@ -2,6 +2,7 @@
   <StyledWrapper :isOpen="isOpen">
     <StyledHeader>
       <CoolButton
+        lg
         @click="toggleIntroOpen(false)"
         plain
         icon="close"

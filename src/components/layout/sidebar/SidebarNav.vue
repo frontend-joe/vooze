@@ -136,14 +136,14 @@ export default {
               isOpen: false,
               items: [
                 {
-                  name: "Modern",
-                  icon: "waves",
-                  url: "/widgets/modern"
+                  name: "Charts",
+                  icon: "pie_chart",
+                  url: "/widgets/charts"
                 },
                 {
-                  name: "Metrics",
-                  icon: "pie_chart",
-                  url: "/widgets/metrics"
+                  name: "Colorful",
+                  icon: "invert_colors",
+                  url: "/widgets/colorful"
                 }
               ]
             }

@@ -22,7 +22,7 @@ const StyledButtonWrapper = styled.div`
     color: ${props => props.theme.colorSidebarButtonActive};
     height: 40px;
     line-height: 40px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     text-align: left;
     display: flex;

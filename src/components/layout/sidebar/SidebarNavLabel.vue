@@ -36,14 +36,14 @@ const StyledButton = styled("button", buttonProps)`
       : props.theme.colorSidebarButtonActive};
   height: 40px;
   line-height: 40px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
   text-align: left;
-  
+
   @media (min-width: ${props => props.theme.screenWidthMd}) {
     width: ${props =>
       props.isHovered || !props.isCollapsed ? "100%" : "64px"};

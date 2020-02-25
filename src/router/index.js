@@ -23,13 +23,13 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/widgets/modern",
-    name: "modern widgets",
+    path: "/widgets/charts",
+    name: "charts widgets",
     component: ModernWidgets
   },
   {
-    path: "/widgets/metrics",
-    name: "metrics",
+    path: "/widgets/colorful",
+    name: "colorful",
     component: MetricWidgets
   },
   {

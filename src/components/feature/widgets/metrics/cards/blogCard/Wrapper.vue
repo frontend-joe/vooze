@@ -33,7 +33,7 @@ const StyledCard = styled(Card)`
 `;
 
 const StyledImage = styled.img`
-  max-width: 100%;
+  max-width: 75%;
   max-height: 240px;
   border-radius: 0.5rem;
   transform: translateY(-40px);

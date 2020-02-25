@@ -8,6 +8,7 @@
     :iconPosition="iconPosition"
     :primary="primary"
     :secondary="secondary"
+    :accent="accent"
     :success="success"
     :outline="outline"
     :rounded="rounded"
@@ -61,6 +62,7 @@ const btnProps = {
   lg: Boolean,
   primary: Boolean,
   secondary: Boolean,
+  accent: Boolean,
   success: Boolean,
   outline: Boolean,
   rounded: Boolean,
@@ -187,10 +189,10 @@ const standardColorButton = color => {
         props.outline,
         color,
         undefined,
-        props.theme.colorWhite,
+        props.theme.colorWhiteAlways,
         color,
-        props.theme.colorWhite,
-        props.theme.colorWhite
+        props.theme.colorWhiteAlways,
+        props.theme.colorWhiteAlways
       )}
   `;
 };
@@ -202,6 +204,8 @@ const CoolButton = styled("button", btnProps)`
     props.primary ? standardColorButton(props.theme.colorPrimary) : ""};
   ${props =>
     props.secondary ? standardColorButton(props.theme.colorSecondary) : ""};
+  ${props =>
+    props.accent ? standardColorButton(props.theme.colorAccent) : ""};
   ${props => (props.red ? standardColorButton(props.theme.colorRed) : "")};
   ${props => (props.blue ? standardColorButton(props.theme.colorBlue) : "")};
   ${props => (props.green ? standardColorButton(props.theme.colorGreen) : "")};
@@ -219,6 +223,7 @@ const CoolButton = styled("button", btnProps)`
   ${props =>
     !props.primary &&
     !props.secondary &&
+    !props.accent &&
     !props.red &&
     !props.blue &&
     !props.green &&

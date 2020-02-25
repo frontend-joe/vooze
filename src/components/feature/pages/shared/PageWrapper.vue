@@ -1,5 +1,5 @@
 <template>
-  <StyledWrapper>
+  <StyledWrapper :background="background">
     <slot />
   </StyledWrapper>
 </template>
@@ -7,22 +7,24 @@
 <script>
 import styled from "vue-styled-components";
 
-const StyledWrapper = styled.div`
+const wrapperProps = { background: String };
+const StyledWrapper = styled("div", wrapperProps)`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  ${"" /* background-image: url(${require("../../../../assets/images/vooze-bg-gloop.jpg")});
-  background-size: cover;
-  background-position: center; */}
-  background: #242424;
+  background: ${props => props.background || "#242424"};
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
 export default {
+  props: {
+    background: String
+  },
   components: {
     StyledWrapper
   }

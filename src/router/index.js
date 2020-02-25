@@ -16,6 +16,8 @@ import RegisterPage from "../components/feature/pages/register/Wrapper";
 import LockedPage from "../components/feature/pages/locked/Wrapper";
 import ForgotPage from "../components/feature/pages/forgot/Wrapper";
 import MetricWidgets from "../components/feature/widgets/metrics/Wrapper";
+import Page404 from "../components/feature/pages/404/Wrapper";
+import Page500 from "../components/feature/pages/500/Wrapper";
 
 Vue.use(VueRouter);
 
@@ -94,6 +96,16 @@ const routes = [
     path: "/pages/auth/locked",
     name: "locked",
     component: LockedPage
+  },
+  {
+    path: "/pages/errors/404",
+    name: "404",
+    component: Page404
+  },
+  {
+    path: "/pages/errors/500",
+    name: "500",
+    component: Page500
   },
   {
     path: "*",

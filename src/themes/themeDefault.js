@@ -36,6 +36,8 @@ const gradientBackgroundYellowLeft = "#ff6f00";
 const gradientBackgroundYellowRight = "#ffca28";
 const gradientBackgroundGreenLeft = "#43a047";
 const gradientBackgroundGreenRight = "#1de9b6";
+const gradientBackgroundPurpleLeft = "#4c429a";
+const gradientBackgroundPurpleRight = "#9956ce";
 
 const chartColors1 = ["#6274F6", "#1dce8e", "#F6B569"];
 const chartColors2 = [colorPurple, colorTeal, colorRed];
@@ -159,5 +161,7 @@ export const themeDefault = {
   gradientBackgroundYellowLeft,
   gradientBackgroundYellowRight,
   gradientBackgroundGreenLeft,
-  gradientBackgroundGreenRight
+  gradientBackgroundGreenRight,
+  gradientBackgroundPurpleLeft,
+  gradientBackgroundPurpleRight
 };

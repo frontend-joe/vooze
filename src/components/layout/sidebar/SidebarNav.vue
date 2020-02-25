@@ -235,6 +235,23 @@ export default {
                   url: "/pages/auth/locked"
                 }
               ]
+            },
+            {
+              name: "Error",
+              icon: "error_outline",
+              isOpen: false,
+              items: [
+                {
+                  name: "404",
+                  icon: "help_outline",
+                  url: "/pages/errors/404"
+                },
+                {
+                  name: "500",
+                  icon: "new_releases",
+                  url: "/pages/errors/500"
+                }
+              ]
             }
           ]
         }

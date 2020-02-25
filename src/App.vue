@@ -151,9 +151,9 @@ export default {
       }
     });
 
-    // setTimeout(() => {
-    //   this.toggleIntroOpen(true);
-    // }, 5000);
+    setTimeout(() => {
+      this.toggleIntroOpen(true);
+    }, 5000);
   },
   destroyed: function() {
     window.removeEventListener("click", () =>

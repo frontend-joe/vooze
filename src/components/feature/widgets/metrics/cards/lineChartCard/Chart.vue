@@ -3,7 +3,7 @@
     <apexchart
       width="100%"
       height="100%"
-      type="area"
+      type="line"
       :options="options"
       :series="series"
     ></apexchart>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+// import { rgba } from "polished";
 import { mapGetters } from "vuex";
 import styled from "vue-styled-components";
 import VueApexCharts from "vue-apexcharts";
@@ -18,9 +19,10 @@ import VueApexCharts from "vue-apexcharts";
 const StyledWrapper = styled.div`
   position: relative;
   height: 100px;
+  padding: 0 1rem 1rem;
 
   @media (min-width: ${props => props.theme.screenWidthXxl}) {
-    height: 200px;
+    height: 100px;
   }
 `;
 
@@ -44,15 +46,15 @@ export default {
       const { theme } = this.settings;
 
       const options = {
-        colors: [theme.colorChartGreyDark],
+        color: [theme.colorAccent],
         grid: {
           show: true,
           borderColor: theme.colorBorder,
           padding: {
-            top: 0,
-            right: -20,
-            bottom: -10,
-            left: 0
+            top: -10,
+            right: 0,
+            bottom: 0,
+            left: 10
           },
           xaxis: {
             lines: {
@@ -65,20 +67,6 @@ export default {
             }
           }
         },
-        fill: {
-          type: "gradient",
-          gradient: {
-            shade: "light",
-            type: "vertical",
-            shadeIntensity: 1,
-            gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
-            inverseColors: false,
-            opacityFrom: 0.8,
-            opacityTo: 0,
-            stops: [0, 90, 100],
-            colorStops: []
-          }
-        },
         chart: {
           toolbar: {
             show: false
@@ -87,10 +75,18 @@ export default {
         dataLabels: {
           enabled: false
         },
+        markers: {
+          size: 4,
+          strokeColors: theme.colorAccent,
+          colors: [theme.colorCardBackground],
+          hover: {
+            size: 5
+          }
+        },
         stroke: {
-          curve: "smooth",
+          curve: "straight",
           width: 2,
-          colors: [theme.colorAccent, 0.5]
+          colors: [theme.colorAccent]
         },
         yaxis: {
           show: false,
@@ -101,17 +97,10 @@ export default {
           axisBorder: {
             show: false
           },
-          labels: {
-            style: {
-              fontFamily: theme.fontFamily,
-              colors: theme.colorLabel
-            }
-          },
           axisTicks: {
             show: false
           },
           floating: true,
-          offsetX: 10,
           categories: ["Mar", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"]
         },
         legend: {

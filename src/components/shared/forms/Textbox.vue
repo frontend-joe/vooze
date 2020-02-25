@@ -1,5 +1,5 @@
 <template>
-  <StyledWrapper>
+  <StyledWrapper :fixedWidth="fixedWidth">
     <StyledTextbox
       :rounded="rounded"
       :icon="icon"
@@ -20,12 +20,17 @@ import styled from "vue-styled-components";
 import { darken } from "polished";
 import { MatIcon } from "../icons";
 
-const StyledWrapper = styled.div`
-  width: 100%;
+const wrapperProps = { fixedWidth: String };
+const StyledWrapper = styled("div", wrapperProps)`
+  width: ${props => props.fixedWidth || "100%"};
   position: relative;
 `;
 
-const textboxProps = { rounded: Boolean, icon: String, iconPosition: String };
+const textboxProps = {
+  rounded: Boolean,
+  icon: String,
+  iconPosition: String
+};
 const StyledTextbox = styled("input", textboxProps)`
   width: 100%;
   height: 40px;
@@ -76,7 +81,8 @@ export default {
     placeholder: String,
     icon: String,
     iconPosition: String,
-    rounded: Boolean
+    rounded: Boolean,
+    fixedWidth: String
   },
   components: {
     StyledWrapper,

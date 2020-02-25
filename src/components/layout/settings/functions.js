@@ -51,13 +51,19 @@ export const addGradients = baseTheme => {
     baseTheme.gradientBackgroundGreenRight
   );
 
+  const gradientPurple = createGradient(
+    baseTheme.gradientBackgroundPurpleLeft,
+    baseTheme.gradientBackgroundPurpleRight
+  );
+
   let newTheme = {
     ...baseTheme,
     colorPrimaryGradient: gradientPrimary,
     gradientBlue,
     gradientPink,
     gradientYellow,
-    gradientGreen
+    gradientGreen,
+    gradientPurple
   };
 
   return newTheme;

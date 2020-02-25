@@ -154,7 +154,6 @@ export default {
       const theSlideIndex = theSlide.currentSlide;
 
       if (theSlideIndex > 0) {
-        console.log("onPrevButtonClicked", theSlideIndex);
         this.$refs.carousel.goTo(theSlideIndex - 1);
       }
     },
@@ -163,7 +162,6 @@ export default {
       const theSlideIndex = theSlide.currentSlide;
 
       if (theSlideIndex < this.slides.length - 1) {
-        console.log("onNextButtonClicked", theSlideIndex);
         this.$refs.carousel.goTo(theSlideIndex + 1);
       }
     }

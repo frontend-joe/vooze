@@ -14,11 +14,58 @@
     </div>
     <ContentHeader>Misc</ContentHeader>
     <div class="row">
-      <div class="col-lg-4">
-        <NewsletterCard />
+      <div class="col-lg-8">
+        <ProfileImageList />
+        <div class="row">
+          <div class="col-lg-6">
+            <CarouselCard />
+            <div class="row">
+              <div class="col-lg-6">
+                <IconCard
+                  backgroundColor="Primary"
+                  textColor="WhiteAlways"
+                  icon="ti-Line-Battery"
+                  label="Battery Status"
+                />
+                <IconCard
+                  backgroundColor="White"
+                  textColor="Accent"
+                  icon="ti-Line-Camera-1"
+                  label="Images"
+                />
+                <IconCard
+                  backgroundColor="Secondary"
+                  textColor="WhiteAlways"
+                  icon="ti-Line-File-12"
+                  label="Files"
+                />
+              </div>
+              <div class="col-lg-6">
+                <GradientIconCard
+                  gradient="Blue"
+                  cardValue="254"
+                  cardTitle="Unread"
+                />
+                <GradientStatCard
+                  gradient="Purple"
+                  cardValue="624"
+                  cardDescription="+21 This month"
+                  cardFooter="Pictures"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <AreaChartCard />
+            <ArticleCard />
+            <NewsletterCard />
+          </div>
+        </div>
       </div>
       <div class="col-lg-4">
-        <AreaChartCard />
+        <SubscribeCard gradient="Purple" />
+        <ProfileCard />
+        <LineChartCard />
       </div>
     </div>
   </StyledWrapper>
@@ -31,6 +78,15 @@ import GradientHeadlineCard from "./cards/gradientHeadlineCard/Wrapper";
 import BlogCard from "./cards/blogCard/Wrapper";
 import NewsletterCard from "./cards/newsletterCard/Wrapper";
 import AreaChartCard from "./cards/areaChartCard/Wrapper";
+import CarouselCard from "./cards/carouselCard/Wrapper";
+import GradientStatCard from "./cards/gradientStatCard/Wrapper";
+import GradientIconCard from "./cards/gradientIconCard/Wrapper";
+import IconCard from "./cards/iconCard/Wrapper";
+import ArticleCard from "./cards/articleCard/Wrapper";
+import LineChartCard from "./cards/lineChartCard/Wrapper";
+import SubscribeCard from "./cards/subscribeCard/Wrapper";
+import ProfileCard from "./cards/profileCard/Wrapper";
+import ProfileImageList from "./cards/profileImageList/Wrapper";
 
 const StyledWrapper = styled.div``;
 
@@ -42,7 +98,16 @@ export default {
     GradientHeadlineCard,
     BlogCard,
     NewsletterCard,
-    AreaChartCard
+    AreaChartCard,
+    CarouselCard,
+    GradientStatCard,
+    GradientIconCard,
+    IconCard,
+    ArticleCard,
+    LineChartCard,
+    SubscribeCard,
+    ProfileCard,
+    ProfileImageList
   },
   data: function() {
     return {

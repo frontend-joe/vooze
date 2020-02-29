@@ -3,7 +3,7 @@
     :loading="loading"
     overflowHidden
     minHeight="100px"
-    :color="cardColor"
+    :color="loading ? '#ebebeb' : cardColor"
   >
     <LoadingScreen
       :icon="['fab', cardIcon]"
@@ -81,7 +81,8 @@ const StyledIcon = styled(AwesomeIcon, cardProps)`
   right: 1.35rem;
   font-size: 28px;
   transform: translate(-50%, -50%);
-  color: ${props => (props.loading ? "white" : props.color)};
+  color: ${props =>
+    props.loading ? props.theme.colorSkeleton : props.color} !important;
   transition: transform 0.25s, color 0.25s;
 `;
 

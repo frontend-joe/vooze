@@ -15,7 +15,7 @@ const wrapperProps = {
 };
 
 const StyledWrapper = styled("div", wrapperProps)`
-  background: ${props => props.color};
+  background: #ebebeb;
   position: absolute;
   top: 0;
   left: 0;
@@ -39,7 +39,7 @@ const iconSpin = keyframes`
 `;
 
 const StyledIcon = styled(AwesomeIcon, wrapperProps)`
-  color: white;
+  color: ${props => props.theme.colorSkeleton};
   font-size: 36px;
   animation: ${iconSpin} 3s infinite linear;
 `;

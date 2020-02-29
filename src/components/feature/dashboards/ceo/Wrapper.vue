@@ -23,13 +23,16 @@
 
     <ContentHeader>
       Device Usage
-
       <CoolButton plain dropdown>This week</CoolButton>
     </ContentHeader>
 
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-md-6 col-lg-6 col-xl-8">
         <usage-map />
+      </div>
+      <div class="col-md-6 col-lg-6 col-xl-4">
+        <UsageHeadlines />
+        <UsageStats />
       </div>
     </div>
 
@@ -59,6 +62,8 @@ import RecentActivity from "./cards/recentActivity/Wrapper";
 import TabbedItemList from "./cards/tabbedItemList/Wrapper";
 import WageBudget from "./cards/wageBudget/Wrapper";
 import UsageMap from "./cards/usageMap/Wrapper";
+import UsageStats from "./cards/usageStats/Wrapper";
+import UsageHeadlines from "./cards/usageHeadlines/Wrapper";
 import CoolChart from "./cards/coolChart/Wrapper";
 import { AdvertCard } from "../../../shared/cardWidgets";
 import { CoolButton } from "../../../shared/buttons";
@@ -76,6 +81,8 @@ export default {
     TabbedItemList,
     WageBudget,
     UsageMap,
+    UsageStats,
+    UsageHeadlines,
     CoolChart,
     CoolButton
   },

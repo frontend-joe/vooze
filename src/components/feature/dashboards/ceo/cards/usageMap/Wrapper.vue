@@ -1,29 +1,23 @@
 <template>
   <Card padding="0">
     <styled-wrapper>
-      <styled-left>
-        <MapFigures />
-        <MapLegend />
-      </styled-left>
-      <styled-right>
-        <LMap
-          style="width: 100%; height: 100%;"
-          :options="mapOptions"
-          :zoom="zoom"
-          :center="center"
+      <LMap
+        style="width: 100%; height: 100%;"
+        :options="mapOptions"
+        :zoom="zoom"
+        :center="center"
+      >
+        <LGeoJson :crs="crs" :options="options" :geojson="geojson" />
+        <LMarker
+          v-for="marker in markers"
+          :key="marker.id"
+          :latLng="marker.latLng"
         >
-          <LGeoJson :crs="crs" :options="options" :geojson="geojson" />
-          <LMarker
-            v-for="marker in markers"
-            :key="marker.id"
-            :latLng="marker.latLng"
-          >
-            <LIcon>
-              <PulsingMarker :color="marker.color" />
-            </LIcon>
-          </LMarker>
-        </LMap>
-      </styled-right>
+          <LIcon>
+            <PulsingMarker :color="marker.color" />
+          </LIcon>
+        </LMarker>
+      </LMap>
     </styled-wrapper>
   </Card>
 </template>
@@ -40,8 +34,6 @@ import "leaflet/dist/leaflet.css";
 import axios from "axios";
 import { Card } from "../../../../../shared/card";
 import PulsingMarker from "./PulsingMarker";
-import MapLegend from "./MapLegend";
-import MapFigures from "./MapFigures";
 
 proj4.defs(
   "EPSG:26915",
@@ -56,36 +48,13 @@ const crs = {
 };
 
 const StyledWrapper = styled.div`
-  border-radius: ${props => props.theme.borderRadius};
-  width: 100%;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (min-width: ${props => props.theme.screenWidthMd}) {
-    flex-direction: row;
-  }
-`;
-
-const StyledLeft = styled.div`
-  flex: 1 0 auto;
-  padding: 0 1.75rem;
-  width: 100%;
-
-  @media (min-width: ${props => props.theme.screenWidthMd}) {
-    width: auto;
-  }
-`;
-
-const StyledRight = styled.div`
   flex: 3;
-  min-height: 100px;
-  height: 100px;
+  min-height: 400px;
+  height: 400px;
   transform: translateY(-30px);
   width: 100%;
 
-  @media (min-width: ${props => props.theme.screenWidthXs}) {
+  ${"" /* @media (min-width: ${props => props.theme.screenWidthXs}) {
     min-height: 200px;
     height: 200px;
     padding-right: 3rem;
@@ -101,7 +70,7 @@ const StyledRight = styled.div`
     min-height: 400px;
     height: 300px;
     padding-right: 3rem;
-  }
+  } */}
 `;
 
 var myStyle = {
@@ -116,6 +85,15 @@ var myStyle = {
 };
 
 export default {
+  components: {
+    StyledWrapper,
+    LMap,
+    LGeoJson,
+    LMarker,
+    LIcon,
+    Card,
+    PulsingMarker
+  },
   data() {
     return {
       crs: crs,
@@ -174,19 +152,6 @@ export default {
         }
       ]
     };
-  },
-  components: {
-    StyledWrapper,
-    StyledLeft,
-    StyledRight,
-    LMap,
-    LGeoJson,
-    LMarker,
-    LIcon,
-    Card,
-    PulsingMarker,
-    MapLegend,
-    MapFigures
   },
   created() {
     axios.get("/api/geojson").then(response => {

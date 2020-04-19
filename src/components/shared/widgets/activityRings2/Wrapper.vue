@@ -97,10 +97,10 @@ const StyledFiguresWrapper = styled.div`
 `;
 
 const StyledFigureBlock = styled.div`
-  flex: 1;
+  flex: 1 1 100px;
   height: 90px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 
@@ -114,14 +114,15 @@ const StyledFigureBlock = styled.div`
 const StyledFigureBlockLabel = styled.div`
   font-size: 1rem;
   color: ${props => props.theme.colorSubtitle};
-  flex: 0 0 100px;
+  flex: 1 0 auto;
   margin-left: 1rem;
 `;
 
 const StyledFigureBlockValue = styled.div`
-  flex: 1;
+  flex: 0 0 auto;
   color: ${props => props.theme.colorText};
   font-size: 1.175rem;
+  margin-right: 1rem;
 `;
 
 const StyledFigureDifference = styled.div`

@@ -48,7 +48,7 @@ const StyledCardContentLeft = styled.div`
   min-width: 1;
   max-width: 220px;
   position: relative;
-  padding-right: 1rem;
+  padding: 0 1rem;
 
   @media (min-width: ${props => props.theme.screenWidthXxl}) {
     max-width: 320px;

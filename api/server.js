@@ -8,6 +8,7 @@ const ceo = require("./routes/dashboards/ceo/route");
 const manager = require("./routes/dashboards/manager/manager");
 const developer = require("./routes/dashboards/developer/developer");
 const designer = require("./routes/dashboards/designer/route");
+const covid = require("./routes/dashboards/covid/route");
 
 app.use(bodyParser.json());
 
@@ -16,6 +17,7 @@ app.use("/api/dashboards/ceo", ceo);
 app.use("/api/dashboards/manager", manager);
 app.use("/api/dashboards/developer", developer);
 app.use("/api/dashboards/designer", designer);
+app.use("/api/dashboards/covid", covid);
 //
 // app.get("/api/property-dashboard", (req, res) => {
 //   const json = require("./propertyDashboard").data;

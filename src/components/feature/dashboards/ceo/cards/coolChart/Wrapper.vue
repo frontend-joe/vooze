@@ -54,9 +54,6 @@ export default {
   computed: {
     ...mapGetters(["settings"]),
     options: function() {
-      //console.log("settings", settings);
-      //console.log("this.settings", this.settings);
-
       if (
         !this.settings ||
         !this.settings.theme ||

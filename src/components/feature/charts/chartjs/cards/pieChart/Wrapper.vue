@@ -4,7 +4,7 @@
       <CardHeader>
         <CardTitle cardTitle="Pie" />
       </CardHeader>
-      <ChartJsChart :height="200" type="Pie" :chartData="chartData" />
+      <ChartJsChart :height="350" type="Pie" :chartData="chartData" />
     </styled-wrapper>
   </Card>
 </template>

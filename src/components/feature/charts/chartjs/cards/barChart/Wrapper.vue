@@ -6,7 +6,7 @@
       </CardHeader>
       <ChartJsChart
         id="barChart"
-        :height="200"
+        :height="350"
         type="Bar"
         :chartData="chartData"
       />

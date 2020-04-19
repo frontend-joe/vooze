@@ -109,9 +109,14 @@ export default {
               isOpen: true,
               items: [
                 {
+                  name: "COVID-19",
+                  icon: "enhanced_encryption",
+                  url: "/"
+                },
+                {
                   name: "Director",
                   icon: "meeting_room",
-                  url: "/"
+                  url: "/dashboards/director"
                 },
                 {
                   name: "Manager",

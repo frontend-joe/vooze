@@ -9,7 +9,7 @@ import styled from "vue-styled-components";
 
 const wrapperProps = { isOpen: Boolean };
 const StyledWrapper = styled("div", wrapperProps)`
-  max-height: ${props => (props.isOpen ? "200px" : "40px")};
+  max-height: ${props => (props.isOpen ? "240px" : "40px")};
   overflow: hidden;
   transition: max-height 0.25s;
 `;

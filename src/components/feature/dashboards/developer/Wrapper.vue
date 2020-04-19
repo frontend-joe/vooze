@@ -51,13 +51,6 @@ export default {
     ActivityRings
   },
   methods: mapActions(["loadDeveloper"]),
-  computed: mapGetters(["developer"]),
-  created: function() {
-    this.loadDeveloper();
-    console.log("developer", this.developer.topShelf);
-  },
-  updated() {
-    console.log("updated", this.developer.todoList);
-  }
+  computed: mapGetters(["developer"])
 };
 </script>

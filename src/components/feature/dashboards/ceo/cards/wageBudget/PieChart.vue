@@ -1,6 +1,6 @@
 <template>
   <styled-wrapper>
-    <ChartJsChart :height="300" type="Donut" :chartData="chartData" />
+    <ChartJsChart :height="200" type="Donut" :chartData="chartData" />
   </styled-wrapper>
 </template>
 

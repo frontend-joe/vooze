@@ -116,9 +116,6 @@ export default {
         }
       ]
     };
-  },
-  created: function() {
-    //console.log("data", this.items)
   }
 };
 </script>

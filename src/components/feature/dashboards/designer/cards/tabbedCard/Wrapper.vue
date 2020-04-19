@@ -110,8 +110,6 @@ export default {
         data = this.data;
       }
 
-      console.log("data", data);
-
       // This creates a new empty object, copies the item into it,
       // then calculates `fullAddress` and copies that entry into it
       return data.map(obj =>

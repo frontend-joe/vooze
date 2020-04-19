@@ -25,6 +25,7 @@ const colorWhite = "#131212";
 const colorIconForLight = "rgba(255, 255, 255, 0.15)";
 const colorGradientLeft = colorPrimary;
 const colorGradientRight = colorSecondary;
+const colorChartLineDark = "#ffffff";
 
 export const themeDark = {
   colorPrimary,
@@ -51,5 +52,6 @@ export const themeDark = {
   colorWhite,
   colorIconForLight,
   colorGradientLeft,
-  colorGradientRight
+  colorGradientRight,
+  colorChartLineDark
 };

@@ -4,7 +4,7 @@
       <CardHeader>
         <CardTitle cardTitle="Horizontal" />
       </CardHeader>
-      <ChartJsChart :height="200" type="HorizontalBar" :chartData="chartData" />
+      <ChartJsChart :height="350" type="HorizontalBar" :chartData="chartData" />
     </styled-wrapper>
   </Card>
 </template>

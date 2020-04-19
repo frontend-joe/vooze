@@ -41,6 +41,13 @@ const gradientBackgroundPurpleRight = "#9956ce";
 
 const chartColors1 = ["#6274F6", "#1dce8e", "#F6B569"];
 const chartColors2 = [colorPurple, colorTeal, colorRed];
+const chartColorsLoads = [
+  colorPurple,
+  colorTeal,
+  colorRed,
+  colorBlue,
+  colorYellow
+];
 
 const colorText = "#606060";
 
@@ -61,6 +68,7 @@ export const themeDefault = {
   boxShadowNeu: "8px 8px 10px #e0e0e0, -2px -2px 15px #ffffff",
   chartColors1,
   chartColors2,
+  chartColorsLoads,
   colorPrimary,
   colorPrimaryFaint,
   colorSecondary,
@@ -78,7 +86,7 @@ export const themeDefault = {
   colorBlueFaint,
   colorBorder: "#dee3ec",
   colorBubbleBackground: "rgba(0, 0, 0, 0.025)",
-  colorButtonDefault: "#e5e5e5",
+  colorButtonDefault: "#f7f7f7",
   colorButtonDefaultOutline: "#cccccc",
   colorCardBackground: "#ffffff",
   colorCardBackgroundNeu: "#f3f3f3",
@@ -93,6 +101,7 @@ export const themeDefault = {
   colorChartLabel: rgba("black", 0.25),
   colorChartGrey,
   colorChartGreyDark: darken(0.075, colorChartGrey),
+  colorChartLineDark: "#243444",
   colorDanger: "#d44c4c",
   colorDangerLight: "#FDF0F0",
   colorDisabledBackground: "#ececec",
@@ -141,7 +150,7 @@ export const themeDefault = {
   colorSpinnerGrey: "#eef0f3",
   colorSubtitle: "#a7a7a7",
   colorSuccess: "#52c41a",
-  colorTableHeader: "rgba(0,0,0,0.05)",
+  colorTableHeader: "rgba(0,0,0,0.0)",
   colorTeal,
   colorTealFaint,
   colorText: colorText,

@@ -119,7 +119,6 @@ export default {
       this.updateSettings({ cardStyleId });
     },
     handleThemeModeToggled(themeModeId) {
-      console.log("handleThemeModeToggled");
       this.updateSettings({ themeModeId });
     },
     handleChartThemeToggled(chartThemeId) {

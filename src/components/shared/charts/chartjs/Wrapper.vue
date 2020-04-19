@@ -1,5 +1,5 @@
 <template
-  ><StyledWrapper v-if="this.settings.theme.chartColors">
+  ><StyledWrapper v-if="this.settings.theme.chartColors" :height="height">
     <BarChart
       v-if="type === 'Bar'"
       :chartTheme="settings.theme.chartColors"
@@ -62,15 +62,24 @@ import HorizontalChart from "./HorizontalChart";
 import PieChart from "./PieChart";
 import DonutChart from "./DonutChart";
 
-const StyledWrapper = styled.div``;
+const wrapperProps = { height: Number };
+const StyledWrapper = styled("div", wrapperProps)`
+  ${props =>
+    props.height
+      ? `height: ${props.height}px; max-height: ${props.height}px`
+      : ""}
+`;
 
 export default {
   props: {
     id: String,
     height: Number,
     width: Number,
+    suggestedMax: Number,
     type: String,
     chartData: Object,
+    multicolor: Boolean,
+    lineTension: Number,
     options: {
       type: Object,
       default: function() {
@@ -92,11 +101,6 @@ export default {
     PieChart,
     DonutChart
   },
-  data: function() {
-    return {
-      charts: ["Area", "Line", "Bar", "Horizontal", "Pie", "Donut"]
-    };
-  },
   computed: {
     ...mapGetters(["settings"]),
     chartDataWithTheme: function() {
@@ -110,7 +114,9 @@ export default {
 
       const { theme } = this.settings;
       const barFillOpacity = 0.7;
-      const COLORS = theme.chartColors;
+      const COLORS = this.multicolor
+        ? theme.chartColorsLoads
+        : theme.chartColors;
 
       //console.log("chartDataWithTheme", this.settings.theme.chartColors3);
 
@@ -138,7 +144,7 @@ export default {
           }
           case "line": {
             d.borderColor = rgba(COLORS[i], 0.7);
-            d.borderWidth = 2;
+            d.borderWidth = d.borderWidth || 2;
             d.pointRadius = 6;
             d.pointHitRadius = 12;
             d.pointHoverRadius = 6;
@@ -228,6 +234,7 @@ export default {
           yAxes: [
             {
               ticks: {
+                suggestedMax: this.suggestedMax || undefined,
                 fontFamily: theme.fontFamily,
                 fontSize: 10,
                 fontStyle: "normal",
@@ -257,6 +264,10 @@ export default {
       const newOptions = {
         ...this.options,
         cutoutPercentage,
+        width: this.width,
+        height: this.height,
+        responsive: true,
+        maintainAspectRatio: false,
         scales,
         layout,
         segmentShowStroke,

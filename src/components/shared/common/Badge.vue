@@ -7,6 +7,7 @@ import styled from "vue-styled-components";
 
 const badgeProps = { color: String, opacity: Number };
 const StyledWrapper = styled("div", badgeProps)`
+  flex: 0 0 10px;
   width: 10px;
   height: 10px;
   border-radius: 50%;

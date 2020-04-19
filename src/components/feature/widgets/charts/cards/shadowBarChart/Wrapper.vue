@@ -119,21 +119,6 @@ export default {
     StyledTitleStack,
     StyledStatBlock
   },
-  watch: {
-    settings: function(val) {
-      console.log("settings has updated!", val);
-
-      // if (this.$chartist) {
-      //   this.$chartist.update();
-      // }
-
-      //this.$chartist.Base.update();
-
-      console.log("chart instance", this.$chartist.Base);
-      //
-      // this.$chartist.Base.update();
-    }
-  },
   data: function() {
     return {
       chartData: {

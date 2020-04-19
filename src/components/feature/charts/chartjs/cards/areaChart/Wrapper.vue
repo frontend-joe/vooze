@@ -4,7 +4,7 @@
       <CardHeader>
         <CardTitle cardTitle="Area" />
       </CardHeader>
-      <ChartJsChart :height="200" type="Area" :chartData="chartData" />
+      <ChartJsChart :height="350" type="Area" :chartData="chartData" />
     </styled-wrapper>
   </Card>
 </template>

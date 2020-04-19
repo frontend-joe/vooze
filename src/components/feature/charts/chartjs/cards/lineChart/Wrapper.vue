@@ -4,7 +4,7 @@
       <CardHeader>
         <CardTitle cardTitle="Line" />
       </CardHeader>
-      <ChartJsChart :height="200" type="Line" :chartData="chartData" />
+      <ChartJsChart :height="350" type="Line" :chartData="chartData" />
     </styled-wrapper>
   </Card>
 </template>

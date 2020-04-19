@@ -1,0 +1,119 @@
+{
+  "figures": [
+    {
+      "id": 1,
+      "title": "Confirmed Cases",
+      "value": "4,200",
+      "updated": "+12%",
+      "icon": "ti-Line-Eye"
+    },
+    {
+      "id": 2,
+      "title": "Average Daily Cases",
+      "value": "153",
+      "updated": "+5%",
+      "icon": "ti-Line-Chart-3"
+    }
+  ],
+  "stats": {
+    "icon": "ti-Line-Globe",
+    "title": "Affected Regions",
+    "items": [
+      {
+        "id": 1,
+        "title": "Total",
+        "count": 112
+      },
+      {
+        "id": 2,
+        "title": "UK",
+        "count": 45,
+        "tooltip": "8,532",
+        "color": "Green"
+      },
+      {
+        "id": 3,
+        "title": "USA",
+        "count": 22,
+        "tooltip": "9,462",
+        "color": "Orange"
+      },
+      {
+        "id": 4,
+        "title": "Spain",
+        "count": 17,
+        "tooltip": "6,462",
+        "color": "Red"
+      }
+    ]
+  },
+  "tabs": [
+    {
+      "id": 1,
+      "title": "Worldwide",
+      "isActive": true,
+      "items": [
+        {
+          "id": 1,
+          "image": "flagUk.png",
+          "text": "United Kingdom",
+          "color": "Red",
+          "confirmed": "108,692",
+          "recovered": "58,447",
+          "deaths": "14,576"
+        },
+        {
+          "id": 2,
+          "image": "flagUsa.png",
+          "text": "United States",
+          "color": "Yellow",
+          "confirmed": "108,692",
+          "recovered": "58,447",
+          "deaths": "14,576"
+        },
+        {
+          "id": 3,
+          "image": "flagSpain.png",
+          "text": "Spain",
+          "color": "Red",
+          "confirmed": "108,692",
+          "recovered": "58,447",
+          "deaths": "14,576"
+        },
+        {
+          "id": 4,
+          "image": "flagItaly.png",
+          "text": "Italy",
+          "color": "Yellow",
+          "confirmed": "108,692",
+          "recovered": "58,447",
+          "deaths": "14,576"
+        },
+        {
+          "id": 5,
+          "image": "flagGermany.png",
+          "text": "Germany",
+          "color": "Green",
+          "confirmed": "108,692",
+          "recovered": "58,447",
+          "deaths": "14,576"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "UK",
+      "items": []
+    },
+    {
+      "id": 3,
+      "title": "USA",
+      "items": []
+    },
+    {
+      "id": 4,
+      "title": "Europe",
+      "items": []
+    }
+  ]
+}

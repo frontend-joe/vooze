@@ -17,6 +17,8 @@ const actions = {
     const response = await axios.get("/api/dashboards/developer");
     response.data.loading = false;
 
+    console.log("loadDeveloper", response.data);
+
     commit("setDeveloper", response.data);
   }
 };

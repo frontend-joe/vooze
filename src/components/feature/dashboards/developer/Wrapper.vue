@@ -51,6 +51,9 @@ export default {
     ActivityRings
   },
   methods: mapActions(["loadDeveloper"]),
-  computed: mapGetters(["developer"])
+  computed: mapGetters(["developer"]),
+  created: function() {
+    this.loadDeveloper();
+  }
 };
 </script>

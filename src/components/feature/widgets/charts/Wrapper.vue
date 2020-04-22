@@ -21,20 +21,22 @@
       </div>
 
       <div class="col-lg-4">
+        <LiveUserChart />
         <ShadowIconCard />
         <GradientAreaChart2 />
+
         <!-- <GradientAreaChart /> -->
       </div>
       <div class="col-lg-8">
         <TableCard />
-      </div>
-
-      <div class="col-lg-4">
-        <LineChartCard />
-      </div>
-
-      <div class="col-lg-4">
-        <AreaChartCard />
+        <div class="row">
+          <div class="col-lg-6">
+            <AreaChartCard />
+          </div>
+          <div class="col-lg-6">
+            <LineChartCard />
+          </div>
+        </div>
       </div>
     </div>
   </StyledWrapper>
@@ -57,6 +59,7 @@ import ShadowIconCard from "./cards/shadowIconCard/Wrapper";
 // import GradientAreaChart from "./cards/gradientAreaChart/Wrapper";
 import GradientAreaChart2 from "./cards/gradientAreaChart2/Wrapper";
 import TableCard from "./cards/tableCard/Wrapper";
+import LiveUserChart from "./cards/liveUserChart/Wrapper";
 
 const StyledWrapper = styled.div``;
 
@@ -74,7 +77,8 @@ export default {
     GradientAreaChart2,
     TableCard,
     LineChartCard,
-    AreaChartCard
+    AreaChartCard,
+    LiveUserChart
   },
   computed: mapGetters(["settings"])
 };

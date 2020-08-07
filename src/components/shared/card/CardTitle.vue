@@ -1,6 +1,14 @@
 <template>
   <styled-wrapper>
-    <styled-title :forDark="forDark" :cardSubtitle="cardSubtitle">
+    <styled-title
+      :content="tooltip"
+      v-tippy="{
+        placement: 'top',
+        arrow: true
+      }"
+      :forDark="forDark"
+      :cardSubtitle="cardSubtitle"
+    >
       {{ cardTitle }}
     </styled-title>
     <StyledSubtitle :forDark="forDark" v-if="cardSubtitle">
@@ -12,7 +20,12 @@
 <script>
 import styled from "vue-styled-components";
 
-const theProps = { cardTitle: String, cardSubtitle: String, forDark: Boolean };
+const theProps = {
+  cardTitle: String,
+  cardSubtitle: String,
+  forDark: Boolean,
+  tooltip: String
+};
 
 const StyledWrapper = styled.div``;
 

@@ -206,18 +206,10 @@ export default {
         },
         stroke: {
           lineCap: "round",
-          colors: [
-            theme.chartColors[0],
-            theme.chartColors[1],
-            theme.colorPurple
-          ]
+          colors: theme.chartColors
         },
         fill: {
-          colors: [
-            theme.chartColors[0],
-            theme.chartColors[1],
-            theme.colorPurple
-          ]
+          colors: theme.chartColors
         },
         plotOptions: {
           radialBar: {

@@ -2,7 +2,11 @@
   <Card>
     <styled-wrapper id="anotherTest">
       <CardHeader>
-        <CardTitle cardTitle="Confirmed Cases" cardSubtitle="Last 20 days" />
+        <CardTitle
+          tooltip="Definition of a case goes here"
+          cardTitle="Confirmed Cases"
+          cardSubtitle="Last 20 days"
+        />
         <CoolButton dropdown>
           Worldwide
         </CoolButton>

@@ -1,4 +1,5 @@
 const express = require("express");
+const serverless = require("serverless-http");
 const bodyParser = require("body-parser");
 const app = express();
 const port = 8000;
@@ -36,4 +37,6 @@ app.get("/api/geojson", (req, res) => {
   }, 250);
 });
 
-app.listen(port, () => console.log(`Server listening on port ${port}`));
+module.exports.handler = serverless(app);
+
+// app.listen(port, () => console.log(`Server listening on port ${port}`));

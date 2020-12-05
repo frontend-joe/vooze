@@ -29,13 +29,13 @@ app.use("/api/dashboards/covid", covid);
 //   }, 250);
 // });
 
-app.get("/api/geojson", (req, res) => {
-  const json = require("@amcharts/amcharts4-geodata/json/region/world/worldRegionsLow.json");
-
-  setTimeout(() => {
-    res.json(json);
-  }, 250);
-});
+// app.get("/api/geojson", (req, res) => {
+//   const json = require("@amcharts/amcharts4-geodata/json/region/world/worldRegionsLow.json");
+//
+//   setTimeout(() => {
+//     res.json(json);
+//   }, 250);
+// });
 
 if (process.env.NODE_ENV !== "development") {
   module.exports = app;

@@ -1,2 +1,7 @@
 [build]
+  base = "api/"
   functions = "functions/"
+  ignore = "node_modules"
+[build.processing.js]
+  bundle = true
+  minify = true

@@ -38,6 +38,7 @@ app.get("/api/geojson", (req, res) => {
 });
 
 if (process.env.NODE_ENV !== "development") {
+  module.exports = app;
   module.exports.handler = serverless(app);
 } else {
   app.listen(port, () => console.log(`Server listening on port ${port}`));

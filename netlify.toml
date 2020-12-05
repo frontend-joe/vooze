@@ -1,3 +1,0 @@
-[build]
-  command = "cd api && npm install && npm run server"
-  functions = "api/my_functions"

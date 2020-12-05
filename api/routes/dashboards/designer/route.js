@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  const json = require("./data");
+  const json = require("./data.json");
 
   console.log("designer", json);
 

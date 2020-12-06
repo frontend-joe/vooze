@@ -1,5 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
+import axios from "axios";
 import router from "./router";
 import store from "./store";
 import PolygonFillpattern from "vue2-leaflet-polygonfillpattern";
@@ -27,6 +28,8 @@ Vue.use(PolygonFillpattern);
 Vue.use(VueTippy);
 
 Vue.use(require("vue-chartist"));
+
+axios.defaults.headers.common["Content-Type"] = "application/json";
 
 new Vue({
   store,

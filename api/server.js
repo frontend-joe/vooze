@@ -37,7 +37,7 @@ app.use("/api/dashboards/covid", covid);
 //   }, 250);
 // });
 
-if (process.env.NODE_ENV !== "development") {
+if (app.settings.env !== "development") {
   module.exports = app;
   module.exports.handler = serverless(app);
 } else {

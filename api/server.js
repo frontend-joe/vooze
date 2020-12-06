@@ -1,6 +1,7 @@
 const express = require("express");
 const serverless = require("serverless-http");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 const port = 8000;
 
@@ -12,6 +13,7 @@ const designer = require("./routes/dashboards/designer/route");
 const covid = require("./routes/dashboards/covid/route");
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use("/api/settings", settings);
 app.use("/api/dashboards/ceo", ceo);

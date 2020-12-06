@@ -31,6 +31,10 @@ Vue.use(require("vue-chartist"));
 
 axios.defaults.headers.common["Content-Type"] = "application/json";
 
+if (process.env.NODE_ENV !== "development") {
+  axios.defaults.baseURL = "https://api.voozetheme.com";
+}
+
 new Vue({
   store,
   router,

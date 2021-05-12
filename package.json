@@ -17,7 +17,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "apexcharts": "^3.10.1",
     "axios": "^0.19.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "chartist-plugin-fill-donut": "^0.1.4",
     "color": "^3.1.2",
     "core-js": "^3.3.2",
